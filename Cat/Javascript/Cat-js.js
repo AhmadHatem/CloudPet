@@ -26,11 +26,27 @@ $(document).on('keydown', function(e) {
     		$('.container').removeClass('reverse-move');
     		$('.tuna').removeClass('reverse');
     		$('.tuna').addClass('default');
+            $('.box').addClass('open-box');
+            setTimeout( function(){
+                $('.tuna').removeClass('staticmove');
+                $('.tuna').addClass('eat');
+                var $div = $("<div>", {class: "food"});
+                $("body").append($div);
+                            } , 4000);
         	move();
         	staticmove();
+            setTimeout( function(){
+                $('.tuna').removeClass('eat');
+                $('.tuna').addClass('eaten');
+                            } , 6000);
+            setTimeout( function(){
+                var x = Math.floor(Math.random() * 20);
+                alert("Your cat ate " + x + " gms.");
+                            } , 8000);
+
      
     }
-
+/*
     else if (e.keyCode === 39 && !$('.tuna').hasClass('staticmove') 
     	&& !$('.container').hasClass('reverse-move')) { // left arrow
 
@@ -47,14 +63,20 @@ $(document).on('keydown', function(e) {
     			
     			staticmove();
     			resume();
-    }
+    }*/
 });
 
-$(document).on('keyup', function(e) {
-    if ((e.keyCode === 37 || e.keyCode === 39) && $('.tuna').hasClass('staticmove') ) { // left arrow
+/*$('.container').on('change', function() {
+    
+        if($('.container').position().right == 500){
+        $('.tuna').removeClass('staticmove');
+    
+}
+});
+   /* if ((e.keyCode === 37 || e.keyCode === 39) && $('.tuna').hasClass('staticmove') ) { // left arrow
        
-        pause();
         $('.tuna').removeClass('staticmove');
     }
 
 });
+*/
