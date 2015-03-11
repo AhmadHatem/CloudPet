@@ -1,0 +1,109 @@
+body {
+	height: 100%;
+	width: 100%;
+}
+
+.container {
+	width: 400px;
+	height: 200px;
+	margin-left:950px;
+  	margin-top: 200px;
+  	overflow: auto;
+}
+
+.tuna { 
+  	background: url(http://stash.rachelnabors.com/img/codepen/tuna_sprite.png); 
+  	height: 200px;
+  	width: 400px;
+}
+.staticmove {
+	-webkit-animation: walk-cycle 1s steps(12) infinite;
+	-webkit-animation-fill-mode: forwards;
+}
+.move {
+    position: relative;
+    -webkit-animation-name: mymove ;
+    -webkit-animation-duration: 4s ;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+}
+
+.reverse {
+	-webkit-transform: scaleX(-1);
+}
+
+.default {
+	-webkit-transform: scaleX(1);
+}
+
+.reverse-move {
+	position: relative;
+	-webkit-animation-name: reverse-move ;
+    -webkit-animation-duration: 4s ;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
+    -webkit-animation-direction: normal;
+    -webkit-animation-fill-mode: forwards;
+}
+
+
+@-webkit-keyframes walk-cycle {  
+  0% {background-position: 0 0; } 
+  100% {background-position: 0 -2391px; } /* Must be full height of sprite or skipping will happen.*/
+}
+
+@-webkit-keyframes mymove {
+	0% {
+		        -webkit-transform: translate(-50px);
+		        -webkit-animation-timing-function: linear;
+	}
+	20% {
+		        -webkit-transform: translate(-400px);
+		        -webkit-animation-timing-function: linear;
+	}
+	40% {
+		        -webkit-transform: translate(-600px);
+		        -webkit-animation-timing-function: linear;
+	}
+	60% {
+		        -webkit-transform: translate(-800px);
+		        -webkit-animation-timing-function: linear;
+	}
+	80% {
+		        -webkit-transform: translate(-900px);
+		        -webkit-animation-timing-function: linear;
+	}
+	100% {
+        -webkit-transform: translate(-970px);
+	}
+
+}
+
+@-webkit-keyframes reverse-move {
+	0%{
+		
+		-webkit-transform: translate(-970px);
+		-webkit-animation-timing-function: linear;
+	}
+	20% {
+		        -webkit-transform: translate(-800px);
+		        -webkit-animation-timing-function: linear;
+	}
+	40% {
+		        -webkit-transform: translate(-600px);
+		        -webkit-animation-timing-function: linear;
+	}
+	60% {
+		        -webkit-transform: translate(-400px);
+		        -webkit-animation-timing-function: linear;
+	}
+	80% {
+		        -webkit-transform: translate(-200px);
+		        -webkit-animation-timing-function: linear;
+	}
+	100% {
+        -webkit-transform: translate(-20px);
+	}
+}
