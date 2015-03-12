@@ -1,0 +1,28 @@
+<p>
+  <strong>Pet Image:</strong>
+</p>
+
+<p>
+<%= image_tag @register.image.url(:large) %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @register.name %>
+</p>
+<p>
+  <strong>Breed:</strong>
+  <%= @register.breed %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @register.noo3 %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @register.gender %>
+</p>
+
+<%= link_to 'Back', registers_path %>
+<%= link_to 'Edit', edit_register_path(@register) %>
