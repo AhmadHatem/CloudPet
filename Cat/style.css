@@ -1,0 +1,163 @@
+/* Initial body */
+body {
+  left: 0;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Initial menu */
+.menu {
+  background: #202024 url('black-thread.png') repeat left top;
+  left: -285px;  /* start off behind the scenes */
+  height: 100%;
+  position: fixed;
+  width: 285px;
+}
+
+.menu ul {
+  border-top: 1px solid #636366;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  border-bottom: 1px solid #636366;
+  font-family: 'Open Sans', sans-serif;
+  line-height: 45px;
+  padding-bottom: 3px;
+  padding-left: 20px;
+  padding-top: 3px;
+   cursor: pointer;
+   color: #fff;
+}
+
+.menu a {
+  
+color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.icon-close {
+  cursor: pointer;
+  padding-left: 10px;
+  padding-top: 10px;
+  width: 50px;
+}
+
+.icon-menu {
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  padding-bottom: 25px;
+  padding-left: 25px;
+  padding-top: 25px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 100px;
+}
+
+
+.icon-menu i {
+  margin-right: 5px;
+}
+/* Basic styling */
+
+.jumbotron {
+  background-image: url('Golden-Gate-Bridge-Black-And-White.jpg'); 
+  height: 6000px;
+  -webkit-background-size: cover;
+     -moz-background-size: cover;
+       -o-background-size: cover;
+          background-size: cover;
+}
+
+
+.video{
+  background: #202024 url('black-thread.png') repeat left top;
+top:60px;   /* start off behind the scenes */
+right: -10200px;  
+  height: 85%;
+  position: fixed;
+  width: 97%;
+font-family: 'Open Sans', sans-serif; 
+font-color: #fff;
+  font-size: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+line-height: 30px;
+ padding-bottom: 3px;
+  padding-left: 20px;
+  padding-top: 3px;
+ cursor: pointer;
+  border-radius: 15px;
+}
+.button{
+  background: white;
+  width: auto;
+  height: auto;
+  line-height: 1.0em;
+  padding:0em 0.2em 0em 0.2em;
+  display: inline-block;
+  border-radius: 15px;
+  position: absolute;
+
+top: 10px;
+left: 100px;
+}
+a:link {
+  text-decoration: none;
+  color: black;
+}
+a:visited {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  background: none;
+  color: grey;
+}
+.sim{
+
+  height: 80%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: #f1f2f2;
+  color: black;
+  border-radius: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+.sim_win{
+width: 99%;
+  height: 92%;
+  margin-top: auto;
+  margin-bottom: auto;
+  margin-right: auto;
+  margin-left: auto;
+  background-color: grey;
+  color: black;
+  border-radius: 15px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+
+}
+.signup {
+  background-image: url('sign up.png');
+  top: 100px;
+  left: 400px;
+  height: 490px;
+  position: fixed;
+  width: 600px;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

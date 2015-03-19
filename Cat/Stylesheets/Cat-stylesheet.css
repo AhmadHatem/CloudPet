@@ -17,13 +17,15 @@ body {
   	width: 165px;
   	position: absolute;
     left: 230px;
-    top: 330px;
+    top: 400px;
 }
 
 .tuna { 
   	background: url(../Images/cat_sprite.png) 0 0 no-repeat; 
   	height: 200px;
   	width: 400px;
+
+
 }
 .eat { 
   	background: url(../Images/eating.png) no-repeat; 
@@ -31,12 +33,21 @@ body {
   	width: 400px;
   	
 }
+
 .staticmove {
 	-webkit-animation: walk-cycle 1s steps(12) infinite;
 	-webkit-animation-fill-mode: forwards;
 }
+.reversemove {
+	-webkit-animation: walk-cycle-rev 1s steps(12) infinite;
+	-webkit-animation-fill-mode: forwards;
+}
 .eaten {
-	-webkit-animation: done-eating 2s steps(5) 1;
+	-webkit-animation: done-eating 1s steps(5) 1;
+	-webkit-animation-fill-mode: forwards;
+}
+.reverse-eaten {
+	-webkit-animation: done-eating-reverse 1s steps(5) 1;
 	-webkit-animation-fill-mode: forwards;
 }
 .move {
@@ -59,7 +70,7 @@ body {
 
 .reverse-move {
 	position: relative;
-	-webkit-animation-name: reverse-move ;
+	-webkit-animation-name: mymove-rev ;
     -webkit-animation-duration: 4s ;
     -webkit-animation-timing-function: linear;
     -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
@@ -72,35 +83,48 @@ body {
   	height: 300px;
   	width: 408px;
   	position: absolute;
-    left: -50px;
-    top: 130px;
+    left: 0px;
+    top: 180px;
 
 }
 
 .open-box {  	
-	-webkit-animation: open-box 4s steps(2) 1;
+	-webkit-animation: open-box 0.05s steps(1) 1;
+	-webkit-animation-fill-mode: forwards;
+}
+.close-box {  	
+	-webkit-animation: close-box 0.05s steps(1) 1;
 	-webkit-animation-fill-mode: forwards;
 }
 
+@-webkit-keyframes close-box {  
+  0% {background-position: -400px 0px; } 
+  100% {background-position:  0 0; } /* Must be full height of sprite or skipping will happen.*/
+}
 @-webkit-keyframes open-box {  
   0% {background-position: 0 0; } 
-  100% {background-position: -800px 0px; } /* Must be full height of sprite or skipping will happen.*/
+  100% {background-position: -400px 0px; } /* Must be full height of sprite or skipping will happen.*/
 }
 
 
-@-webkit-keyframes walk-cycle {  
+@-webkit-keyframes walk-cycle {   
   0% {background-position: 0 0; } 
   100% {background-position: 0 -2391px; } /* Must be full height of sprite or skipping will happen.*/
 }
+
 
 @-webkit-keyframes done-eating {  
   0% {background-position: -400px 0; } 
   100% {background-position: -400px -1000px; } /* Must be full height of sprite or skipping will happen.*/
 }
+@-webkit-keyframes done-eating-reverse {  
+  0% {background-position: -400px -1000; } 
+  100% {background-position: -400px 0px; } /* Must be full height of sprite or skipping will happen.*/
+}
 
 @-webkit-keyframes mymove {
 	0% {
-		        -webkit-transform: translate(-50px);
+		        -webkit-transform: translate(-100px);
 		        -webkit-animation-timing-function: linear;
 	}
 	40% {
@@ -109,7 +133,9 @@ body {
 	}
 	100% {
 		        -webkit-transform: translate(-700px);
-		        /*-webkit-animation-timing-function: linear;
+		    }
+	
+	        /*-webkit-animation-timing-function: linear;
 	}
 	/*60% {
 		        -webkit-transform: translate(-800px);
@@ -124,6 +150,21 @@ body {
 	}*/
 
 }
+@-webkit-keyframes mymove-rev {
+0% {
+		        -webkit-transform: translate(-700px);
+		        -webkit-animation-timing-function: linear;
+	}
+	40% {
+		        -webkit-transform: translate(-400px);
+		        -webkit-animation-timing-function: linear;
+	}
+	100% {
+		        -webkit-transform: translate(-100px);
+
+}
+}
+
 /*
 @-webkit-keyframes reverse-move {
 	0%{
