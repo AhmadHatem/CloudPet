@@ -11,7 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150311091102) do
+ActiveRecord::Schema.define(version: 20150312123620) do
+
+  create_table "feeds", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "User_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "feeds", ["User_id"], name: "index_feeds_on_User_id"
+
+  create_table "reminders", force: :cascade do |t|
+    t.string   "body"
+    t.date     "due_date"
+    t.integer  "User_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reminders", ["User_id"], name: "index_reminders_on_User_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
