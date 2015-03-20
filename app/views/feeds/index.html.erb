@@ -1,0 +1,95 @@
+
+      <div class="menu">
+      
+      <!-- Menu icon -->
+      <div class="icon-close">
+        <img src='close.png'>
+      </div>
+
+<!-- Menu -->
+      <ul >
+        <li><%= link_to 'My Pets' , registers_path %></li>
+<li><%=link_to 'New Reminder', new_reminder_path %></li>
+        </ul>
+    </div>
+     <div class="jumbotron">
+
+      <div class="icon-menu">
+        <i class="fa fa-bars"></i>
+        Menu
+      </div>
+     
+<h1>CloudPet</h1>
+
+<table>
+ 
+
+  <tbody>
+    
+    <div>
+       <h3> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h3>
+        <% if Date.current.month>current_user.date_of_birth.month %>
+        <h6>age</h6> <%= Date.current.year-current_user.date_of_birth.year%> </br>
+        <%else%>
+        <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </br></h4>
+        <%end%>
+        
+    </div>
+    <hr>
+
+     <div>
+           <% if current_user.reminders.size ==0 %>
+                <em> Nothing to be done</em> </br>
+           <% else %>
+            <thead>
+                  <tr>
+                   <th>Body</th>
+                   <th>Due Date</th>
+                    <th colspan="3"></th>
+                   </tr>
+                    </thead>
+
+          <% @reminders.each do |reminder|%>
+          
+          <tr>
+          <td><%= reminder.body %></td>
+          <td><%= reminder.due_date %></td>
+          <% if reminder.due_date == Date.current %>
+          <%= flash[:notice] = "This reminder is due today: #{reminder.body}" %> </br>
+
+          <% end %>
+          </tr>
+          <%end%>
+          <%end%>
+        
+      
+      
+    </div> </br> </br>
+    <hr>
+  <table>
+  
+    <div>
+    <% if current_user.feeds.size ==0 %>
+          <em>No news feed available to show</em> </br>
+    <% else %>
+    <thead>
+    <tr>
+      <th>Body</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+    <% @feeds.each do |feed| %>
+      <tr>
+        <td><%= feed.body %></td>
+        <td><%= feed.User %></td>
+      </tr>
+    <% end %>
+    <%end%>
+    </div>
+
+  </tbody>
+</table>
+
+<br>
+ </div>
