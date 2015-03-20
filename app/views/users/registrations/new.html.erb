@@ -33,11 +33,7 @@
   </div>
   <div class="field">
     <%= f.label :date_of_birth %><br />
-<<<<<<< HEAD
-    <%= f.date_select :date_of_birth, :start_year => 1900 %>
-=======
     <%= f.date_select :date_of_birth, :start_year => 1900, :end_year =>Date.current.year  %>
->>>>>>> b87d24d0e92e82aab2c767ce1b967d3b82834385
   </div>
   <div class="actions">
   </br>

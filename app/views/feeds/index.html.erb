@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Profile</h1>
 
 <table>
@@ -14,6 +12,7 @@
         <%else%>
         <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </br></h4>
         <%end%>
+        <%= link_to 'My Pets' , registers_path %>
     </div>
     <hr>
 
@@ -28,7 +27,7 @@
                     <th colspan="3"></th>
                    </tr>
                     </thead>
-                    
+
           <% @reminders.each do |reminder|%>
           
           <tr>

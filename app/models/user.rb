@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
 
   has_many :reminders
   has_many :feeds
+  has_many :registers
 
   validates :username,
   :presence => true,

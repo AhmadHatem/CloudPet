@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   resources :reminders
 
+  resources :registers
+  
   resources :feeds
 
   devise_for :users

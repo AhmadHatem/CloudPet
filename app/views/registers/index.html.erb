@@ -1,0 +1,31 @@
+<h1>My Pets</h1>
+ <% if current_user.registers.size==0 %>
+<em>There are not any pets currently in the system.</em> <br>
+<% else %>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Type</th>
+    <th>Image</th>
+  </tr>
+ 
+  <% @register.each do |register| %>
+    <tr>
+      <td><%= register.name %></td>
+      <td><%= register.noo3 %></td>
+      <td><%= image_tag register.image.url(:thumb) %></td>
+      <td><%= link_to 'Show', register_path(register) %></td>
+      <td><%= link_to 'Edit', edit_register_path(register) %></td>
+      <td><%= link_to 'Delete', register_path(register),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+
+    </tr>
+  <% end %>
+</table>
+<%end%>
+
+<%= link_to 'New Pet', new_register_path %>
+<%= link_to 'Back' , feeds_path %>
