@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :devices
+
   resources :reminders
 
   resources :registers
