@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   resources :reminders
-
+  resources :buddy
   resources :registers
   
   resources :feeds
-
+    
   devise_for :users
   devise_scope :user do
   authenticated :user do

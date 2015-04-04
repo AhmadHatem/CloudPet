@@ -14,6 +14,7 @@
 ActiveRecord::Schema.define(version: 20150329202446) do
 
   create_table "buddies", force: :cascade do |t|
+    t.string   "pet_buddy"
     t.integer  "user_id"
     t.integer  "register_id"
     t.boolean  "can_feed"

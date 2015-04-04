@@ -1,6 +1,7 @@
 class CreateBuddies < ActiveRecord::Migration
   def change
     create_table :buddies do |t|
+      t.string :pet_buddy
       t.references :user, index: true
       t.references :register, index: true
       t.boolean :can_feed

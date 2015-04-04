@@ -1,4 +1,5 @@
 class RegistersController < ApplicationController
+  after_filter :save_pet
 	def show
     @register = Register.find(params[:id])
   end
@@ -37,7 +38,9 @@ def destroy
 end
 
 
-
+def save_pet
+  session[:register] = @register
+end
 
 
 
