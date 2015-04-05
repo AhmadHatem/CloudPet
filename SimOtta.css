@@ -5,19 +5,31 @@ body {
   margin-left: 500px;
 }
 div {
- -webkit-transform: rotateY(180deg);
     margin-left: 20px;
 	margin-top: 600px;
 }
 
-.monster {
+.move
+{
+  -webkit-animation: play .5s steps(6) infinite;
+
+}
+.reverse-left
+{
+ -webkit-transform:rotateY(180deg);
+}
+.reverse-right
+{
+ -webkit-transform: rotateY(0deg);
+}
+.nyan {
 width: 130px;
 height: 70px;
 background: url('Images/NyanWalking.png');
 background-position: left center; 
--webkit-animation: play .5s steps(6) infinite;
 	 }
-	 @-webkit-keyframes play {
+
+@-webkit-keyframes play {
 	 0% {background-position:  0px; } 
    100% {background-position:  -800px; }
 }
