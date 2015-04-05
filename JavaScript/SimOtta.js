@@ -17,7 +17,8 @@ if (key == 37)
 
 if(direction == "right")
 {
-	$("div").addClass("reverse-left");
+	$("div").removeClass("reverse-right");
+    $("div").addClass("reverse-left");
     direction = "left"; 
 }
     $(".nyan").addClass("move");
@@ -26,20 +27,17 @@ if(direction == "right")
 
 
 }
-else if (key == 39)
-{
-
-
-   
-
+if (key == 39)
+{  
 if(direction == "left")
-{
+{	
+	$("div").removeClass("reverse-left");
 	$("div").addClass("reverse-right");
 	direction = "right"; 
 }
  $(".nyan").addClass("move");
- 		$(".nyan").animate({marginLeft: "+=50px"});
-        setTimeout(function(){$(".nyan").removeClass("move");},400);
+ $(".nyan").animate({marginLeft: "+=50px"});
+ setTimeout(function(){$(".nyan").removeClass("move");},400);
 
 }
 
