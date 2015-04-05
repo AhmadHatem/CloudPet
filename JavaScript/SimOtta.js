@@ -1,8 +1,8 @@
-var direction = "right";
+var direction = "left";
 	$(document).ready(
 		function()
 		{
-
+$("div").addClass("reverse-left");
 		}
 		);
 
@@ -10,7 +10,6 @@ var direction = "right";
        	function(e)
        	{
 	  var key = e.which; 
-	console.log(direction);
 
 if (key == 37)
 {
@@ -22,13 +21,12 @@ if(direction == "right")
     direction = "left"; 
 }
     $(".nyan").addClass("move");
-	$(".nyan").animate({marginLeft: "-=50px"});
-     setTimeout(function(){$(".nyan").removeClass("move");},400);
-
-
+	$(".nyan").animate({marginLeft: "-=100px"}  ,{easing:"linear"},500);
+     setTimeout(function(){$(".nyan").removeClass("move");},500);
 }
 if (key == 39)
-{  
+{ 
+$("body").css("background-image", "url('Images/RoomDeviceOn.png')"); 
 if(direction == "left")
 {	
 	$("div").removeClass("reverse-left");
@@ -36,12 +34,22 @@ if(direction == "left")
 	direction = "right"; 
 }
  $(".nyan").addClass("move");
- $(".nyan").animate({marginLeft: "+=50px"});
- setTimeout(function(){$(".nyan").removeClass("move");},400);
+ $(".nyan").animate({marginLeft: "+=100px"}, 500);
+ setTimeout(function(){$(".nyan").removeClass("move");},500);
+
+}
+if(key == 70)
+{
+$(".nyan").addClass("move");
+$(".nyan").animate({marginLeft: "-=487px" ,easing: 'linear'}, 3000);	
+setTimeout(function(){$(".nyan").removeClass("move");},3000);
 
 }
 
 
 
+
        	}
+
+  
        	);

@@ -1,12 +1,12 @@
 body {
-  background-image: url('Images/Room2.png');
+  background-image: url('Images/Room_3.png');
    background-repeat: no-repeat;
   margin-top: 100px;
   margin-left: 500px;
 }
 div {
-    margin-left: 20px;
-	margin-top: 600px;
+  margin-left: 50px;
+	margin-top: 400px;
 }
 
 .move
