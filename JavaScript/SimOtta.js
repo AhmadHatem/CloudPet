@@ -1,11 +1,19 @@
 var direction = "left";
 var eaten = false;
-var eatenFood = Math.floor(Math.random() * 50);
+var eatenFood = Math.floor(Math.random() * 50) + 2;
+var buttonClicked = false;
+
+
 	$(document).ready(
 		function()
 		{
-		
-$("#deviceInfo").html("<h3> Press F to feed the cat!</h3>");
+			
+	$("#feedButton").click(function(){
+		var e = jQuery.Event("keydown");
+e.which = 70; 
+$("#feedButton").trigger(e)
+	});
+$("#deviceInfo").html("<h3> Press F or click on the button to feed the cat!</h3>");
 $("div.nyan").addClass("reverse-left");
 		}
 		);
@@ -42,7 +50,7 @@ if(direction == "left")
  setTimeout(function(){$(".nyan").removeClass("move");},500);
 
 }
-if(key == 70 && !eaten)
+if((key == 70 || buttonClicked ) && !eaten )
 {
 	eaten = true;
 $("div.nyan").removeClass("nyan");
