@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @buddy.user.username %>
+</p>
+
+<p>
+  <strong>Register:</strong>
+  <%= link_to @buddy.register.name, @buddy.register %>
+</p>
+
+<p>
+  <strong>Can feed:</strong>
+  <%= @buddy.can_feed %>
+</p>
+
+<p>
+  <strong>Can schedule:</strong>
+  <%= @buddy.can_schedule %>
+</p>
+
+<%= link_to 'Edit', edit_buddy_path(@buddy) %> |
+<%= link_to 'Back', buddies_path %>
