@@ -1,9 +1,12 @@
 var direction = "left";
 var eaten = false;
+var eatenFood = Math.floor(Math.random() * 50);
 	$(document).ready(
 		function()
 		{
-$("div").addClass("reverse-left");
+		
+$("#deviceInfo").html("<h3> Press F to feed the cat!</h3>");
+$("div.nyan").addClass("reverse-left");
 		}
 		);
 
@@ -42,7 +45,7 @@ if(direction == "left")
 if(key == 70 && !eaten)
 {
 	eaten = true;
-$("div").removeClass("nyan");
+$("div.nyan").removeClass("nyan");
 $("div").addClass("NyanMoving");
 $("div.NyanMoving").animate({marginLeft: "-=487px" ,easing: 'linear'}, 3000);	
 
@@ -53,9 +56,12 @@ setTimeout(function()
 {
 	$("div").removeClass("NyanLoweringTounge"); 
 	$("div").addClass("nyan");
+	$("#deviceInfo").html("<h3>Your cat ate " + eatenFood + " grams !</h3>" )
        },6000);
 
+
 }
+
 	
 
 

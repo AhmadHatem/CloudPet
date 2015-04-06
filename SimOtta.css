@@ -43,6 +43,16 @@ background-position: left center;
   -webkit-animation: playTongue .5s steps(6) infinite;
 }
 
+#deviceInfo
+{ 
+  margin-top: 70px;
+  margin-left: -500px;
+  width: 780px;
+  background-color: black;
+font-family: Courier, sans-serif;
+    color: yellow;
+}
+
 @-webkit-keyframes playMove {
 	 0% {background-position:  0px; } 
    100% {background-position:  -800px; }
