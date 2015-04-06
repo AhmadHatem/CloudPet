@@ -7,7 +7,16 @@ var buttonClicked = false;
 	$(document).ready(
 		function()
 		{
-			
+			var date = new Date();
+	if(date.getHours() >= 6 && date.getHours() < 18)
+		{
+         $("body").css("background-image",  'url(' + "Images/RoomDay.png" +')');
+		}
+	else
+	{
+         $("body").css("background-image",  'url(' + "Images/RoomNight.png" +')');
+
+	}			
 	$("#feedButton").click(function(){
 		var e = jQuery.Event("keydown");
         e.which = 70; 
