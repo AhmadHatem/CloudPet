@@ -32,7 +32,7 @@ $("div.nyan").addClass("reverse-left");
        	{
 	  var key = e.which; 
 
-if (key == 37)
+/*if (key == 37)
 {
 
 if(direction == "right")
@@ -58,6 +58,7 @@ if(direction == "left")
  setTimeout(function(){$(".nyan").removeClass("move");},500);
 
 }
+*/
 if((key == 70 || buttonClicked ) && !eaten )
 {
 	eaten = true;
