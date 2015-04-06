@@ -93,6 +93,7 @@ setTimeout(function()
  		$("div.nyan").removeClass("reverse-right");
  		direction = "left";
 	    $("div.nyan").addClass("reverse-left");
+	    $("#deviceInfo").html("<h3> Press F or click on the button to feed the cat!</h3>");
 	    eaten = false;
     }
     ,3000);
