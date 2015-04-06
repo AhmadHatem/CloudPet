@@ -48,9 +48,17 @@ background-position: left center;
   margin-top: 70px;
   margin-left: -500px;
   width: 780px;
+  height: 20px;
   background-color: black;
 font-family: Courier, sans-serif;
     color: yellow;
+}
+
+#feedButton
+{
+  margin-left: -500px;
+  margin-bottom: 2cm;
+  z-index: 2;
 }
 
 @-webkit-keyframes playMove {
