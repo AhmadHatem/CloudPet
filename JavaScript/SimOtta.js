@@ -1,4 +1,5 @@
 var direction = "left";
+var eaten = false;
 	$(document).ready(
 		function()
 		{
@@ -38,8 +39,9 @@ if(direction == "left")
  setTimeout(function(){$(".nyan").removeClass("move");},500);
 
 }
-if(key == 70)
+if(key == 70 && !eaten)
 {
+	eaten = true;
 $("div").removeClass("nyan");
 $("div").addClass("NyanMoving");
 $("div.NyanMoving").animate({marginLeft: "-=487px" ,easing: 'linear'}, 3000);	
@@ -54,7 +56,7 @@ setTimeout(function()
        },6000);
 
 }
-
+	
 
 
 
