@@ -9,11 +9,6 @@ div {
 	margin-top: 400px;
 }
 
-.move
-{
-  -webkit-animation: play .5s steps(6) infinite;
-
-}
 .reverse-left
 {
  -webkit-transform:rotateY(180deg);
@@ -22,16 +17,40 @@ div {
 {
  -webkit-transform: rotateY(0deg);
 }
-.nyan {
+.nyan
+ {
 width: 130px;
 height: 70px;
-background: url('Images/NyanWalking.png');
+background: url('Images/NyanSleeping.png');
 background-position: left center; 
 	 }
 
-@-webkit-keyframes play {
+.NyanMoving
+{
+  width: 130px;
+height: 70px;
+background: url('Images/NyanWalking.png');
+background-position: left center; 
+  -webkit-animation: playMove .5s steps(6) infinite;
+
+}
+.NyanLoweringTounge
+{
+width: 116px;
+height: 70px;
+background: url('Images/NyanLoweringTongue-D.png');
+background-position: left center; 
+  -webkit-animation: playTongue .5s steps(6) infinite;
+}
+
+@-webkit-keyframes playMove {
 	 0% {background-position:  0px; } 
    100% {background-position:  -800px; }
+}
+@-webkit-keyframes playTongue
+{
+  0% {background-position:  0px;}
+  100% {background-position: -710px;}
 }
        /*-moz-animation: play .8s steps(10) infinite;
        //*-ms-animation: play .8s steps(10) infinite;

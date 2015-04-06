@@ -16,8 +16,8 @@ if (key == 37)
 
 if(direction == "right")
 {
-	$("div").removeClass("reverse-right");
-    $("div").addClass("reverse-left");
+	$("div.nyan").removeClass("reverse-right");
+    $("div.nyan").addClass("reverse-left");
     direction = "left"; 
 }
     $(".nyan").addClass("move");
@@ -26,11 +26,11 @@ if(direction == "right")
 }
 if (key == 39)
 { 
-$("body").css("background-image", "url('Images/RoomDeviceOn.png')"); 
+$(".On").css("marginLeft", "500px"); 
 if(direction == "left")
 {	
-	$("div").removeClass("reverse-left");
-	$("div").addClass("reverse-right");
+	$("div.nyan").removeClass("reverse-left");
+	$("div.nyan").addClass("reverse-right");
 	direction = "right"; 
 }
  $(".nyan").addClass("move");
@@ -40,11 +40,21 @@ if(direction == "left")
 }
 if(key == 70)
 {
-$(".nyan").addClass("move");
-$(".nyan").animate({marginLeft: "-=487px" ,easing: 'linear'}, 3000);	
-setTimeout(function(){$(".nyan").removeClass("move");},3000);
+$("div").removeClass("nyan");
+$("div").addClass("NyanMoving");
+$("div.NyanMoving").animate({marginLeft: "-=487px" ,easing: 'linear'}, 3000);	
+
+setTimeout(function(){$("div").removeClass("NyanMoving"); },3000);
+setTimeout(function(){$("div").addClass("NyanLoweringTounge"); } , 3000);
+
+setTimeout(function()
+{
+	$("div").removeClass("NyanLoweringTounge"); 
+	$("div").addClass("nyan");
+       },6000);
 
 }
+
 
 
 
