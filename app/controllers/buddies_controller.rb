@@ -24,19 +24,23 @@ class BuddiesController < ApplicationController
   # POST /buddies
   # POST /buddies.json
   def create
-    @buddy = Buddy.new(buddy_params)
-    user = User.where(:username => @buddy.username).first
-    pet = load_pet
-    @buddy.user = user
-    @buddy.register = pet
-    respond_to do |format|
-      if @buddy.save
-        format.html { redirect_to @buddy, notice: 'Buddy was successfully created.' }
-        format.json { render :show, status: :created, location: @buddy }
-      else
-        format.html { render :new }
-        format.json { render json: @buddy.errors, status: :unprocessable_entity }
-      end
+      @buddy = Buddy.new(buddy_params)
+      user = User.where(:username => @buddy.username).first
+      pet = load_pet
+      @buddy.user = user
+      @buddy.register = pet
+      if !(user.blank?) then 
+      respond_to do |format|
+       if @buddy.save
+         format.html { redirect_to @buddy, notice: 'Buddy was successfully created.' }
+         format.json { render :show, status: :created, location: @buddy }
+       else
+         format.html { render :new }
+         format.json { render json: @buddy.errors, status: :unprocessable_entity }
+       end
+     end
+    else
+     render 'new'
     end
   end
 
