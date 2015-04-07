@@ -6,9 +6,11 @@ class CreateEvents < ActiveRecord::Migration
       t.datetime :starts_at
 
       t.references :User, index: true
+      t.references :Register, index: true
 
       t.timestamps null: false
     end
       add_foreign_key :events, :Users
+      add_foreign_key :events, :Registers
   end
 end

@@ -18,10 +18,12 @@ ActiveRecord::Schema.define(version: 20150405122346) do
     t.integer  "amount"
     t.datetime "starts_at"
     t.integer  "User_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "Register_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
+  add_index "events", ["Register_id"], name: "index_events_on_Register_id"
   add_index "events", ["User_id"], name: "index_events_on_User_id"
 
   create_table "feeds", force: :cascade do |t|
