@@ -1,6 +1,6 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Listing Buddies</h1>
+
+<h1>My Buddies</h1>
 
 <table>
   <thead>
@@ -16,13 +16,13 @@
   <tbody>
     <% @buddies.each do |buddy| %>
       <tr>
-        <td><%= buddy.user %></td>
-        <td><%= buddy.register %></td>
+        <td><%= buddy.username %></td>
+        <td><%= buddy.register.name %></td>
         <td><%= buddy.can_feed %></td>
         <td><%= buddy.can_schedule %></td>
-        <td><%= link_to 'Show', buddy %></td>
+        
         <td><%= link_to 'Edit', edit_buddy_path(buddy) %></td>
-        <td><%= link_to 'Destroy', buddy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Delete', buddy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>

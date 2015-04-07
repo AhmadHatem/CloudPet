@@ -4,6 +4,17 @@ class RegistersController < ApplicationController
   end
   def index
     @register = current_user.registers
+    
+
+
+    @registers = []
+    @buddies = Buddy.where(:user => current_user)
+    @buddies.each do |buddy|
+    @registers += [buddy.register]
+
+      
+      end
+       
   end
 
   def edit

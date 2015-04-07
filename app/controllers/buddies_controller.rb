@@ -4,7 +4,15 @@ class BuddiesController < ApplicationController
   # GET /buddies
   # GET /buddies.json
   def index
-    @buddies = current_user.buddies
+    @buddies = []
+    current_user.registers.each do |pet|
+      buds = Buddy.where(:register_id => pet.id)
+      buds.each do |buddy|
+        if buddy.register == pet
+          @buddies += [buddy]
+      end
+    end
+  end
   end
 
   # GET /buddies/1
@@ -29,6 +37,7 @@ class BuddiesController < ApplicationController
     pet = load_pet
     @buddy.user = user
     @buddy.register = pet
+    if !(user.blank?) then 
     respond_to do |format|
       if @buddy.save
         format.html { redirect_to @buddy, notice: 'Buddy was successfully created.' }
@@ -38,8 +47,10 @@ class BuddiesController < ApplicationController
         format.json { render json: @buddy.errors, status: :unprocessable_entity }
       end
     end
+  else
+    render 'new'
   end
-
+end
   # PATCH/PUT /buddies/1
   # PATCH/PUT /buddies/1.json
   def update
@@ -59,7 +70,7 @@ class BuddiesController < ApplicationController
   def destroy
     @buddy.destroy
     respond_to do |format|
-      format.html { redirect_to buddies_url, notice: 'Buddy was successfully destroyed.' }
+      format.html { redirect_to buddies_url, notice: 'Buddy was successfully deleted.' }
       format.json { head :no_content }
     end
   end
