@@ -28,7 +28,8 @@ class EventsController < ApplicationController
     @event.User= current_user
 
     if pet.nil?
-       
+        flash[:notice] = "Check pet's name is correct!"
+        redirect_to new_event_path
     else
 
         respond_to do |format|
