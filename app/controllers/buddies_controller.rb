@@ -23,6 +23,7 @@ class BuddiesController < ApplicationController
 
   # POST /buddies
   # POST /buddies.json
+  #gets the username string, matches it to an existing user and sets the user to the correct one. if the user is not found it will stay on the same page
   def create
       @buddy = Buddy.new(buddy_params)
       user = User.where(:username => @buddy.username).first
@@ -46,6 +47,7 @@ class BuddiesController < ApplicationController
 
   # PATCH/PUT /buddies/1
   # PATCH/PUT /buddies/1.json
+  #basic update functionality
   def update
     respond_to do |format|
       if @buddy.update(buddy_params)
@@ -60,6 +62,7 @@ class BuddiesController < ApplicationController
 
   # DELETE /buddies/1
   # DELETE /buddies/1.json
+  #basic destroy functionality
   def destroy
     @buddy.destroy
     respond_to do |format|
@@ -67,6 +70,7 @@ class BuddiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  #loads pet id from the saved cache
   def load_pet
     pet_id = Rails.cache.read(:pet_id)
     pet = Register.where(:id => pet_id).first
