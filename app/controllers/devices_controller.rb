@@ -1,6 +1,9 @@
 class DevicesController < ApplicationController
   before_action :set_device, only: [:show, :edit, :update, :destroy]
 
+  #Author: Mohamed Attwa
+  #scafolded device controller
+
   # GET /devices
   # GET /devices.json
   def index
