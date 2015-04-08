@@ -28,6 +28,7 @@ class BuddyController < ApplicationController
 		else
 			render 'new'
 	end 
+end
 	def set_buddy
 		@buddy = buddy.find(params[:id])
 	end 

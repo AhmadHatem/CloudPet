@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'turbolinks'
 gem "paperclip", "~> 4.2"
 gem 'validates_timeliness', '~> 3.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'

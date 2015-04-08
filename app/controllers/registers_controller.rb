@@ -1,4 +1,5 @@
 class RegistersController < ApplicationController
+
 	def show
     @register = Register.find(params[:id])
   end

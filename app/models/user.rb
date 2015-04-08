@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :reminders
+  has_many :devices
+  
   has_many :feeds
   has_many :registers
   has_many :buddies
