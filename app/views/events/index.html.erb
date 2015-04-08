@@ -1,0 +1,28 @@
+<%#- Feeding_scehdule_index_view/Mohamed-Moubarak -%>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Events</h1>
+
+<table>
+  
+
+  <tbody>
+
+    <%= month_calendar events: @events do |date, events| %>
+      <%= date %>
+
+      <% events.each do |event| %>
+        <div>
+          <%= link_to event.pet_name, event_path(event) %>
+          <%= link_to 'Edit', edit_event_path(event) %>
+          <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <% end %>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>
