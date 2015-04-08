@@ -46,5 +46,5 @@ group :development, :test do
   gem 'spring'
   gem 'devise'
 end
-
+#Simple_calender gem for feeding schedule
 gem "simple_calendar", "~> 1.1.0"

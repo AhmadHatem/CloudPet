@@ -1,3 +1,4 @@
+#Feeding_scehdule_table/Mohamed-Moubarak
 class CreateEvents < ActiveRecord::Migration
   def change
     create_table :events do |t|
