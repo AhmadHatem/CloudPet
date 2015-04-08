@@ -56,6 +56,7 @@ class BuddiesController < ApplicationController
   end
 end
   
+
   def update
     respond_to do |format|
       if @buddy.update(buddy_params)
@@ -68,7 +69,6 @@ end
     end
   end
 
-  
   def destroy
     @buddy.destroy
     respond_to do |format|
@@ -76,6 +76,7 @@ end
       format.json { head :no_content }
     end
   end
+  #loads pet id from the saved cache
   def load_pet
     pet_id = Rails.cache.read(:pet_id)
     pet = Register.where(:id => pet_id).first
