@@ -47,3 +47,4 @@ group :development, :test do
   gem 'devise'
 end
 
+gem "simple_calendar", "~> 1.1.0"

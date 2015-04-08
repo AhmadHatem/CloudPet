@@ -11,7 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150319130826) do
+ActiveRecord::Schema.define(version: 20150407215447) do
+
+  create_table "events", force: :cascade do |t|
+    t.string   "pet_name"
+    t.integer  "amount"
+    t.datetime "starts_at"
+    t.integer  "User_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "ends_at"
+  end
+
+  add_index "events", ["User_id"], name: "index_events_on_User_id"
 
   create_table "feeds", force: :cascade do |t|
     t.string   "body"
@@ -45,6 +57,7 @@ ActiveRecord::Schema.define(version: 20150319130826) do
     t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "Repeat"
   end
 
   add_index "reminders", ["User_id"], name: "index_reminders_on_User_id"
