@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link href="../app/assets/stylesheets/font-awesome.min.css" rel="stylesheet">
+    <link href='../app/assets/stylesheets/style.css' rel='stylesheet'>
+
+  <title>CloudPets</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+   <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+</head>
+<body>
+
+<%= yield %>
+ <script src="../app/assets/javascripts/jquery.min.js"></script>
+    <script src="../app/assets/javascripts/app.js"></script>
+</body>
+</html>

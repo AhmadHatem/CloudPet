@@ -1,0 +1,81 @@
+<div class="menu">
+      
+      <!-- Menu icon -->
+      <div class="icon-close">
+        <img src='close.png'>
+      </div>
+
+<!-- Menu -->
+      <ul >
+<div class="li0"><li id="0">SIM</li></div>      
+
+<li><%= link_to 'Edit', edit_register_path(@register) %></li>
+<li><%= link_to 'Back', registers_path %></li>
+      </ul>
+    </div>
+<div class="video">
+ <div class="icon-close">
+        <img src='close.png'>
+      </div>
+      
+<div class="sim">
+<div class="sim_win">
+<div class="box" id="pool"></div>
+<div class="food"></div>
+<div class="container" id="pool">
+  <div class="tuna" id="pool"></div>
+</div>
+</div>
+</div>
+</div>
+
+      
+    <!-- Main body -->
+    <div class="jumbotron">
+
+      <div class="icon-menu">
+        <i class="fa fa-bars"></i>
+        Menu
+      </div>
+      </div>
+   <div class="signup">
+  <div class="text1">
+
+<p>
+<%= image_tag @register.image.url(:large) %>
+</p>
+<p>
+  <strong>Name:</strong>
+  <%= @register.name %>
+</p>
+<p>
+  <strong>Breed:</strong>
+  <%= @register.breed %>
+</p>
+
+<p>
+  <strong>Species:</strong>
+  <%= @register.species %>
+</p>
+
+<p>
+  <strong>Gender:</strong>
+  <%= @register.gender %>
+</p>
+
+<p>
+<strong>Date Of Birth:</strong>
+  <%= @register.date_of_birth %>
+</p>
+<div class="button">
+
+      <p>
+      <a href="#">
+        feed now
+      </a>
+      </p>
+      </div>
+
+
+ </div>
+</div>
