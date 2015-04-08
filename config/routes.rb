@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   resources :events
 
+
+  resources :buddies
+
   resources :reminders
 
   resources :registers

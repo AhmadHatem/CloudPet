@@ -1,3 +1,4 @@
+<%#- Feeding_scehdule_index_view/Mohamed-Moubarak -%>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Events</h1>
@@ -11,15 +12,17 @@
    
       <%= date %>
      
+
       <% events.each do |event| %>
         <div>
           <%= link_to event.pet_name, event_path(event) %>
           <%= link_to 'Edit', edit_event_path(event) %>
           <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>
         </div>
-      
+
+      <% end %>
     <% end %>
- <% end %>
+
   </tbody>
 </table>
 
@@ -27,3 +30,4 @@
 
 <%= link_to 'New Event', new_event_path %>
 <%= link_to 'Back', feeds_path %>
+

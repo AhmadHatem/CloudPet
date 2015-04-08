@@ -1,10 +1,12 @@
+
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
-    @events = Event.all
+
+    @events = current_user.events
   end
 
   # GET /events/1
@@ -26,14 +28,23 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
 
-    respond_to do |format|
-      if @event.save
-        format.html { redirect_to @event, notice: 'Event was successfully created.' }
-        format.json { render :show, status: :created, location: @event }
-      else
-        format.html { render :new }
-        format.json { render json: @event.errors, status: :unprocessable_entity }
-      end
+    @event.User= current_user
+
+    if pet.nil?
+        flash[:notice] = "Check pet's name is correct!"
+        redirect_to new_event_path
+    else
+
+        respond_to do |format|
+          if @event.save
+            format.html { redirect_to @event, notice: 'Event was successfully created.' }
+            format.json { render :show, status: :created, location: @event }
+          else
+            format.html { render :new }
+            format.json { render json: @event.errors, status: :unprocessable_entity }
+          end
+        end
+
     end
   end
 
@@ -65,6 +76,11 @@ class EventsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_event
       @event = Event.find(params[:id])
+    end
+
+
+    def pet
+      current_user.registers.find_by name: @event.pet_name
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
