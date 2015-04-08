@@ -5,8 +5,18 @@ class EventsController < ApplicationController
   # GET /events
   # GET /events.json
   def index
-
-    @events = current_user.events
+    @current_user=current_user
+    buddies = Buddy.where(:user => current_user)
+    @events = []
+    #add buddied pets
+    pets = []
+    buddies.each do |buddy|
+      pets += [buddy.register]
+    end
+    pets.each do |pet|
+      @events += pet.events 
+    end
+    @events += current_user.events
   end
 
   # GET /events/1
@@ -29,12 +39,19 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
 
     @event.User= current_user
-
-    if pet.nil?
+    @event.Register = Register.where(:name => @event.pet_name).first
+    buddies = Buddy.where(:user => current_user)
+    buddy_pets = []
+    buddy_pet = nil
+    buddies.each do |buddy|
+      if buddy.register == pet then
+        buddy_pet = pet
+      end
+    end
+    if pet.nil? || (!current_user.registers.include?(pet) && buddy_pet.nil?)
         flash[:notice] = "Check pet's name is correct!"
         redirect_to new_event_path
     else
-
         respond_to do |format|
           if @event.save
             format.html { redirect_to @event, notice: 'Event was successfully created.' }

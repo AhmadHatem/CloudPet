@@ -2,6 +2,7 @@ class Register < ActiveRecord::Base
   	
 belongs_to :User
 has_many :buddies
+has_many :events
 
 
   	has_attached_file :image, styles: { large: "300x300>", thumb: "100x100>"}

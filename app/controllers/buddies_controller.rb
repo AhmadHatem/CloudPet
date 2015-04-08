@@ -41,7 +41,7 @@ class BuddiesController < ApplicationController
       if !(user == current_user) then
         respond_to do |format|
         if @buddy.save
-          format.html { redirect_to @buddy, notice: 'Buddy was successfully created.' }
+          format.html { redirect_to registers_path, notice: 'Buddy was successfully created.' }
           format.json { render :show, status: :created, location: @buddy }
         else
           format.html { render :new }
@@ -72,7 +72,7 @@ end
   def destroy
     @buddy.destroy
     respond_to do |format|
-      format.html { redirect_to buddies_url, notice: 'Buddy was successfully deleted.' }
+      format.html { redirect_to registers, notice: 'Buddy was successfully deleted.' }
       format.json { head :no_content }
     end
   end
