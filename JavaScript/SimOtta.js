@@ -32,33 +32,6 @@ $("div.nyan").addClass("reverse-left");
        	{
 	  var key = e.which; 
 
-/*if (key == 37)
-{
-
-if(direction == "right")
-{
-	$("div.nyan").removeClass("reverse-right");
-    $("div.nyan").addClass("reverse-left");
-    direction = "left"; 
-}
-    $(".nyan").addClass("move");
-	$(".nyan").animate({marginLeft: "-=100px"}  ,{easing:"linear"},500);
-     setTimeout(function(){$(".nyan").removeClass("move");},500);
-}
-if (key == 39)
-{ 
-if(direction == "left")
-{	
-	$("div.nyan").removeClass("reverse-left");
-	$("div.nyan").addClass("reverse-right");
-	direction = "right"; 
-}
- $(".nyan").addClass("move");
- $(".nyan").animate({marginLeft: "+=100px"}, 500);
- setTimeout(function(){$(".nyan").removeClass("move");},500);
-
-}
-*/
 if((key == 70 || buttonClicked ) && !eaten )
 {
 	eaten = true;
