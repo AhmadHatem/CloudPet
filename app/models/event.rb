@@ -1,3 +1,4 @@
+
 #Feeding_scehdule_Model/Mohamed-Moubarak
 class Event < ActiveRecord::Base
 	extend SimpleCalendar
@@ -8,6 +9,7 @@ class Event < ActiveRecord::Base
   	belongs_to :User
   	belongs_to :Register
 
-	validates :pet_name , :amount, :starts_at , presence: true
+	validates :pet_name , :amount, :starts_at, :ends_at , presence: true
 	validates_datetime :starts_at , :on_or_after => :today
+	validates_datetime :ends_at , :on_or_after => :starts_at
 end

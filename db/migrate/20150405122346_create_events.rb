@@ -1,3 +1,4 @@
+
 #Feeding_scehdule_table/Mohamed-Moubarak
 class CreateEvents < ActiveRecord::Migration
   def change
@@ -5,13 +6,15 @@ class CreateEvents < ActiveRecord::Migration
       t.string :pet_name
       t.integer :amount
       t.datetime :starts_at
-
+      t.datetime :ends_at
       t.references :User, index: true
+
       t.references :Register, index: true
 
       t.timestamps null: false
-    end
+    end 
       add_foreign_key :events, :Users
+
       add_foreign_key :events, :Registers
   end
 end

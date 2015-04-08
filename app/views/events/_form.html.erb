@@ -1,3 +1,4 @@
+
 <%#- Feeding_scehdule_form__view/Mohamed-Moubarak -%>
 <%= form_for(@event) do |f| %>
   <% if @event.errors.any? %>
@@ -11,7 +12,6 @@
       </ul>
     </div>
   <% end %>
-  
 
   <div class="field">
     <%= f.label :pet_name %><br>
@@ -25,6 +25,11 @@
     <%= f.label :starts_at %><br>
     <%= f.datetime_select :starts_at %>
   </div>
+    <div class="field">
+    <%= f.label :ends_at %><br>
+    <%= f.datetime_select :ends_at %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

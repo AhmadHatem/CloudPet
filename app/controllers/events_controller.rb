@@ -1,10 +1,11 @@
-#Feeding_scehdule_controller/Mohamed-Moubarak
+
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
   def index
+
     @events = current_user.events
   end
 
@@ -26,6 +27,7 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     @event = Event.new(event_params)
+
     @event.User= current_user
 
     if pet.nil?
@@ -76,12 +78,13 @@ class EventsController < ApplicationController
       @event = Event.find(params[:id])
     end
 
+
     def pet
       current_user.registers.find_by name: @event.pet_name
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:pet_name, :amount, :starts_at)
+      params.require(:event).permit(:pet_name, :amount, :starts_at, :ends_at)
     end
 end

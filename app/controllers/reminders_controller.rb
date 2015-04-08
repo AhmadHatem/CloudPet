@@ -70,6 +70,6 @@ class RemindersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def reminder_params
-      params.require(:reminder).permit(:body, :due_date)
+      params.require(:reminder).permit(:body, :due_date, :repeat)
     end
 end
