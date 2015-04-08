@@ -49,7 +49,7 @@
   <% end %>
 </table>
 <div>
-
+<!-- here im listing the pets that the current user have access to them as he is the buddy on these pets -->
 <h2>Buddy's Pets</h2>
 <table>
   <tr>
@@ -57,7 +57,8 @@
     <th>Type</th>
     <th>Image</th>
   </tr>
- 
+
+   <% if !(@registers.nil?) then %>
   <% @registers.each do |register| %>
     <tr>
       <td><%= register.name %></td>
@@ -65,11 +66,12 @@
       <td><%= image_tag register.image.url(:thumb) %></td>
       <td><%= link_to 'Show', register_path(register) %></td>
       <td><%= link_to 'Edit', edit_register_path(register) %></td>
-      <td><%= link_to 'Delete', register_path(register),
+      <td><%= link_to 'Delete', buddy_path(register),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
 
     </tr>
+    <% end %>
   <% end %>
 </table>
 </div>  
