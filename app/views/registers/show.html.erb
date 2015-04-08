@@ -11,6 +11,7 @@
 
 <li><%= link_to 'Edit', edit_register_path(@register) %></li>
 <li><%= link_to 'Back', registers_path %></li>
+<li><%= link_to 'Buddies', buddies_path %></li>
       </ul>
     </div>
 <div class="video">
@@ -75,7 +76,11 @@
       </a>
       </p>
       </div>
-
+<div class="button">
+      <% pet_id = @register.id %>
+      <% Rails.cache.write(:pet_id, pet_id) %>
+      <%= link_to 'Add Buddy', new_buddy_path %>
+      </div>
 
  </div>
 </div>

@@ -1,6 +1,7 @@
 class Register < ActiveRecord::Base
   	
 belongs_to :User
+has_many :buddies
 
 
   	has_attached_file :image, styles: { large: "300x300>", thumb: "100x100>"}
@@ -8,6 +9,8 @@ belongs_to :User
 
   	validates :name, :species , :breed, :gender , presence: true
 
-  	
+ def save_pet
+  render new_buddy_path
+end
 
 end

@@ -8,6 +8,8 @@ class User < ActiveRecord::Base
   has_many :feeds
   has_many :registers
   has_many :events
+  has_many :buddies
+
 
   validates :username,
   :presence => true,
