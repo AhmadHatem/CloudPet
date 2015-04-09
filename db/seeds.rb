@@ -8,5 +8,5 @@
 
 #Author : Mohamed Attwa
 100.times do
-  device.create()
+  Device.create()
 end
