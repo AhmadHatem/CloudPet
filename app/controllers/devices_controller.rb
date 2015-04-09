@@ -23,6 +23,7 @@ class DevicesController < ApplicationController
   def register2
     @device = Device.where(:id => params[:text2].to_i).first
     @device.User_id = current_user.id
+    @device.Register =  Register.where(:id => params[:text3].to_i).first
 
     
      if !(@device.User.blank?) then 
