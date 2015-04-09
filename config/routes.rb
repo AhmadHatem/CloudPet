@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
   resources :devices
+  resources :events
+
+
+  resources :buddies
 
   resources :reminders
 

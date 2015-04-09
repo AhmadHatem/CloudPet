@@ -11,19 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150329202446) do
+
+ActiveRecord::Schema.define(version: 20150407215447) do
 
   create_table "buddies", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "register_id"
     t.boolean  "can_feed"
-    t.boolean  "can_edit_schedule"
-    t.datetime "created_at",        null: false
-    t.datetime "updated_at",        null: false
+    t.boolean  "can_schedule"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "username"
   end
 
   add_index "buddies", ["register_id"], name: "index_buddies_on_register_id"
   add_index "buddies", ["user_id"], name: "index_buddies_on_user_id"
+
+
+  create_table "events", force: :cascade do |t|
+    t.string   "pet_name"
+    t.integer  "amount"
+    t.datetime "starts_at"
+    t.datetime "ends_at"
+    t.integer  "User_id"
+    t.integer  "Register_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "events", ["Register_id"], name: "index_events_on_Register_id"
+  add_index "events", ["User_id"], name: "index_events_on_User_id"
 
   create_table "feeds", force: :cascade do |t|
     t.string   "body"
@@ -57,6 +74,7 @@ ActiveRecord::Schema.define(version: 20150329202446) do
     t.integer  "User_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "Repeat"
   end
 
   add_index "reminders", ["User_id"], name: "index_reminders_on_User_id"
