@@ -10,11 +10,10 @@ class RegistersController < ApplicationController
     @registers = []
     @buddies = Buddy.where(:user => current_user)
     @buddies.each do |buddy|
-    @registers += [buddy.register]
-
-      
-      end
-       
+    if !@register.include?(buddy.register)
+      @registers += [buddy.register]  
+    end
+    end   
   end
 
   def edit
