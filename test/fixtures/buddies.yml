@@ -4,10 +4,11 @@ one:
   user_id: 
   register_id: 
   can_feed: false
+
   can_schedule: false
 
 two:
   user_id: 
   register_id: 
   can_feed: false
-  can_schedule: false
+  can_schedule: false 

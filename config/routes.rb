@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :devices
   resources :events
 
 
@@ -11,14 +12,24 @@ Rails.application.routes.draw do
   resources :feeds
 
   devise_for :users
+  devise_for :registers
   devise_scope :user do
   authenticated :user do
     root :to => 'feeds#index'
   end
   unauthenticated :user do
     root :to => 'devise/sessions#new', as: :unauthenticated_root
-  end
+
+      end
 end
+ 
+ get "devices/registers2"
+ get "devices/index"
+
+ match "devices/register2" => "devices#register2", :via => :post
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Devices</h1>
+
+<table>
+  <thead>
+    <tr>
+    <th>ID</th>
+      <th>User</th>
+      <th>Register</th>
+      <th>Action</th>
+
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @devices.each do |device| %>
+      <tr>
+      <td><%= link_to device.id , device %></td>
+     
+       <td><%= device.User.first_name %></td>
+       
+      
+   
+        <td><%= device.Register%></td>
+        
+        
+        <td><%= link_to 'Unlink', device, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+   
+
+<%= form_tag("/devices/register2" ) do %>
+  <%= label_tag(:text2, "Register a device using IDx") %>
+  <%= text_field_tag :text2 %>
+  
+
+  <%= submit_tag "Register" %>
+<% end %>    
+
+
+
