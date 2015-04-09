@@ -11,7 +11,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
 ActiveRecord::Schema.define(version: 20150407215447) do
 
   create_table "buddies", force: :cascade do |t|
@@ -27,6 +26,12 @@ ActiveRecord::Schema.define(version: 20150407215447) do
   add_index "buddies", ["register_id"], name: "index_buddies_on_register_id"
   add_index "buddies", ["user_id"], name: "index_buddies_on_user_id"
 
+  create_table "devices", force: :cascade do |t|
+    t.integer  "User_id"
+    t.integer  "Register_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
 
   create_table "events", force: :cascade do |t|
     t.string   "pet_name"
@@ -97,7 +102,6 @@ ActiveRecord::Schema.define(version: 20150407215447) do
     t.string   "last_name"
     t.date     "date_of_birth"
   end
-  
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
