@@ -1,0 +1,36 @@
+<%#- Feeding_scehdule_index_view/Mohamed-Moubarak -%>
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Events</h1>
+
+<table>
+  
+
+  <tbody>
+
+    <%= month_calendar events: @events do |date, events| %>
+   
+      <%= date %>
+     
+
+      <% events.each do |event| %>
+        <div>
+          <%= link_to event.pet_name, event_path(event) %>
+          <% buddy_pet = Buddy.where(:user => @current_user, :register => event.Register).first %>
+            <%if (!event.Register.nil? && event.Register.User == @current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule) then %>
+              <%= link_to 'Edit', edit_event_path(event) %>
+              <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <% end %>
+        </div>
+
+      <% end %>
+    <% end %>
+
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Event', new_event_path %>
+<%= link_to 'Back', feeds_path %>
+

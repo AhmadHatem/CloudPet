@@ -1,9 +1,20 @@
 class RegistersController < ApplicationController
+
 	def show
     @register = Register.find(params[:id])
   end
   def index
     @register = current_user.registers
+    
+    #Here im creating an array of pets to be showed to the current user who is considered to be a buddy that have access on these pets.
+
+    @registers = []
+    @buddies = Buddy.where(:user => current_user)
+    @buddies.each do |buddy|
+    if !@register.include?(buddy.register)
+      @registers += [buddy.register]  
+    end
+    end   
   end
 
   def edit
