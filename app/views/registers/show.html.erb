@@ -1,12 +1,27 @@
-   <div class = "menu">   
-<ul>
+
+      <!--user menu-->
+      <div class="menu">
+      <div class="mm">
+    
+     
+
+      <div class="sign up">
+       <ul >
+       <!--links go here-->
 <li><%= link_to 'Edit', edit_register_path(@register) %></li>
 <li><%= link_to 'Back', registers_path %></li>
 <li><%= link_to 'Buddies', buddies_path %></li>
+<li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       </ul>
-  </div>
+      </div> </div>
+    </div>
+    <!--header-->
+<div class="main">
+     
 
 
+   <div class = "body">
+<div class = "pet" >
 
 <div class = "grid-row">
 <table style="
@@ -84,14 +99,44 @@
 </table>
 
 
-<div class = "">
-
-
+<div class = "pet_owner">
+<p>
 Pet Owner :
-<%= link_to @register.User.username %>
-
+</p>
+<p>
+<%= @register.User.username %>
+</p>
 </div>
 
 
 
 
+<h1>My Buddies</h1>
+
+<table>
+  <thead>
+    
+  </thead>
+
+  <tbody>
+    <% @buddies.each do |buddy| %>
+      <tr>
+        <td><%= buddy.username %></td>
+        <td><%= link_to 'Edit', edit_buddy_path(buddy) %></td>
+        <td><%= link_to 'Delete', buddy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+</div>
+<div class="button">
+      <% pet_id = @register.id %>
+      <% Rails.cache.write(:pet_id, pet_id) %>
+      <%= link_to 'Add Buddy', new_buddy_path %>
+      </div>
+
+
+      </div>

@@ -13,9 +13,100 @@
    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 </head>
 <body>
+ 
+<div class="main">
+ <header id="header">
+  
+  <article class="fit-fixed" id="header__nav-container">
+    <div id="header__nav" class="grid-col-12 grid-row grid-col--no-spacing">
+      
 
+
+        <div class="header__dynamic-width-col">
+            <a id="header__menu-me" class="js-toggle-profile-dropdown header__nav__link">
+              <div id="user-dropdown" class="header__nav__link__label">
+                
+                <h5>
+                 MENU ☰
+                  </h5>
+              </div>
+            </a>
+        </div>
+
+
+            <div id="header__notifications" class="header__dynamic-width-col" exclude="phone">
+                          </div>
+
+
+
+
+      </div>
+
+
+    <div id="header__logo">
+      <a href="#" id="header__logo__link">
+        <img class="logo__image--full no-rescale" >
+</a>    </div>
+
+
+  </article>
+  
+</header>
+    <main class="ppss 
+">
+      
 <%= yield %>
  <script src="../app/assets/javascripts/jquery.min.js"></script>
     <script src="../app/assets/javascripts/app.js"></script>
+</mian>
+
+
+<div class="grid-row fit-fixedb" style="
+    bottom: 0px;
+    position: fixed;
+"> 
+  <div>
+          
+          <p>BTQ</p>
+
+
+          <div id="footer__company__links">
+            <a href="#">About Us</a>
+            <a href="#">Hire Us</a>
+            <a href="#">Blog</a>
+          </div>
+        </div>
+        <div class="fr">
+      <div class="grid-col-7 grid-col--no-spacing"style="
+    float: right;
+">
+          <div id="footer__legal__copyright">
+            <small>
+              © 2015 BTQ
+            </small>
+          </div>
+        </div>
+
+        <div id="footer__legal__links"style="
+    float: right;
+">
+          <small>
+            <a href="#">Help</a>
+            
+            <a href="#">Terms</a>
+            <a href="#"></a>
+          </small>
+        </div>
+     
+
+      
+        
+        
+
+      </div>
+    </div>
+        
+
+</div>
 </body>
 </html>

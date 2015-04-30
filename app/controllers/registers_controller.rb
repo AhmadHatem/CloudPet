@@ -2,6 +2,17 @@ class RegistersController < ApplicationController
 
 	def show
     @register = Register.find(params[:id])
+        @buddies = []
+    current_user.registers.each do |pet|
+      buds = Buddy.where(:register_id => pet.id)
+      buds.each do |buddy|
+        if buddy.register == pet
+          @buddies += [buddy]
+      end
+    end
+  end
+    
+
   end
   def index
     @register = current_user.registers
