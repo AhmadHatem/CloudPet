@@ -1,368 +1,110 @@
-/* Initial body */
-body {
-  left: 0;
-  margin: 0;
-  overflow: hidden;
-  position: relative;
-}
-
-
-/* Initial menu */
-.menu {
-  background: #202024 url('black-thread.png') repeat left top;
-  left: -285px;  /* start off behind the scenes */
-  height: 100%;
+div#footer {
+  bottom: 0px;
   position: fixed;
+  width: 100%;
+}.grid-col-5.ffb {
+  width: 39.66667%;
+  position: absolute;
+  bottom: 0px;
+}.grid-row.fit-fixedb {
+  position: absolute;
+  bottom: 0px;
+    width: 100%;
+}.fr{
+    right: 0px;
+  position: absolute;
+  bottom: 0px;
+  }
+  .menu {
+  
+  right: 0px;  
+  top: -1000px;
+  height: 70%;
+  position: absolute;
   width: 285px;
   color: #fff;
-}
+   width: 20%;
 
-.menu ul {
-  border-top: 1px solid #636366;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.menu li {
-  border-bottom: 1px solid #636366;
-  font-family: 'Open Sans', sans-serif;
-  line-height: 45px;
-  padding-bottom: 3px;
-  padding-left: 20px;
-  padding-top: 3px;
-   cursor: pointer;
-   color: green;
-}
-
-.menu a {
-  
-color: #fff;
-  font-size: 15px;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
+} 
 .icon-close {
   background-image: url('close.png'); 
   cursor: pointer;
   padding-left: 10px;
-  padding-top: 10px;
+  padding-top: 20px;
   width: 50px;
-}
+  
 
-.icon-menu {
-  color: #fff;
-  cursor: pointer;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
-  padding-bottom: 25px;
-  padding-left: 25px;
-  padding-top: 25px;
-  text-decoration: none;
-  text-transform: uppercase;
-  width: 100px;
-}
+}.main{
+  margin-left: auto;
+  margin-right: auto;
+  float: none;
+    background: white;
+  border-radius: 20px;
 
-
-.icon-menu i {
-  margin-right: 5px;
-}
-/* Basic styling */
-
-.jumbotron {
-  background-image: url('Golden-Gate-Bridge-Black-And-White.jpg'); 
-  height: 100%;
+  }.ppss{
+    background-image: url('http://www.wallpaperup.com/uploads/wallpapers/2014/01/15/228598/86d282c1c024e1705451e95f548f5367.jpg');
+    height: 100%;
   -webkit-background-size: cover;
      -moz-background-size: cover;
        -o-background-size: cover;
           background-size: cover;
-            height: 10000px;
-}
+    }
+    .header__dynamic-width-col a:hover{
+      background-color:cyan; 
 
-
-.video{
-  background: #202024 url('black-thread.png') repeat left top;
-top:100px;   /* start off behind the scenes */
-right: -10200px;  
-  height: 500px;
-  position: fixed;
-  width: 97%;
-font-family: 'Open Sans', sans-serif; 
-font-color: #fff;
-  font-size: 15px;
-  text-decoration: none;
-  text-transform: uppercase;
-line-height: 30px;
- padding-bottom: 3px;
-  padding-left: 20px;
-  padding-top: 3px;
- cursor: pointer;
+      }
+      .arr {
+width: 20rem;
+height: 20rem;
+border-radius: 1000px;
+overflow: hidden;
 }
-.button{
-  background: white;
-  width: auto;
-  height: auto;
-  line-height: 1.0em;
-  padding:0em 0.2em 0em 0.2em;
-  display: inline-block;
-  border-radius: 15px;
-}
-a:link {
-  text-decoration: none;
-  color: green;
-}
-a:visited {
-  text-decoration: none;
-  color: green;
-}
-a:hover {
-  background: none;
-  color: grey;
-}
-.signup{
-  background-image: url('sign up.png'); 
-   top:100px;   /* start off behind the scenes */
-left: 400px;  
-  height: 490px;
-  position: fixed;
-  width: 600px;
-   -webkit-background-size: cover;
-     -moz-background-size: cover;
-       -o-background-size: cover;
-          background-size: cover;
-}
-.text {
-  color: #fff;
-  position: absolute;
-  top: 240px;
-  left: 220px;
-}
-.text1 {
-  color: #fff;
-  position: absolute;
-  top: 220px;
-  left: 180px;
-}
-body {
-  height: 100%;
-  width: 100%;
-}
-
-.container {
-  width: 400px;
-  height: 200px;
-  margin-left:950px;
-    margin-top: 200px;
-    overflow: auto;
-}
-
-.food {
-  background: url('food.png') no-repeat; 
-    height: 95px;
-    width: 165px;
-    position: absolute;
-    left: 230px;
-    top: 400px;
-}
-
-.tuna { 
-    background: url('cat_sprite.png') 0 0 no-repeat; 
-    height: 200px;
-    width: 400px;
-
-
-}
-.eat { 
-    background: url('eating.png') no-repeat; 
-    height: 200px;
-    width: 400px;
-    
-}
-
-.staticmove {
-  -webkit-animation: walk-cycle 1s steps(12) infinite;
-  -webkit-animation-fill-mode: forwards;
-}
-.reversemove {
-  -webkit-animation: walk-cycle-rev 1s steps(12) infinite;
-  -webkit-animation-fill-mode: forwards;
-}
-.eaten {
-  -webkit-animation: done-eating 1s steps(5) 1;
-  -webkit-animation-fill-mode: forwards;
-}
-.reverse-eaten {
-  -webkit-animation: done-eating-reverse 1s steps(5) 1;
-  -webkit-animation-fill-mode: forwards;
-}
-.move {
-    position: relative;
-    -webkit-animation-name: mymove ;
-    -webkit-animation-duration: 4s ;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
-    -webkit-animation-direction: normal;
-    -webkit-animation-fill-mode: forwards;
-}
-
-.reverse {
-  -webkit-transform: scaleX(-1);
-}
-
-.default {
-  -webkit-transform: scaleX(1);
-}
-
-.reverse-move {
-  position: relative;
-  -webkit-animation-name: mymove-rev ;
-    -webkit-animation-duration: 4s ;
-    -webkit-animation-timing-function: linear;
-    -webkit-animation-iteration-count: 1; /* Chrome, Safari, Opera */
-    -webkit-animation-direction: normal;
-    -webkit-animation-fill-mode: forwards;
-}
-
-.box {
-  background: url('box-sprite-sheet.png') no-repeat; 
-    height: 300px;
-    width: 408px;
-    position: absolute;
-    left: 0px;
-    top: 180px;
-
-}
-
-.open-box {   
-  -webkit-animation: open-box 0.05s steps(1) 1;
-  -webkit-animation-fill-mode: forwards;
-}
-.close-box {    
-  -webkit-animation: close-box 0.05s steps(1) 1;
-  -webkit-animation-fill-mode: forwards;
-}
-
-@-webkit-keyframes close-box {  
-  0% {background-position: -400px 0px; } 
-  100% {background-position:  0 0; } /* Must be full height of sprite or skipping will happen.*/
-}
-@-webkit-keyframes open-box {  
-  0% {background-position: 0 0; } 
-  100% {background-position: -400px 0px; } /* Must be full height of sprite or skipping will happen.*/
-}
-
-
-@-webkit-keyframes walk-cycle {   
-  0% {background-position: 0 0; } 
-  100% {background-position: 0 -2391px; } /* Must be full height of sprite or skipping will happen.*/
-}
-
-
-@-webkit-keyframes done-eating {  
-  0% {background-position: -400px 0; } 
-  100% {background-position: -400px -1000px; } /* Must be full height of sprite or skipping will happen.*/
-}
-@-webkit-keyframes done-eating-reverse {  
-  0% {background-position: -400px -1000; } 
-  100% {background-position: -400px 0px; } /* Must be full height of sprite or skipping will happen.*/
-}
-
-@-webkit-keyframes mymove {
-  0% {
-            -webkit-transform: translate(-100px);
-            -webkit-animation-timing-function: linear;
+.arr img{
+  width: 20rem;
+height: 20rem;
   }
-  40% {
-            -webkit-transform: translate(-400px);
-            -webkit-animation-timing-function: linear;
+
+.pet_text {
+padding: 40px;
+}
+.pet_text p{
+font-size: -webkit-xxx-large;
+
+}
+
+
+.camera{
+
+
+
+}
+.aal {
+ 
+  width: 7.5rem;
+  height: 7.5rem;
+  border-radius: 1000px;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 25px;
   }
-  100% {
-            -webkit-transform: translate(-700px);
-        }
+  .pet{}
+  .pet table, th, td{
   
-          /*-webkit-animation-timing-function: linear;
+  padding: 15px;
+ 
+  text-align: center;
   }
-  /*60% {
-            -webkit-transform: translate(-800px);
-            -webkit-animation-timing-function: linear;
-  }
-  80% {
-            -webkit-transform: translate(-900px);
-            -webkit-animation-timing-function: linear;
-  }
-  100% {
-        -webkit-transform: translate(-970px);
-  }*/
 
-}
-@-webkit-keyframes mymove-rev {
-0% {
-            -webkit-transform: translate(-700px);
-            -webkit-animation-timing-function: linear;
-  }
-  40% {
-            -webkit-transform: translate(-400px);
-            -webkit-animation-timing-function: linear;
-  }
-  100% {
-            -webkit-transform: translate(-100px);
+  .pet_owner p {
 
-}
-}
+  font-size: 30px;
 
-/*
-@-webkit-keyframes reverse-move {
-  0%{
-    
-    -webkit-transform: translate(-970px);
-    -webkit-animation-timing-function: linear;
   }
-  20% {
-            -webkit-transform: translate(-800px);
-            -webkit-animation-timing-function: linear;
-  }
-  40% {
-            -webkit-transform: translate(-600px);
-            -webkit-animation-timing-function: linear;
-  }
-  60% {
-            -webkit-transform: translate(-400px);
-            -webkit-animation-timing-function: linear;
-  }
-  80% {
-            -webkit-transform: translate(-200px);
-            -webkit-animation-timing-function: linear;
-  }
-  100% {
-        -webkit-transform: translate(-20px);
-  }
-}*/
-.sim{
 
-  height: 80%;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: #f1f2f2;
-  color: black;
-  border-radius: 15px;
-    padding-top: 20px;
-    padding-bottom: 20px;
+  .body{
+    position: absolute;
+    width: 100%;
+    top: 50px;
 
-}
-.sim_win{
-width: 99%;
-  height: 92%;
-  margin-top: auto;
-  margin-bottom: auto;
-  margin-right: auto;
-  margin-left: auto;
-  background-color: grey;
-  color: black;
-  border-radius: 15px;
-    padding-top: 20px;
-    padding-bottom: 20px;
 
-}
+  }

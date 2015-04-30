@@ -13,9 +13,9 @@
  *= require_tree .
  *= require_self
  */
-
- table, th, td {
-  border: 1px solid black;
+.events{}
+.events table, th, td {
+  border: 0px solid black;
   padding: 15px;
   width: inherit;
   text-align: center;
