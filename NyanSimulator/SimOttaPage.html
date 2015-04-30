@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> SimOtta </title>
+    <link rel="stylesheet" type="text/css" href="SimOtta.css">
+    <script src="JavaScript/jquery.min.js"></script>
+    <script src="JavaScript/jquery-ui.min.js"></script>
+    <script src='JavaScript/sql.js'>
+
+    </script>
+
+
+    <script type='text/javascript' src='JavaScript/SimOtta.js'></script>
+   	</head>
+	<body>
+		<div class = "nyan"></div>
+	    <h3 id= "deviceInfo"> </h3>
+	    <button type="button" id="feedButton">Feed Now</button>
+
+        <input type="file" id="files" name="files[]" multiple />
+    <output id="list"></output>
+    <script>
+
+      function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+
+        // Loop through the FileList
+        for (var i = 0, f; f = files[i]; i++) {
+
+        var reader = new FileReader();
+        reader.onload = (function(theFile) {
+            return function(e) {
+                    var Uints = new Uint8Array(e.target.result);
+                    var db = new SQL.Database(Uints);
+                   var res = db.exec("SELECT * FROM events");
+                   var start = res[0].values[1][3];
+                    var end = res[0].values[1][4];
+                    var time = res[0].values[1][5];
+                    var time = time.substring(11,16);
+                   console.log("starts at: " + start);
+                   console.log("ends at: " + end);
+                   console.log("time: " + time);
+
+            };
+        })(f);
+                  reader.readAsArrayBuffer(f);
+        }
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+    </script>
+	</body>
+
+</html>`

@@ -1,0 +1,89 @@
+body {
+  background-repeat: no-repeat;
+  margin-top: 100px;
+  margin-left: 500px;
+}
+div {
+  margin-left: 50px;
+	margin-top: 400px;
+}
+
+.reverse-left
+{
+ -webkit-transform:rotateY(180deg);
+}
+.reverse-right
+{
+ -webkit-transform: rotateY(0deg);
+}
+.nyan
+ {
+width: 130px;
+height: 70px;
+background: url('Images/NyanSleeping.png');
+background-position: left center; 
+	 }
+
+.NyanMoving
+{
+  width: 130px;
+height: 70px;
+background: url('Images/NyanWalking.png');
+background-position: left center; 
+  -webkit-animation: playMove .5s steps(6) infinite;
+
+}
+.NyanLoweringTounge
+{
+width: 116px;
+height: 70px;
+background: url('Images/NyanLoweringTongue-D.png');
+background-position: left center; 
+  -webkit-animation: playTongue .5s steps(6) infinite;
+}
+
+#deviceInfo
+{ 
+
+  margin-top: 70px;
+  margin-left: -500px;
+  width: 780px;
+  height: 20px;
+  background-color: black;
+font-family: Courier, sans-serif;
+    color: yellow;
+}
+#feedButton {
+  margin-left: -500px;
+  margin-bottom: 2cm;
+  background-color:blue;
+  -moz-border-radius:28px;
+  -webkit-border-radius:28px;
+  border-radius:28px;
+  border:1px solid #18ab29;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Lucida Console, sans-serif;;
+  font-size:20px;
+  padding:16px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+}
+#feedButton.myButton:hover {
+  background-color:#5cbf2a;
+}
+#feedButton:active {
+  position:relative;
+  top:1px;
+}
+
+@-webkit-keyframes playMove {
+	 0% {background-position:  0px; } 
+   100% {background-position:  -800px; }
+}
+@-webkit-keyframes playTongue
+{
+  0% {background-position:  0px;}
+  100% {background-position: -710px;}
+}
