@@ -1,36 +1,39 @@
 <%#- Feeding_scehdule_index_view/Mohamed-Moubarak -%>
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Events</h1>
-
+<h1 class="schedule-title">Feeding Schedule</h1>
+<div class="cal">
 <table>
-  
+<br>
+  <tbody>   
 
-  <tbody>
-
-    <%= month_calendar events: @events do |date, events| %>
-   
-      <%= date %>
-     
-
-      <% events.each do |event| %>
+      <%= month_calendar do |date| %>
         <div>
-          <%= link_to event.pet_name, event_path(event) %>
-          <% buddy_pet = Buddy.where(:user => @current_user, :register => event.Register).first %>
-            <%if (!event.Register.nil? && event.Register.User == @current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule) then %>
-              <%= link_to 'Edit', edit_event_path(event) %>
-              <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+          <%= date.day %>
+          <% Event.all.each do |event| %>
+              <% if event.starts_at <= date && event.ends_at >= date%>
+                  <div class="event">
+                    <%= link_to ("Feed " + event.pet_name), event_path(event) %>
+                    <% buddy_pet = Buddy.where(:user => @current_user, :register => event.Register).first %>
+                    <%if (!event.Register.nil? && event.Register.User == @current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule) then %>
+                          <%= link_to 'Edit', edit_event_path(event) %>
+                          <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>
+                    <% end %>
+                  </div>
+              <% end %>
           <% end %>
         </div>
-
       <% end %>
-    <% end %>
-
+      <br>
+      <div class="links">
+      <%= link_to 'New Event', new_event_path %>
+      </div>
+      <div class="links">
+      <%= link_to 'Back', feeds_path %>
+      </div>
   </tbody>
+
 </table>
+</div>
 
-<br>
-
-<%= link_to 'New Event', new_event_path %>
-<%= link_to 'Back', feeds_path %>
 

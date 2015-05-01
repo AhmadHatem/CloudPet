@@ -13,10 +13,149 @@
  *= require_tree .
  *= require_self
  */
+.cal body {
+	height: 100%;
+	width: 100%;
+}
 
- table, th, td {
-  border: 1px solid black;
-  padding: 15px;
-  width: inherit;
-  text-align: center;
+.schedule-title {
+	text-align: center;
+}
+
+/* schedule header which is the days names */
+ .cal table, thead, tr, th {
+ 	border-left: 1px solid white;
+ 	border-top: 1px solid grey;
+ 	padding: 15px;
+ 	text-align: center;
+}
+
+.cal table {
+	width: 60%;
+	margin-left: auto ;
+	margin-right: auto ;
+	border: 4px solid grey;
+}
+
+/* schedule body */
+ .cal table, tbody, tr, td {
+ 	border: 1px solid grey;
+ 	padding: 15px;
+ 	text-align: center;
+}
+
+/* schedule div for links */
+ .links {
+ 	margin-left: auto ;
+	margin-right: auto ;
+ 	text-align: center;
+ 	background-color: grey;
+ 	width: 100px;
+ 	color: white;
+ 	border: 1px solid white;
+ 	position: relative;
+ 	border-radius: 20px;
+}
+
+.event {
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	margin-left: auto ;
+	margin-right: auto ;
+}
+
+/* unvisited schedule event */
+.event a:link {
+    color: grey;
+}
+
+/* visited schedule event */
+.event a:visited {
+    color: grey;
+}
+
+/* mouse over schedule event */
+.event a:hover {
+    color: grey;
+}
+
+/* selected schedule event */
+.event a:active {
+    color: grey;
+}
+
+/* unvisited schedule link */
+.links a:link {
+    color: #FFFFFF;
+}
+
+/* visited schedule link */
+.links a:visited {
+    color: #FFFFFF;
+}
+
+/* mouse over schedule link */
+.links a:hover {
+    color: #FFFFFF;
+}
+
+/* selected schedule link */
+.links a:active {
+    color: #FFFFFF;
+}
+
+
+.calendar-header { /* Styling for the table header, which is the Month name. */
+	width: 100%;
+	display: inline-block;
+	text-align: center;
+	margin-left: auto ;
+	margin-right: auto ;
+	font-size: 30px;
+}
+
+/* unvisited calender header next and back link */
+.calendar-header a:link {
+    color: grey;
+}
+
+/* visited calender header next and back link */
+.calendar-header a:visited {
+    color: grey;
+}
+
+/* mouse over calender header next and back link */
+.calendar-header a:hover {
+    color: grey;
+}
+
+/* selected calender header next and back link */
+.calendar-header a:active {
+    color: grey;
+}
+/* schedule current month days */
+.current-month{
+	background-color: white;
+
+}
+/* schedule previous month days */
+.prev-month{
+	background-color: silver;
+	color: white;
+}
+/* schedule next month days */
+.next-month{
+	background-color: silver;
+	color: white;
+}
+.cal {
+	width: 100%;
+	border: 1px solid grey;
+}
+
+.cal thead{
+	background-color: grey;
+	color: white;
+ 	text-align: center;
 }
