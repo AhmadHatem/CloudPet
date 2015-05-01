@@ -5,7 +5,7 @@
 </head>
 <body style="overflow: scroll">
   <div class="new-pet-form">
-    <div id="new-pet-button"><a href="#">New Pet!</a></div>
+    <div id="new-pet-button"><a href="#"><strong>New Pet!</strong></a></div>
     <%= form_for (@reg), url: registers_path,:html => { :multipart => true } do |f| %>
     <% if @reg.errors.any? %>
     <div id="error_explanation">
@@ -53,51 +53,54 @@
       <% if current_user.registers.size==0 %>
       <em>There are not any pets currently in the system.</em> <br>
       <% else %>
+      <ul>
       <% @register.each do |register| %>
-      <div class="pet">
+      <%= link_to(register) do %>
+      <li><div class="pet">
         <div id="DEF">
           <%= register.species %>
           <%= register.breed %>
           <p><%= Date.current.year - register.date_of_birth.year %> years old</p>
         </div>
-        <div class="pet-profile-photo-left"><%= image_tag register.image.url(:thumb) %></div>
-        <h3>
-          <div class="pet-info-right"><%= register.name %></div>
-        </h3>
-        <!--
-          <td><%= link_to 'Show', register_path(register) %>
-          <%= link_to 'Edit', edit_register_path(register) %>
-          <td><%= link_to 'Delete', register_path(register),
-            method: :delete,
-            data: { confirm: 'Are you sure?' } %></td>
-                  -->
-      </div>
+       <%= image_tag register.image.url(:thumb), class: '.pet-profile-photo-left' %>
+          <div class="pet-info-right"><h3><%= register.name %></h3>
+          </div>
+        <%= link_to 'Edit', edit_register_path(register) %>
+            <%= link_to 'Delete', buddy_path(register),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+      </div></li>
       <% end %>
       <% end %>
-      <div>
+      </ul>
+      <% end %>
+    </div>
         <!-- here im listing the pets that the current user have access to them as he is the buddy on these pets -->
-        <% if !(@registers.nil?) then %>
+        <% if !(@registers.empty?) then %>
         <div class="pet-list"></div>
         <h2>Buddy's Pets</h2>
+        <ul>
         <% @registers.each do |register| %>
-        <div class="pet">
+        <%= link_to(register) do %>
+        <li><div class="pet">
           <div id="DEF">
             <%= register.species %>
             <%= register.breed %>
             <%= Date.current.year - register.date_of_birth.year %>
           </div>
-          <div class="pet-profile-photo-left"><%= image_tag register.image.url(:thumb) %></div>
+          <%= image_tag register.image.url(:thumb), class: '.pet-profile-photo-left'%>
           <h3>
             <div class="pet-info-right"><%= register.name %></div>
           </h3>
-          <!--
-            <td><%= link_to 'Show', register_path(register) %></td>
-            <td><%= link_to 'Edit', edit_register_path(register) %></td>
-            <td><%= link_to 'Delete', buddy_path(register),
+            <%= link_to 'Edit', edit_register_path(register) %>
+            <%= link_to 'Delete', buddy_path(register),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td> -->
+              data: { confirm: 'Are you sure?' } %>
+              </div></li>
           <% end %>
-        </div>
+          <% end %>
+          </ul>
+        
       </div>
       <% end %>
     </div>

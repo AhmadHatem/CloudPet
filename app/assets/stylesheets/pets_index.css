@@ -4,6 +4,7 @@ body {
 	font-family: Helvetica;
 	color: #000000;
 	background-color: #FFFFFF;
+
 }
 
 ul {
@@ -37,8 +38,10 @@ a:visited {
 }
 
 .new-pet-form #new-pet-button {
-	color: #000;
+	ecolor: #000;
 	background-color: #00BBAA;
+	background-image: url("http://www.designofsignage.com/application/symbol/hospital/image/600x600/arrow-left.jpg");
+	background-size: 100% 100%;
 	opacity: 1;
 	margin-left: 504px;
 	margin-top: 25%;
@@ -51,7 +54,7 @@ a:visited {
 	position: fixed;
 }
 .pet-list {
-	background: #BABABA;
+	background: silver;
 	overflow: scroll;
 }
 
@@ -80,12 +83,25 @@ a:visited {
 	border-radius: 75px;
 	/*background-image: url(../imgs/3.jpg);*/
 	background-size: 100% 100%;
-	background-position: center;
-	background-repeat: no-repeat;
+
 	margin-top: auto;
 	margin-bottom: auto;
 }
 
+
+.pet img{
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	/*background-image: url(../imgs/3.jpg);*/
+	background-size: 100% 100%;
+
+	margin-top: auto;
+	margin-bottom: auto;
+	float: left;
+	margin-left: 10px;
+	margin-right: auto;
+}
 .pet .pet-profile-photo-left {
 	float: left;
 	margin-left: 10px;
@@ -99,6 +115,7 @@ a:visited {
 }
 
 .pet .pet-info-right {
+	color: black;
 	margin-right: auto;
 	margin-left: 200px;
 	margin-bottom: auto;
