@@ -1,7 +1,9 @@
-
+/* this is used in order to make the user able to scroll throughout the webpage*/
 .scrolling{
     overflow: scroll;
 }
+/* this is used in order to make the image round shape the radius is set to 50% of the image inorder 
+to maintain the circular shape*/
 .round-image-50 {
     background-color: white;
     border: 1px solid #d9d9d9;
@@ -17,12 +19,15 @@
     margin-top: auto;
 
 }
+/* this is used in order to design the text in the html file other than the first name and last name
+ex: age and the number of pets you own and buddy to*/
 .info{
 	font-family: Platino;
 	text-align: left;
     min-height: 100%;
     color: gray;
 }
+/* this is used in order to design the name attribute*/
 .name{
 	color: gray;
     min-height: 200%;
@@ -31,24 +36,29 @@
 
 
 }
+/* this is used in order to design the gender attribute*/
 .gender{
     font-size: 200%;
     font-family: Platino;
     color: gray;
 
 }
+/* this is used in order to design the table used to design the data of the profile user..name, gender
+etc.. it designs the background and the border and it's color*/
 .tableback
 {
      background-color: #fefbf7;
      border: solid;
      border-color: #f1f1f1;   
 }
+/* this is used to design the reminders table to design the data of the reminders*/
 .reminder{
     overflow: scroll;
     background-color: #fefbf7;
     border: solid;
     border-color: #f1f1f1;
 }
+/* this is used to design the reminders table to design the data of the newsfeed*/
 .feeds{
     overflow: scroll;
     background-color: #fefbf7;
