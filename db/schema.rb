@@ -36,8 +36,9 @@ ActiveRecord::Schema.define(version: 20150407215447) do
   create_table "events", force: :cascade do |t|
     t.string   "pet_name"
     t.integer  "amount"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.time     "time"
     t.integer  "User_id"
     t.integer  "Register_id"
     t.datetime "created_at",  null: false
