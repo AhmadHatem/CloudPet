@@ -56,11 +56,16 @@
                    var res = db.exec("SELECT * FROM events");
                    console.log(res);
                    var start = res[0].values[0][3];
-                    var end = res[0].values[0][4];
-                    var time = res[0].values[0][5];
+                   var end = res[0].values[0][4];
+                   var time = res[0].values[0][5];
                    var time = time.substring(11,16);
-
-                   console.log("starts at: " + start);
+                   var startMonth = start.substring(5,7);
+                   var startDay = start.substring(8);
+                   var endMonth = end.substring(5,7);
+                   var endDay = end.substring(8);
+                   var timeHour =  time.substring(0,2);
+                   var timeMin =  time.substring(3);
+                   console.log("starts at: " + timeMin);
                    console.log("ends at: " + end);
                    console.log("time: " + time);
 

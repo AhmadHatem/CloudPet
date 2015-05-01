@@ -41,8 +41,9 @@ $("#deviceInfo").html("<h3> Press F or click on the button to feed the cat!</h3>
 $("div.sa3d").addClass("nyan");
 $("div.nyan").addClass("reverse-left");
 
-
 newDate.setDate(newDate.getDate());
+console.log("fdfsd " + newDate);
+
 day  = newDate.getDate();
 month = newDate.getMonth();
 $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
