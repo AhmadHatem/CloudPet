@@ -10,13 +10,13 @@
        <!--links go here-->
 <li><%= link_to 'Edit', edit_register_path(@register) %></li>
 <li><%= link_to 'Back', registers_path %></li>
-<li><%= link_to 'Buddies', buddies_path %></li>
+
 <li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       </ul>
       </div> </div>
     </div>
     <!--header-->
-<div class="main">
+
      
 
 
@@ -24,50 +24,22 @@
 <div class = "pet" >
 
 <div class = "grid-row">
+
 <table style="
-    width: 100%;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
 ">
+
 <tr>
 <td>
       <div class ="arr"> 
 <%= image_tag @register.image.url(:large) %>
 </div>
 </td>
-<td>
-<div class = "pet_text" >
-<p>
-  
-  <%= @register.name %>
-</p>
-<p>
-  <strong>Breed:</strong>
-  <%= @register.breed %>
-</p>
 
-<p>
-  <strong>Species:</strong>
-  <%= @register.species %>
-</p>
-
-<p>
-  <strong>Gender:</strong>
-  <%= @register.gender %>
-</p>
-
-<p>
-<strong>Date Of Birth:</strong>
-  <%= @register.date_of_birth %>
-</p>
-
-      <% pet_id = @register.id %>
-      <% Rails.cache.write(:pet_id, pet_id) %>
-      
-      
-</div>
- 
-</div>
-</td>
-<td>
+<td >
 
 
 
@@ -99,44 +71,77 @@
 </table>
 
 
-<div class = "pet_owner">
+
+
+
+
+<table style = "
+width:90%;
+margin:auto; 
+">
+<tr>
+<td>
+
+<div class = "pet_text">
 <p>
-Pet Owner :
+  
+  <%= @register.name %>
 </p>
 <p>
-<%= @register.User.username %>
+  <strong>Breed:</strong>
+  <%= @register.breed %>
 </p>
-</div>
 
+<p>
+  <strong>Species:</strong>
+  <%= @register.species %>
+</p>
 
+<p>
+  <strong>Gender:</strong>
+  <%= @register.gender %>
+</p>
 
+<p>
+<strong>Date Of Birth:</strong>
+  <%= @register.date_of_birth %>
+</p>
 
-<h1>My Buddies</h1>
-
-<table>
-  <thead>
-    
-  </thead>
-
-  <tbody>
-    <% @buddies.each do |buddy| %>
-      <tr>
-        <td><%= buddy.username %></td>
-        <td><%= link_to 'Edit', edit_buddy_path(buddy) %></td>
-        <td><%= link_to 'Delete', buddy, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-</div>
-<div class="button">
       <% pet_id = @register.id %>
       <% Rails.cache.write(:pet_id, pet_id) %>
-      <%= link_to 'Add Buddy', new_buddy_path %>
+      
+      
+</div>
+<div class="pet_b">
+
+    <% @buddies.each do |buddy| %>
+    
+ <h1>My Buddies</h1>
+        <h1><%= buddy.username %>
+        <%= link_to 'Edit', edit_buddy_path(buddy) %>
+        <%= link_to 'Delete', buddy, method: :delete, data: { confirm: 'Are you sure?' } %>
+      
+      <div class="button">
+      <a href="/buddies/new">Add Buddy</a>
       </div>
+</div>
+<% end %>
+</td>
+<td>
+
+</td>
+</tr>
+ </table>
+</div>
+
+ <div class = 'edit'>   
+<h2>
+
+<td><%= link_to 'Edit', edit_register_path(@register) %></td>
+      <td><%= link_to 'Delete', register_path(@register),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+</h2>
+</div>
 
 
-      </div>

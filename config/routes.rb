@@ -25,7 +25,6 @@ end
  
  get "devices/registers2"
  get "devices/index"
-
  match "devices/register2" => "devices#register2", :via => :post
 
 

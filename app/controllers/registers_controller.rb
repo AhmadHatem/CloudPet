@@ -35,7 +35,7 @@ class RegistersController < ApplicationController
   @register = Register.find(params[:id])
  	end
 
-
+  
 	def new
     @register= Register.new
   	end

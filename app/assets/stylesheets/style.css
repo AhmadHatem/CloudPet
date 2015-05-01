@@ -66,11 +66,11 @@ height: 20rem;
 
 .pet_text {
 padding: 40px;
-}
-.pet_text p{
-font-size: -webkit-xxx-large;
+background-color: rgba(0, 0, 0, 0.5) !important;
+
 
 }
+
 
 
 .camera{
@@ -108,3 +108,25 @@ font-size: -webkit-xxx-large;
 
 
   }
+  .pet_b{
+  margin: 20px;
+background-color: rgba(0, 0, 0, 0.5) !important;
+border-radius: 20px;
+
+  }
+  .pet_b h1 {
+    color: white;
+  }
+  .pet_b a:visited {
+    color: white;
+  } 
+   .pet_text{
+     margin: 20px;
+background-color: rgba(0, 0, 0, 0.5) !important;
+border-radius: 20px;
+  }
+.pet_text p{
+color: white;
+
+
+}
