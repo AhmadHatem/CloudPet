@@ -192,10 +192,21 @@ if (startDay <= day  && startMonth <= (month + 1) && hours == timeHour && minute
 {
 clearInterval(simulate);
 }
+todayDate = newDate.getFullYear() + "-" + (month+1) + "-" + day; 
+var ate = db.exec("SELECT ate FROM foods WHERE date = ' " + todayDate + "'" );
+if (ate != null)
+{
+ eatenFood = ate;
 
+}
+else
+{
+	 eatenFood = Math.floor(Math.random() * 50) + 2;
 
+}
 
   },0.00005);
-
+console.log(DBleftovers);
+console.log(DBate);
 }
   

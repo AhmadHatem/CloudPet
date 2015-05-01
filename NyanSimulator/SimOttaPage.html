@@ -50,6 +50,9 @@
     var endDay;
     var timeHour;
     var timeMin;
+    var DBleftover;
+    var DBate;
+    var db;
    function handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         // Loop through the FileList
@@ -59,23 +62,28 @@
         reader.onload = (function(theFile) {
             return function(e) {
                     var Uints = new Uint8Array(e.target.result);
-                    var db = new SQL.Database(Uints);
+                     db = new SQL.Database(Uints);
+                    var petName = 'lol';
+                   var res = db.exec("SELECT * FROM events WHERE pet_name = 'lol' ");
+                    DBleftovers = db.exec("SELECT leftovers, date FROM foods ");
+                    DBate = db.exec("SELECT ate, date FROM foods  ");
+                //   var foodDate = db.exec("SELECT date FROM foods " );
+                 //  var foodTime = db.exec("SELECT time FROM foods ");
 
-                   var res = db.exec("SELECT * FROM events WHERE pet_name = 'Sa3d' ");
-                   console.log(res);
-                    start = res[0].values[0][3];
-                    end = res[0].values[0][4];
-                    time = res[0].values[0][5];
-                    time = time.substring(11,16);
-                    startMonth = start.substring(5,7);
-                    startDay = start.substring(8);
-                    endMonth = end.substring(5,7);
-                    endDay = end.substring(8);
-                    timeHour =  time.substring(0,2);
-                    timeMin =  time.substring(3);
-                   console.log("starts at: " + startMonth);
-                   console.log("ends at: " + end);
-                   console.log("time: " + time);
+                   // start = res[0].values[0][3];
+                    //end = res[0].values[0][4];
+                   // time = res[0].values[0][5];
+                  //  console.log(time);
+                  //  time = time.substring(11,16);
+                  //  startMonth = start.substring(5,7);
+                   // startDay = start.substring(8);
+                   // endMonth = end.substring(5,7);
+                   // endDay = end.substring(8);
+                   // timeHour =  time.substring(0,2);
+                   // timeMin =  time.substring(3);
+                 //  console.log("starts at: " + startMonth);
+                  // console.log("ends at: " + end);
+                  // console.log("time: " + time);
               $(".log").append("<br> A schedule is set for your cat to eat at " + time + " every day from " + start + " to " + end + "</br>");
 
             };
