@@ -68,7 +68,8 @@ actualHour = setInterval( function() {
 
 });
 
-
+dayr = newDate.getDate();
+console.log(dayr);
 $(document).keydown(function(e){
 var key = e.which;  
 if((key == 70 || buttonClicked ) && !eaten )
@@ -121,8 +122,9 @@ function Run()
 clearInterval(actualSec);
 clearInterval(actualMin);
 clearInterval(actualHour);
-day = newDate.getDay();
-setInterval( function() {
+day = newDate.getDate();
+var weekDay = newDate.getDay();
+var simulate = setInterval( function() {
 seconds += 60;
   $("#sec").html(seconds);
   $("#min").html(minutes);
@@ -138,6 +140,7 @@ if (minutes == 60)
 if (hours == 24)
 {
 day++;
+weekDay++;	
 }
 if (month == 2)
 {
@@ -169,10 +172,22 @@ hours = hours < 24 ? hours : 0;
 $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
 $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
 $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
-console.log(day);
-day = day ==  7 ? day % 7 + 1: day % 7;
+weekDay = weekDay >  7 ? weekDay % 7: weekDay;
 
- $('#Date').html(dayNames[day] + " " + day + " " + monthNames[month] + ' ' + newDate.getFullYear());
+ $('#Date').html(dayNames[weekDay] + " " + day + " " + monthNames[month] + ' ' + newDate.getFullYear());
+
+if (startDay <= day && startMonth <= month && hours == timeHour && minutes == timeMin)
+{
+	$(".log").append("The car should eat now");
+	var e = jQuery.Event("keydown");
+     e.which = 70; 
+     $("#feedButton").trigger(e)
+}
+
+ if (month == endMonth && day == endDay)
+{
+clearInterval(simulate);
+}
 
   },0.00000005);
 

@@ -41,7 +41,15 @@
 <input type="file" id="files" name="files[]" multiple />
 <output id="list"></output>
     <script type="text/javascript">
-
+    var start;
+    var end;
+    var time;
+    var startMonth;
+    var startDay;
+    var endMonth;
+    var endDay;
+    var timeHour;
+    var timeMin;
    function handleFileSelect(evt) {
         var files = evt.target.files; // FileList object
         // Loop through the FileList
@@ -55,20 +63,20 @@
 
                    var res = db.exec("SELECT * FROM events");
                    console.log(res);
-                   var start = res[0].values[0][3];
-                   var end = res[0].values[0][4];
-                   var time = res[0].values[0][5];
-                   var time = time.substring(11,16);
-                   var startMonth = start.substring(5,7);
-                   var startDay = start.substring(8);
-                   var endMonth = end.substring(5,7);
-                   var endDay = end.substring(8);
-                   var timeHour =  time.substring(0,2);
-                   var timeMin =  time.substring(3);
+                    start = res[0].values[0][3];
+                    end = res[0].values[0][4];
+                    time = res[0].values[0][5];
+                    time = time.substring(11,16);
+                    startMonth = start.substring(5,7);
+                    startDay = start.substring(8);
+                    endMonth = end.substring(5,7);
+                    endDay = end.substring(8);
+                    timeHour =  time.substring(0,2);
+                    timeMin =  time.substring(3);
                    console.log("starts at: " + timeMin);
                    console.log("ends at: " + end);
                    console.log("time: " + time);
-
+              $(".log").append("A schedule is set for your cat to eat at " + time + " every day from " + start + " to " + end);
             };
         })(f);
                   reader.readAsArrayBuffer(f);
