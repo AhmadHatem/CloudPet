@@ -19,6 +19,7 @@
 
 		<div class = "sa3d"></div>
 	    <h3 id= "deviceInfo"> </h3>
+
 <div class="clock">
 <div class = "clock" id="Date" style="margin-left:-1px;">
 
@@ -108,9 +109,8 @@ day = day ==  7 ? day % 7 + 1: day % 7;
 
 
 
-      <button type="button" id="feedButton">Feed Now</button>
-
-        <input type="file" id="files" name="files[]" multiple />
+     
+    <input type="file" id="files" name="files[]" multiple ></input>
     <output id="list"></output>
     <script>
       var start;
@@ -145,8 +145,10 @@ day = day ==  7 ? day % 7 + 1: day % 7;
   }
     </script>
 
-<div class = "side" style = "margin-left: -785px; margin-top: -680px;">
-dfsfsdfsfds
+<div class = "side" style = "margin-left: -785px; margin-top: -660px;">
+ <button type="button" id="RunButton">Run Simulation</button>
+ <button type="button" id="feedButton">Feed Now</button>
+       
   </div>
 	</body>
 
