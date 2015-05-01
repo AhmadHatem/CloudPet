@@ -59,7 +59,7 @@ class EventsController < ApplicationController
       z = x-y
       Food.create(:Register => Register.where(:name => 
       @event.pet_name).first, :weight => @event.amount, :User => @event.User ,:date => counter,
-      :ate => y, :leftovers => z, :time => )
+      :ate => y, :leftovers => z, :time => time)
   end
   # end of adding records to food table , Karim Farid.
       buddies.each do |buddy|
