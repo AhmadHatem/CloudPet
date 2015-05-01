@@ -102,6 +102,7 @@ ActiveRecord::Schema.define(version: 20150430101028) do
     t.string   "last_name"
     t.date     "date_of_birth"
     t.string   "image"
+    t.string   "gender"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"

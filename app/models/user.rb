@@ -19,6 +19,8 @@ class User < ActiveRecord::Base
   validates :username,
   :presence => true,
   :uniqueness => true
+  validates :gender, :presence => true
+  
   def login=(login)
     @login = login
   end

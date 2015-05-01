@@ -5,7 +5,7 @@ class AddFieldsUser < ActiveRecord::Migration
   	add_column :users, :last_name, :string
   	add_column :users, :date_of_birth, :date
 	add_column :users, :image, :string
-
+	add_column :users, :gender, :string
 
   end
 end

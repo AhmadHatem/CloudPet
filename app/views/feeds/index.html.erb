@@ -1,121 +1,98 @@
-
-
 <!-- Menu -->
-      <ul >
-        <li><%= link_to 'My Pets' , registers_path %></li>
-        <li><%=link_to 'New Device', devices_path %></li>
-
-        <li><%=link_to 'New Reminder', new_reminder_path %></li>
-        <li><%=link_to 'My schedule', events_path %></li>
-      </ul>
-    </div>
-   
-     
-
-<table>
- 
-
+<body class = 'scrolling'>
+<ul >
+  <li><%= link_to 'My Pets' , registers_path %></li>
+  <li><%=link_to 'New Device', devices_path %></li>
+  <li><%=link_to 'New Reminder', new_reminder_path %></li>
+  <li><%=link_to 'My schedule', events_path %></li>
+</ul>
+</div>
+  <table>
   <tbody>
-    
     <div>
-      <table>
-        <tr>
+      <table class = 'tableback'>
+        <tr >
           <td style = 'width : 20%'>
-              <div class = 'round-image-50'>
+            <div class = 'round-image-50'>
               <%= image_tag(current_user.image.url(:medium)) %>
-              </div>
+            </div>
           </td>
-          <td>
-            <div class = 'info'>
-
-       <div class = 'name'><h1> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
-
-        <% if Date.current.month>current_user.date_of_birth.month %>
-        <h5>age</h5> <%= Date.current.year-current_user.date_of_birth.year%>
-       
-        <%else if%>
-        
-        <% Date.current.month== current_user.date_of_birth.month %>
-        <h3>age: 0 </h3>
-        <%else%>
-        <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4>
-        <%end%>
-        <%end%>
-       <em>You Have <%= current_user.registers.all.count %> pets</em></br>
-       
-       <%  buddy_pet = Buddy.where(:user => @current_user).count %>
-       
-       <% if buddy_pet >=0 %>
-       
-       <em>You are a buddy for <%= buddy_pet%> pets.</em></br>
-        <% else if buddy_pet ==1%>
-        <em>You are a buddy for 1 pet.</em> </br>
-        <%end%>
-        <%end%>
-        </div>
-       
-        
+          <td >
+           
+              <div class = 'name'>
+                <h1 style = 'font-size : 50px'> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
+              </div>
+               <div class = 'info'>
+              <div class = 'gender'><%=current_user.gender%></div>
+              <% if Date.current.month>current_user.date_of_birth.month %>
+                <h5>age</h5>
+                <%= Date.current.year-current_user.date_of_birth.year%>
+              <%else if%>
+                  <% Date.current.month== current_user.date_of_birth.month %>
+                  <h3>age: 0 </h3>
+                <%else%>
+                  <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4>
+                <%end%>
+              <%end%>
+              <em>You Have <%= current_user.registers.all.count %> pets</em></br>
+              <%  buddy_pet = Buddy.where(:user => @current_user).count %>
+              <% if buddy_pet >=0 %>
+                  <em>You are a buddy for <%= buddy_pet%> pets.</em></br>
+              <% else if buddy_pet ==1%>
+                  <em>You are a buddy for 1 pet.</em> </br>
+                <%end%>
+              <%end%>
+            </div>
     </div>
     </td>
-  </tr>
-</table>
-     
-    
-    <hr>
-
-     <div>
-           <% if current_user.reminders.size ==0 %>
-                <em> Nothing to be done</em> </br>
-           <% else %>
-            <thead>
-                  <tr>
-                   <th>Body</th>
-                   <th>Due Date</th>
-                    <th colspan="3"></th>
-                   </tr>
-                    </thead>
-
-          <% @reminders.each do |reminder|%>
-          
-          <tr>
-          <td><%= reminder.body %></td>
-          <td><%= reminder.due_date %></td>
-          <% if reminder.due_date == Date.current %>
-          <%= flash[:notice] = "This reminder is due today: #{reminder.body}" %> </br>
-
-          <% end %>
-          </tr>
-          <%end%>
-          <%end%>
-        
-      
-      
-    </div> </br> </br>
-    <hr>
-  <table>
-  
-    <div>
-    <% if current_user.feeds.size ==0 %>
-          <em>No news feed available to show</em> </br>
-    <% else %>
-    <thead>
-    <tr>
-      <th>Body</th>
-      <th>User</th>
-      <th colspan="3"></th>
     </tr>
+    </table>
+    <hr>
+    <div class ='reminder'>
+      <% if current_user.reminders.size ==0 %>
+      <em> Nothing to be done</em> </br>
+      <% else %>
+  <thead>
+  <tr>
+  <th>Body</th>
+  <th>Due Date</th>
+  <th colspan="3"></th>
+  </tr>
   </thead>
-    <% @feeds.each do |feed| %>
+  <% @reminders.each do |reminder|%>
+  <tr>
+  <td><%= reminder.body %></td>
+  <td><%= reminder.due_date %></td>
+  <% if reminder.due_date == Date.current %>
+  <%= flash[:notice] = "This reminder is due today: #{reminder.body}" %> </br>
+  <% end %>
+  </tr>
+  <%end%>
+  <%end%>
+  </div> </br> </br>
+  <hr>
+  <table>
+    <div class = 'reminders'>
+      <% if current_user.feeds.size ==0 %>
+      <em>No news feed available to show</em> </br>
+      <% else %>
+      <thead>
+        <tr>
+          <th>Body</th>
+          <th>User</th>
+          <th colspan="3"></th>
+        </tr>
+      </thead>
+      <% @feeds.each do |feed| %>
       <tr>
         <td><%= feed.body %></td>
         <td><%= feed.User %></td>
       </tr>
-    <% end %>
-    <%end%>
+      <% end %>
+      <%end%>
     </div>
-
-  </tbody>
-</table>
-
-<br>
- </div>
+    </tbody>
+  </table>
+  <br>
+  </div>
+</body>

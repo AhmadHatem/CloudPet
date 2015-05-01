@@ -1,24 +1,46 @@
-*{
-	overflow: scroll;
-}
 
+.scrolling{
+    overflow: scroll;
+}
 .round-image-50 {
     background-color: white;
     border: 1px solid #d9d9d9;
     border-radius: 50%;
     overflow: hidden;
-    height: 250px;
-    width: 250px;
+    height: 280px;
+    width: 280px;
     box-shadow: white;
     text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: auto;
 
 }
 .info{
 	font-family: Platino;
 	text-align: left;
+    min-height: 100%;
+    color: gray;
 }
 .name{
 	color: gray;
-	overflow: hidden;
+    min-height: 200%;
+    font-size: 200%;
+    text-align: left;
 
+
+}
+.gender{
+    font-size: 200%;
+    font-family: Platino;
+    color: gray;
+
+}
+.tableback
+{
+     background-color: #fefbf7;
+}
+.reminders{
+    overflow: scroll;
 }
