@@ -9,16 +9,15 @@ var buttonClicked = false;
 	$(document).ready(
 		function(){
 
-  
 	var date = new Date();
 	if(date.getHours() >= 6 && date.getHours() < 18)
 	{
-        $("body").css("background-image",  'url(' + "Images/RoomDay.png" +')');	
+        $("body.nyan").css("background-image",  'url(' + "Images/RoomDay.png" +')');	
 	}
 
 	else
 	{
-         $("body").css("background-image",  'url(' + "Images/RoomNight.png" +')');
+         $("body.nyan").css("background-image",  'url(' + "Images/RoomNight.png" +')');
 
 	}
 
@@ -29,6 +28,7 @@ var buttonClicked = false;
 	});
 
 $("#deviceInfo").html("<h3> Press F or click on the button to feed the cat!</h3>");
+$("div.sa3d").addClass("nyan");
 $("div.nyan").addClass("reverse-left");
 
 		}
@@ -38,21 +38,21 @@ $("div.nyan").addClass("reverse-left");
        	function(e)
        	{
 	  var key = e.which; 
-
+ 
 if((key == 70 || buttonClicked ) && !eaten )
 {
 	eaten = true;
 $("div.nyan").removeClass("nyan");
-$("div").addClass("NyanMoving");
+$("div.sa3d").addClass("NyanMoving");
 $("div.NyanMoving").animate({marginLeft: "-=487px" ,easing: 'linear'}, 3000);	
 
-setTimeout(function(){$("div").removeClass("NyanMoving"); }, 3000);
-setTimeout(function(){$("div").addClass("NyanLoweringTounge");}, 3000);
+setTimeout(function(){$("div.sa3d").removeClass("NyanMoving"); }, 3000);
+setTimeout(function(){$("div.sa3d").addClass("NyanLoweringTounge");}, 3000);
 
 setTimeout(function()
 {
-	$("div").removeClass("NyanLoweringTounge"); 
-	$("div").addClass("nyan");
+	$("div.sa3d").removeClass("NyanLoweringTounge"); 
+	$("div.sa3d").addClass("nyan");
 	$("#deviceInfo").html("<h3>Your cat ate " + eatenFood + " grams !</h3>" )}, 6000);
   setTimeout(
   function()
@@ -64,14 +64,14 @@ setTimeout(function()
 	direction = "right"; 
 }
 
- $("div").addClass("NyanMoving");
+ $("div.sa3d").addClass("NyanMoving");
  $("div.NyanMoving").animate({marginLeft: "+=487px", easing: 'linear'}, 3000);
 
  setTimeout(
  	function()
  	{
  		$("div.NyanMoving").removeClass("NyanMoving"); 
- 		$("div").addClass("nyan");
+ 		$("div.sa3d").addClass("nyan");
  		$("div.nyan").removeClass("reverse-right");
  		direction = "left";
 	    $("div.nyan").addClass("reverse-left");
