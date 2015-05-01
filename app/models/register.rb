@@ -4,7 +4,7 @@ belongs_to :User
 has_many :buddies
 has_one :device
 has_many :events
-
+has_many :foods
 
   	has_attached_file :image, styles: { large: "300x300>", thumb: "100x100>"}
   	validates_attachment_content_type :image, content_type: /\Aimage\/.*\Z/
