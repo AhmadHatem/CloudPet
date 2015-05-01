@@ -16,6 +16,7 @@ class RegistersController < ApplicationController
     end
     end   
   end
+  
 
   def edit
   @register = Register.find(params[:id])
@@ -49,6 +50,27 @@ end
 
 
 
+
+def register1
+pet_id = Rails.cache.read(:pet_id)
+
+@register = Register.where(params[:pet_id]).first
+@device = Device.where(:id => params[:text2].to_i).first
+if (@device.User==current_user)
+@device.Register =  @register
+end
+  if !(@device.User.blank?) then 
+    respond_to do |format|
+      if @device.save then 
+        format.html { redirect_to @device, notice: 'Device was successfully created.' }
+        format.json { render :show, status: :created, location: @device }
+      else
+        format.html { render :new }
+        format.json { render json: @device.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+end 
 
 
 
