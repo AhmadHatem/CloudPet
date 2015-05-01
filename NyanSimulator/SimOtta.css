@@ -68,7 +68,7 @@ font-family: Courier, sans-serif;
   display:inline-block;
   cursor:pointer;
   color:#ffffff;
-  font-family:Lucida Console, sans-serif;;
+  font-family:Lucida Console, sans-serif;
   font-size:20px;
   padding:16px 31px;
   text-decoration:none;
@@ -121,7 +121,7 @@ font-family: Courier, sans-serif;
 }
 
 #Date {
-    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-family: courier , sans-serif;
     font-size: 30px;
     text-align: center;
     text-shadow: 0 0 5px #00c6ff;
@@ -140,7 +140,7 @@ ul li {
     display: inline;
     font-size: 40px;
     text-align: center;
-    font-family: 'BebasNeueRegular', Arial, Helvetica, sans-serif;
+    font-family:courier , sans-serif;
     text-shadow: 0 0 5px #00c6ff;
 }
 
