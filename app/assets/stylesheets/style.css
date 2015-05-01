@@ -52,8 +52,8 @@ div#footer {
     .header__dynamic-width-col a:hover{
       background-color:cyan; 
 
-      }
-      .arr {
+    }
+.arr {
 width: 20rem;
 height: 20rem;
 border-radius: 1000px;
@@ -62,21 +62,12 @@ overflow: hidden;
 .arr img{
   width: 20rem;
 height: 20rem;
-  }
-
+}
 .pet_text {
 padding: 40px;
 }
 .pet_text p{
 font-size: -webkit-xxx-large;
-
-}
-
-
-.camera{
-
-
-
 }
 .aal {
  
@@ -86,25 +77,17 @@ font-size: -webkit-xxx-large;
   overflow: hidden;
   margin: auto;
   margin-top: 25px;
-  }
-  .pet{}
-  .pet table, th, td{
-  
+}
+.pet{}
+.pet table, th, td{
   padding: 15px;
- 
   text-align: center;
-  }
-
-  .pet_owner p {
-
+}
+.pet_owner p {
   font-size: 30px;
-
-  }
-
-  .body{
-    position: absolute;
-    width: 100%;
-    top: 50px;
-
-
-  }
+}
+.body{
+   position: absolute;
+   width: 100%;
+   top: 50px;
+}
