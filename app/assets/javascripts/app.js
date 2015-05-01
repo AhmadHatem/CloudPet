@@ -8,19 +8,18 @@ var main = function(){
         $('.body').animate({top:'200px'},300);
         
         dropdowncount=1;
-        }
-        else{
-  $('.menu').animate({top:'-1000px'},300);
-  $('.body').animate({top:'50px'},300);
-  dropdowncount=0;
- }
-        }
-        )
+      }
+      else{
+        $('.menu').animate({top:'-1000px'},300);
+        $('.body').animate({top:'50px'},300);
+        dropdowncount=0;
+      }
+   })
         
 $('fit-fixed').click(function(){
 
 
 })
- }
+}
     
     $(document).ready(main);
