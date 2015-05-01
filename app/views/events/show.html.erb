@@ -3,8 +3,8 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Pet name:</strong>
-  <%= @event.pet_name %>
+  <strong>Event Details:</strong>
+  Food dispenser will put <%= @event.amount %> gms for  <%= @event.pet_name %> from <%= @event.starts_at %> to <%= @event.ends_at %> at <%= @event.time.strftime("%I:%M:%S %p") %> added by <%= @event.User.first_name %> <%= @event.User.last_name %>
 </p>
 
 <p>
@@ -22,6 +22,15 @@
   <%= @event.ends_at %>
 </p>
 
+<p>
+  <strong>Time:</strong>
+  <%= @event.time %>
+</p>
 
+<% buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first %>
+<%if ((!@event.Register.nil? && @event.Register.User == current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule)) %>
+                    
 <%= link_to 'Edit', edit_event_path(@event) %> |
+<%= link_to 'Delete', @event, method: :delete, data: { confirm: 'Are you sure?' } %> |
+<% end %>
 <%= link_to 'Back', events_path %>

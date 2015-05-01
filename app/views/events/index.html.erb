@@ -1,38 +1,44 @@
 <%#- Feeding_scehdule_index_view/Mohamed-Moubarak -%>
-<div class="events">
+<link href='../app/assets/stylesheets/events_stylesheet.css' rel='stylesheet'>
+
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Events</h1>
-
-<table>
-  
-
-  <tbody>
-
-    <%= month_calendar events: @events do |date, events| %>
-   
-      <%= date %>
-     
-
-      <% events.each do |event| %>
+<h1 class="schedule-title">Feeding Schedule</h1>
+<div class="cal"> 
+    <%= month_calendar do |date| %>
         <div>
-          <%= link_to event.pet_name, event_path(event) %>
-          <% buddy_pet = Buddy.where(:user => @current_user, :register => event.Register).first %>
-            <%if (!event.Register.nil? && event.Register.User == @current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule) then %>
-              <%= link_to 'Edit', edit_event_path(event) %>
-              <%= link_to 'Delete', event, method: :delete, data: { confirm: 'Are you sure?' } %>
-          <% end %>
+            <%= date.day %>
+            <% counter = 0 %>
+            <% Event.all.each do |event| %>
+
+                <% buddy_pet = Buddy.where(:user => current_user, :register => event.Register).first %>
+                <% if (!event.Register.nil? && event.User == current_user) || (current_user.registers.include?(event.Register)) || (!buddy_pet.nil? && current_user == buddy_pet.user)%>
+                    <% if event.starts_at <= date && event.ends_at >= date%>
+                        <% counter += 1 %>
+                    <% end %>
+                <% end %>
+            <% end %>
+            <div class="event">
+                <% if counter!= 0 %>
+                    <%= "You have " + counter.to_s + " events" %>
+                <% end %>
+            </div>
         </div>
-
-      <% end %>
     <% end %>
-
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Event', new_event_path %>
-<%= link_to 'Back', feeds_path %>
-
+      <br>
 </div>
+
+      <table style="margin: auto;">
+        <tr>
+          <td class="links">
+            <div>
+            <%= link_to 'New Event', new_event_path %>
+            </div>
+          </td>
+          <td class="links">
+            <div>
+            <%= link_to 'Back', feeds_path %>
+            </div>
+          </td>
+          </tr>
+      </table>
