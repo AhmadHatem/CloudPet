@@ -49,6 +49,7 @@
         }
 
     document.getElementById('files').addEventListener('change', handleFileSelect, false);
+  }
     </script>
 <div class="clock">
 <div class = "clock" id="Date" style="margin-left:-1px;">
@@ -67,6 +68,9 @@ $(document).ready(function() {
 // Create two variable with the names of the months and days in an array
 var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ]; 
 var dayNames= ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+var seconds = 0;
+var minutes = 0;
+var hours = 0;
 
 // Create a newDate() object
 var newDate = new Date();
@@ -77,23 +81,28 @@ $('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + mon
 
 setInterval( function() {
   // Create a newDate() object and extract the seconds of the current time on the visitor's
-  var seconds = new Date().getSeconds();
+seconds++;
   // Add a leading zero to seconds value
-  $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
-  },1000);
-  
-setInterval( function() {
-  // Create a newDate() object and extract the minutes of the current time on the visitor's
-  var minutes = new Date().getMinutes();
-  // Add a leading zero to the minutes value
-  $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);},1000);
-  
-setInterval( function() {
-  // Create a newDate() object and extract the hours of the current time on the visitor's
-  var hours = new Date().getHours();
-  // Add a leading zero to the hours value
-  $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
-    }, 1000); 
+  $("#sec").html( seconds);
+  $("#min").html(minutes);
+  $("#hours").html(hours);
+ if (seconds == 60)
+{
+  minutes++;
+}
+if (minutes == 60)
+{
+  hours++;
+}
+minutes = minutes < 60 ? minutes : 0;
+seconds = seconds < 60 ? seconds : 0;
+hours = hours < 24 ? hours : 0;
+$("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
+$("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
+ $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
+ 
+  },0.00000005);
+
 });
 </script>
 	</body>
