@@ -56,12 +56,12 @@ class EventsController < ApplicationController
      while counter<counter2 do
       counter=counter+1.day
       time =time+1.day
-      x= @event.amount
-      y= Random.rand(x)
-      z = x-y
+      amount_inbowl= @event.amount
+      ate_random= Random.rand(x)
+      left = amount_inbowl-ate_random
       Food.create(:Register => Register.where(:name => 
-      @event.pet_name).first, :weight => @event.amount, :User => @event.User ,:date => counter,
-      :ate => y, :leftovers => z, :time => time)
+      @event.pet_name).first, :weight => amount_inbowl, :User => @event.User ,:date => counter,
+      :ate => ate_random, :leftovers => left, :time => time)
   end
   # end of adding records to food table , Karim Farid.
       buddies.each do |buddy|
