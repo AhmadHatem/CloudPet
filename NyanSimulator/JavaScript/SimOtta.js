@@ -17,7 +17,6 @@ var actualMin;
 var actualHour;
 
 $(document).ready(function(){
-var isRunnung = false;
 
 	var date = new Date();
 	if(date.getHours() >= 6 && date.getHours() < 18)
@@ -172,13 +171,18 @@ hours = hours < 24 ? hours : 0;
 $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
 $("#min").html(( minutes < 10 ? "0" : "" ) + minutes);
 $("#hours").html(( hours < 10 ? "0" : "" ) + hours);
-weekDay = weekDay >  7 ? weekDay % 7: weekDay;
+weekDay = weekDay ==  7 ? 0: weekDay;
 
  $('#Date').html(dayNames[weekDay] + " " + day + " " + monthNames[month] + ' ' + newDate.getFullYear());
-
-if (startDay <= day && startMonth <= month && hours == timeHour && minutes == timeMin)
+/*console.log("starDay " + startDay); 
+console.log("today " + day); 
+console.log("startMonth " + startMonth);
+console.log("Month is " + month);
+console.log( " " + timeHour + " " + timeMin);*/
+if (startDay <= day  && startMonth <= (month + 1) && hours == timeHour && minutes == timeMin)
 {
-	$(".log").append("The car should eat now");
+	$(".log").append("\n The cat should eat now @: \n" + newDate.getFullYear() + "-" + (month+1) + "-" + day  + " " + hours + " : " + minutes + "0");
+
 	var e = jQuery.Event("keydown");
      e.which = 70; 
      $("#feedButton").trigger(e)
@@ -189,7 +193,9 @@ if (startDay <= day && startMonth <= month && hours == timeHour && minutes == ti
 clearInterval(simulate);
 }
 
-  },0.00000005);
+
+
+  },0.00005);
 
 }
   

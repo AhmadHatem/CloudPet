@@ -61,7 +61,7 @@
                     var Uints = new Uint8Array(e.target.result);
                     var db = new SQL.Database(Uints);
 
-                   var res = db.exec("SELECT * FROM events");
+                   var res = db.exec("SELECT * FROM events WHERE pet_name = 'Sa3d' ");
                    console.log(res);
                     start = res[0].values[0][3];
                     end = res[0].values[0][4];
@@ -73,10 +73,11 @@
                     endDay = end.substring(8);
                     timeHour =  time.substring(0,2);
                     timeMin =  time.substring(3);
-                   console.log("starts at: " + timeMin);
+                   console.log("starts at: " + startMonth);
                    console.log("ends at: " + end);
                    console.log("time: " + time);
-              $(".log").append("A schedule is set for your cat to eat at " + time + " every day from " + start + " to " + end);
+              $(".log").append("<br> A schedule is set for your cat to eat at " + time + " every day from " + start + " to " + end + "</br>");
+
             };
         })(f);
                   reader.readAsArrayBuffer(f);
