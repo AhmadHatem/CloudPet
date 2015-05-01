@@ -1,10 +1,4 @@
 
-      <div class="menu">
-      
-      <!-- Menu icon -->
-      <div class="icon-close">
-        <img src='close.png'>
-      </div>
 
 <!-- Menu -->
       <ul >
@@ -15,14 +9,8 @@
         <li><%=link_to 'My schedule', events_path %></li>
       </ul>
     </div>
-     <div class="jumbotron">
-
-      <div class="icon-menu">
-        <i class="fa fa-bars"></i>
-        Menu
-      </div>
+   
      
-<h1>CloudPet</h1>
 
 <table>
  
@@ -30,14 +18,49 @@
   <tbody>
     
     <div>
-       <h3> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h3>
+      <table>
+        <tr>
+          <td style = 'width : 20%'>
+              <div class = 'round-image-50'>
+              <%= image_tag(current_user.image.url(:medium)) %>
+              </div>
+          </td>
+          <td>
+            <div class = 'info'>
+
+       <div class = 'name'><h1> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
+
         <% if Date.current.month>current_user.date_of_birth.month %>
-        <h6>age</h6> <%= Date.current.year-current_user.date_of_birth.year%> </br>
+        <h5>age</h5> <%= Date.current.year-current_user.date_of_birth.year%>
+       
+        <%else if%>
+        
+        <% Date.current.month== current_user.date_of_birth.month %>
+        <h3>age: 0 </h3>
         <%else%>
-        <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </br></h4>
+        <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4>
         <%end%>
+        <%end%>
+       <em>You Have <%= current_user.registers.all.count %> pets</em></br>
+       
+       <%  buddy_pet = Buddy.where(:user => @current_user).count %>
+       
+       <% if buddy_pet >=0 %>
+       
+       <em>You are a buddy for <%= buddy_pet%> pets.</em></br>
+        <% else if buddy_pet ==1%>
+        <em>You are a buddy for 1 pet.</em> </br>
+        <%end%>
+        <%end%>
+        </div>
+       
         
     </div>
+    </td>
+  </tr>
+</table>
+     
+    
     <hr>
 
      <div>
