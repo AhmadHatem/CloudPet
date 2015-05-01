@@ -68,3 +68,11 @@ etc.. it designs the background and the border and it's color*/
 .feedstable{
     background-color: #fefbf7;
 }
+.navProfile{
+    background-color: #fefbf7;
+    border:solid;
+    border-color: #f1f1f1;
+    width: 150px;
+    position: fixed;
+    left: 90%;
+}
