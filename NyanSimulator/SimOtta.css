@@ -72,9 +72,9 @@ font-family: Courier, sans-serif;
 #feedButton {
   margin-left: 0px;
   margin-top: 0px  ;
-  background-color:blue;
+   background-color:#404040 ;
   width:193px ;
-  border:1px solid #18ab29;
+  border:1px solid #ffffff ;
   display:inline-block;
   cursor:pointer;
   color:#ffffff;
@@ -88,10 +88,10 @@ font-family: Courier, sans-serif;
 #RunButton
 {
    margin-left: 0px;
-  margin-top: 50px  ;
-  background-color:blue;
+  margin-top: 80px  ;
+  background-color:#404040 ;
   width:193px ;
-  border:1px solid #18ab29;
+  border:1px solid #ffffff ;
   display:inline-block;
   cursor:pointer;
   color:#ffffff;
@@ -103,7 +103,7 @@ font-family: Courier, sans-serif;
 }
 
 #RunButton.myButton:hover {
-  background-color:#5cbf2a;
+  background-color:#d3d3d3;
 }
 #RunButton:active {
   position:relative;
@@ -132,6 +132,13 @@ font-family: Courier, sans-serif;
 /*background-image:url("Images/background.png");*/
 height: 500px;
 width: 249px;
+}
+
+.log
+{
+  height: 5cm;
+  width: 7cm;
+
 }
 
 #files
