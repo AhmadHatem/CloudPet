@@ -19,7 +19,7 @@ var actualHour;
 $(document).ready(function(){
 
 	var date = new Date();
-	if(date.getHours() >= 6 && date.getHours() < 18)
+	if(date.getHours() >= 6 && date.getHours() < 18) //adding images to the background
 	{
         $("body.nyan").css("background-image",  'url(' + "Images/RoomDay.png" +')');	
 	}
@@ -30,7 +30,7 @@ $(document).ready(function(){
 
 	}
 
-	$("#feedButton").click(function(){
+	$("#feedButton").click(function(){ //if clicked the feed now buttton, it trigggers the cat to eat
 		var e = jQuery.Event("keydown");
         e.which = 70; 
         $("#feedButton").trigger(e)
@@ -40,15 +40,14 @@ $("#deviceInfo").html("<h3> Press F or click on the button to feed the cat!</h3>
 $("div.sa3d").addClass("nyan");
 $("div.nyan").addClass("reverse-left");
 
-newDate.setDate(newDate.getDate());
-console.log("fdfsd " + newDate);
+newDate.setDate(newDate.getDate()); //getting today's date
 
 day  = newDate.getDate();
 month = newDate.getMonth();
-$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear());
+$('#Date').html(dayNames[newDate.getDay()] + " " + newDate.getDate() + ' ' + monthNames[newDate.getMonth()] + ' ' + newDate.getFullYear()); //adding today's date to clock
 
- actualSec = setInterval( function() {
-   seconds = new Date().getSeconds();
+ actualSec = setInterval( function() { // if the seconds or minutes or hours get < 10 , we add a 0 to the left of the number
+  seconds = new Date().getSeconds();
   $("#sec").html(( seconds < 10 ? "0" : "" ) + seconds);
   },1000);
   
@@ -67,27 +66,26 @@ actualHour = setInterval( function() {
 
 });
 
-dayr = newDate.getDate();
-console.log(dayr);
-$(document).keydown(function(e){
+
+$(document).keydown(function(e){ //if key F is pressed the cat should go and eat
 var key = e.which;  
 if((key == 70 || buttonClicked ) && !eaten )
 {
 eaten = true;
-$("div.nyan").removeClass("nyan");
-$("div.sa3d").addClass("NyanMoving");
+$("div.nyan").removeClass("nyan"); //remove the class of the image of the cat sleeping
+$("div.sa3d").addClass("NyanMoving"); //add the movment of the cat
 $("div.NyanMoving").animate({marginLeft: "-=487px" ,easing: 'linear'}, 3000);	
 
 setTimeout(function(){$("div.sa3d").removeClass("NyanMoving"); }, 3000);
-setTimeout(function(){$("div.sa3d").addClass("NyanLoweringTounge");}, 3000);
+setTimeout(function(){$("div.sa3d").addClass("NyanLoweringTounge");}, 3000); //add class of the cat eating
 
-setTimeout(function()
+setTimeout(function() //this for timing fot the cat, it lowers its tongue for a specific amount of time
 {
 	$("div.sa3d").removeClass("NyanLoweringTounge"); 
 	$("div.sa3d").addClass("nyan");
 	$("#deviceInfo").html("<h3>Your cat ate " + eatenFood + " grams !</h3>" )}, 6000);
 setTimeout(function(){  
-    if(direction == "left")
+    if(direction == "left") //revresing its direction to go back and sleep
 {	
 	$("div.nyan").removeClass("reverse-left");
 	$("div.nyan").addClass("reverse-right");
@@ -116,13 +114,14 @@ setTimeout(function(){
 
 
 
-function Run()
+function Run() //once the Simulate button is clicked it runs the simulation
 {
-clearInterval(actualSec);
+	//clearing the interval of the actual time because we will start counting faster
 clearInterval(actualMin);
+clearInterval(actualSec); 
 clearInterval(actualHour);
 day = newDate.getDate();
-var weekDay = newDate.getDay();
+var weekDay = newDate.getDay(); //get the number of the day in the week to know what day name is it
 var simulate = setInterval( function() {
 seconds += 60;
   $("#sec").html(seconds);
@@ -179,19 +178,21 @@ console.log("today " + day);
 console.log("startMonth " + startMonth);
 console.log("Month is " + month);
 console.log( " " + timeHour + " " + timeMin);*/
-if (startDay <= day  && startMonth <= (month + 1) && hours == timeHour && minutes == timeMin)
+if (startDay <= day  && startMonth <= (month + 1) && hours == timeHour && minutes == timeMin) //if the date in the clock mathces a day the cat should eat in, te eating function will be trigeered
 {
+	//adding information to log
 	$(".log").append("\n The cat should eat now @: \n" + newDate.getFullYear() + "-" + (month+1) + "-" + day  + " " + hours + " : " + minutes + "0");
 
 	var e = jQuery.Event("keydown");
      e.which = 70; 
      $("#feedButton").trigger(e)
 }
-
+//checking if the schedule ends today
  if (month == endMonth && day == endDay)
 {
 clearInterval(simulate);
 }
+//get the amount that the cat ate in that sepcific date
 todayDate = newDate.getFullYear() + "-" + (month+1) + "-" + day; 
 var ate = db.exec("SELECT ate FROM foods WHERE date = '2015-05-16'" );
 if (ate != null)
@@ -201,7 +202,6 @@ if (ate != null)
 else
 {
 	 eatenFood = Math.floor(Math.random() * 50) + 2;
-
 }
 
   },0.00005);

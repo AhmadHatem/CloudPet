@@ -61,26 +61,27 @@
         var reader = new FileReader();
         reader.onload = (function(theFile) {
             return function(e) {
-                    var Uints = new Uint8Array(e.target.result);
+                    var Uints = new Uint8Array(e.target.result); //get the byte values of the Database
                      db = new SQL.Database(Uints);
                     var petName = 'lol';
-                   var res = db.exec("SELECT * FROM events WHERE pet_name = 'lol' ");
-                    DBleftovers = db.exec("SELECT leftovers, date FROM foods ");
-                    DBate = db.exec("SELECT ate, date FROM foods  ");
+                   var res = db.exec("SELECT * FROM events WHERE pet_name = 'lol' "); //get the schdules set for a specific pet
+                    DBleftovers = db.exec("SELECT leftovers, date FROM foods "); // get the leftovers from the database
+                    DBate = db.exec("SELECT ate, date FROM foods  "); //get the ate from the database
                 //   var foodDate = db.exec("SELECT date FROM foods " );
                  //  var foodTime = db.exec("SELECT time FROM foods ");
 
-                   // start = res[0].values[0][3];
-                    //end = res[0].values[0][4];
-                   // time = res[0].values[0][5];
-                  //  console.log(time);
-                  //  time = time.substring(11,16);
-                  //  startMonth = start.substring(5,7);
-                   // startDay = start.substring(8);
-                   // endMonth = end.substring(5,7);
-                   // endDay = end.substring(8);
-                   // timeHour =  time.substring(0,2);
-                   // timeMin =  time.substring(3);
+                   start = res[0].values[0][3];
+                    end = res[0].values[0][4];
+                    time = res[0].values[0][5];
+                    console.log(time);
+                    //getting the values in a proper form to use later in the simulation
+                    time = time.substring(11,16);
+                    startMonth = start.substring(5,7);
+                    startDay = start.substring(8);
+                    endMonth = end.substring(5,7);
+                    endDay = end.substring(8);
+                    timeHour =  time.substring(0,2);
+                    timeMin =  time.substring(3);
                  //  console.log("starts at: " + startMonth);
                   // console.log("ends at: " + end);
                   // console.log("time: " + time);
