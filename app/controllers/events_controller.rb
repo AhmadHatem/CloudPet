@@ -47,15 +47,21 @@ class EventsController < ApplicationController
     buddies = Buddy.where(:user => current_user)
     buddy_pets = []
     buddy_pet = nil
-
-     counter = @event.starts_at
-     counter2= @event.ends_at
-
+    # Start of the addition of records to food table
+    counter = @event.starts_at
+    counter2= @event.ends_at
+    time = @event.time
      while counter<counter2 do
       counter=counter+1.day
+      time =time+1.day
+      x= @event.amount
+      y= Random.rand(x)
+      z = x-y
       Food.create(:Register => Register.where(:name => 
-      @event.pet_name).first, :weight => :amount, :User => @event.User ,:date => counter )
+      @event.pet_name).first, :weight => @event.amount, :User => @event.User ,:date => counter,
+      :ate => y, :leftovers => z, :time => )
   end
+  # end of adding records to food table , Karim Farid.
       buddies.each do |buddy|
       if buddy.register == pet then
         buddy_pet = pet
