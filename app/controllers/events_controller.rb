@@ -36,14 +36,27 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    
+
     @event = Event.new(event_params)
+    
+
 
     @event.User= current_user
     @event.Register = Register.where(:name => @event.pet_name).first
     buddies = Buddy.where(:user => current_user)
     buddy_pets = []
     buddy_pet = nil
-    buddies.each do |buddy|
+
+     counter = @event.starts_at
+     counter2= @event.ends_at
+
+     while counter<counter2 do
+      counter=counter+1.day
+      Food.create(:Register => Register.where(:name => 
+      @event.pet_name).first, :weight => :amount, :User => @event.User ,:date => counter )
+  end
+      buddies.each do |buddy|
       if buddy.register == pet then
         buddy_pet = pet
       end

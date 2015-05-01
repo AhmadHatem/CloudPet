@@ -12,7 +12,7 @@ class User < ActiveRecord::Base
 
   has_many :events
   has_many :buddies
-
+  has_many :foods
 
   validates :username,
   :presence => true,
