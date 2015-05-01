@@ -52,8 +52,9 @@ div#footer {
     .header__dynamic-width-col a:hover{
       background-color:cyan; 
 
-      }
-      .arr {
+    }
+.arr {
+
 width: 20rem;
 height: 20rem;
 border-radius: 1000px;
@@ -62,6 +63,7 @@ overflow: hidden;
 .arr img{
   width: 20rem;
 height: 20rem;
+
   }
 
 .pet_text {
@@ -77,6 +79,8 @@ background-color: rgba(0, 0, 0, 0.5) !important;
 
 
 
+
+
 }
 .aal {
  
@@ -86,6 +90,7 @@ background-color: rgba(0, 0, 0, 0.5) !important;
   overflow: hidden;
   margin: auto;
   margin-top: 25px;
+
   }
   .pet{}
   .pet table, th, td{
@@ -138,3 +143,5 @@ color: white;
 .edit h2 a:visited {
   color: white;
 }
+
+

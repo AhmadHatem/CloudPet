@@ -13,13 +13,14 @@
    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 </head>
 <body>
- 
-
+ <!--ading landing page and doing the same with the navigation bar-->
+<div class="main">
  <header id="header">
   
   <article class="fit-fixed" id="header__nav-container">
     <div id="header__nav" class="grid-col-12 grid-row grid-col--no-spacing">
       
+
 
 
         <div class="header__dynamic-width-col">
@@ -33,6 +34,15 @@
             </a>
         </div>
 
+ <div class="header__dynamic-width-col">
+            
+              <div id="user-dropdown" class="header__nav__link__label">
+                
+                <%= link_to 'My Pets' , registers_path %>
+              </div>
+            
+        </div>
+
 
             <div id="header__notifications" class="header__dynamic-width-col" exclude="phone">
                           </div>
@@ -44,9 +54,15 @@
 
 
     <div id="header__logo">
+    <table><tr><td>
       <a href="#" id="header__logo__link">
-        <img class="logo__image--full no-rescale" >
-</a>    </div>
+        <img class="logo__image--full no-rescale" src="https://lh3.googleusercontent.com/TfvFMFe9j9ezkuuVZf8_hQ7ZNcX-xzFdWF4fnyLfgNjkGyTsGYjFRj4maBdPvo41PDBQrg=s85">
+
+</a> </td><td>   <p>CLOUDPET</p>
+</td></tr></table>
+</div>
+
+
 
 
   </article>
@@ -108,5 +124,55 @@
 
  <script src="../app/assets/javascripts/jquery.min.js"></script>
     <script src="../app/assets/javascripts/app.js"></script>
+</mian>
+
+
+<div class="grid-row fit-fixedb" style="
+    bottom: 0px;
+    position: fixed;
+"> 
+  <div>
+          
+          <p>BTQ</p>
+
+
+          <div id="footer__company__links">
+            <a href="#">About Us</a>
+            <a href="#">Hire Us</a>
+            <a href="#">Blog</a>
+          </div>
+        </div>
+        <div class="fr">
+      <div class="grid-col-7 grid-col--no-spacing"style="
+    float: right;
+">
+          <div id="footer__legal__copyright">
+            <small>
+              © 2015 BTQ
+            </small>
+          </div>
+        </div>
+
+        <div id="footer__legal__links"style="
+    float: right;
+">
+          <small>
+            <a href="#">Help</a>
+            
+            <a href="#">Terms</a>
+            <a href="#"></a>
+          </small>
+        </div>
+     
+
+      
+        
+        
+
+      </div>
+    </div>
+        
+
+</div>
 </body>
 </html>
