@@ -40,7 +40,18 @@
 .tableback
 {
      background-color: #fefbf7;
+     border: solid;
+     border-color: #f1f1f1;   
 }
-.reminders{
+.reminder{
     overflow: scroll;
+    background-color: #fefbf7;
+    border: solid;
+    border-color: #f1f1f1;
+}
+.feeds{
+    overflow: scroll;
+    background-color: #fefbf7;
+    border: solid;
+    border-color: #f1f1f1;
 }
