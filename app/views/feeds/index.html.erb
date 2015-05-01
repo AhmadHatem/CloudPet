@@ -1,26 +1,28 @@
 
+      <!--user menu-->
       <div class="menu">
-      
-      <!-- Menu icon -->
-      <div class="icon-close">
-        <img src='close.png'>
-      </div>
+      <div class="mm">
+    
+     
 
-<!-- Menu -->
-      <ul >
+      <div class="sign up">
+       <ul >
+       <!--links go here-->
         <li><%= link_to 'My Pets' , registers_path %></li>
         <li><%=link_to 'New Device', devices_path %></li>
-
         <li><%=link_to 'New Reminder', new_reminder_path %></li>
         <li><%=link_to 'My schedule', events_path %></li>
       </ul>
+      </div> </div>
     </div>
-     <div class="jumbotron">
+    <!--header-->
+<div class="main">
+     
 
-      <div class="icon-menu">
-        <i class="fa fa-bars"></i>
-        Menu
-      </div>
+
+
+      
+  
      
 <h1>CloudPet</h1>
 
@@ -29,7 +31,7 @@
 
   <tbody>
     
-    <div>
+    
        <h3> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h3>
         <% if Date.current.month>current_user.date_of_birth.month %>
         <h6>age</h6> <%= Date.current.year-current_user.date_of_birth.year%> </br>
@@ -37,10 +39,10 @@
         <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </br></h4>
         <%end%>
         
-    </div>
+    
     <hr>
 
-     <div>
+     
            <% if current_user.reminders.size ==0 %>
                 <em> Nothing to be done</em> </br>
            <% else %>
@@ -67,11 +69,11 @@
         
       
       
-    </div> </br> </br>
+     </br> </br>
     <hr>
   <table>
   
-    <div>
+    
     <% if current_user.feeds.size ==0 %>
           <em>No news feed available to show</em> </br>
     <% else %>
@@ -89,10 +91,10 @@
       </tr>
     <% end %>
     <%end%>
-    </div>
+    
 
   </tbody>
 </table>
 
 <br>
- </div>
+ 
