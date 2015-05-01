@@ -48,6 +48,8 @@ class EventsController < ApplicationController
     buddy_pets = []
     buddy_pet = nil
     # Start of the addition of records to food table
+    #counters= starting/ending dates.
+    #time is the dy and time for feeding to happen.
     counter = @event.starts_at
     counter2= @event.ends_at
     time = @event.time
