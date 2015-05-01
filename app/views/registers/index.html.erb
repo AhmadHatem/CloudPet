@@ -5,6 +5,8 @@
 </head>
 <body style="overflow: scroll">
   <div class="new-pet-form">
+  <!--This part is the new pet form with its 
+  button on the side of the page-->
     <div id="new-pet-button"><a href="#"><strong>New Pet!</strong></a></div>
     <%= form_for (@reg), url: registers_path,:html => { :multipart => true } do |f| %>
     <% if @reg.errors.any? %>
@@ -46,9 +48,11 @@
       <%= f.submit %>
     </p>
     <% end %>
+    <!--end of side menu div-->
   </div>
   <div style="overflow-y: scroll; overflow-x: scroll">
     <div class="pet-list" style="overflow: scroll">
+    <!--List of user's pets-->
       <h1>My Pets</h1>
       <% if current_user.registers.size==0 %>
       <em>There are not any pets currently in the system.</em> <br>
@@ -57,6 +61,7 @@
         <% @register.each do |register| %>
         <%= link_to(register) do %>
         <li>
+         <!--a pet-->
           <div class="pet">
             <div id="DEF">
               <%= register.species %>
@@ -67,10 +72,6 @@
             <div class="pet-info-right">
               <h3><%= register.name %></h3>
             </div>
-            <%= link_to 'Edit', edit_register_path(register) %>
-            <%= link_to 'Delete', buddy_path(register),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
           </div>
         </li>
         <% end %>
@@ -81,6 +82,8 @@
     <!-- here im listing the pets that the current user have access to them as he is the buddy on these pets -->
     <% if !(@registers.empty?) then %>
     <div class="pet-list"></div>
+    flow: scroll">
+    <!--List of user's pets they are buddies to-->
     <h2>Buddy's Pets</h2>
     <ul>
       <% @registers.each do |register| %>

@@ -5,71 +5,51 @@ var menuShown = false;
 $(document).ready(function() {
 	$('.pet').find('#DEF').hide();
 	$('.new-pet-form').height($(document).height());
-	//$('li').height($('li').find('.pet').height()-17);
-		/*$(window).scroll(function(){
-			var scrollTop = $(this).scrollTop();
-			var opacity = $('.pet').css('opacity');
-			if(scrollTop < lastScrollTop) {
-				if(opacity < 1)
-					$('.pet').fadeTo(1, opacity+0.5);
-			}
-			else {
-				if(opacity > 0)
-					$('.pet').fadeTo(1, opacity-0.5);
-			}
-			lastScrollTop = scrollTop;
-			//$('.pet .pet-profile-photo-right').toggleClass('selected');	
-		})*/
+	/* change mouse position variables when 
+	changing mouse position on page */
 	$(document).mousemove(function(e) {
 		xposition = e.pageX;
 		yposition = e.pageY;
 	})
+	/* changing info div position upon mouse move */
 	$('.pet').mousemove(function() {
-		$(this).find('#DEF').css({'left': xposition, 'top': yposition});
+		$(this).find('#DEF').css({
+			'left': xposition, 'top': yposition});
 	})
+	/* show info upon hover on div */
 	$('.pet').hover(function() {
-		//$(this).find('#DEF').css({'left': xposition, 'top': yposition});
 		$(this).addClass('hovered');
 		if(!menuShown) {
 			$(this).find('#DEF').show('fast');
 		}
 	})
+	/* hide div upon mouse leave */
 	$('.pet').mouseleave(function(event) {
-		/* Act on the event */
 		$(this).removeClass('hovered');
 		$(this).find('#DEF').hide('fast');
 	});
+	/* changing menu when clicked on button */
 	$('.new-pet-form #new-pet-button').click(function() {
 		toggleMenu();
 	})
-
+	/* changing div style when hovering */
 	$('.new-pet-form #new-pet-button').hover(function() {
 		$(this).addClass('hovered');
 	})
-
+	/* remove this class (style) when mouse leaves */
 	$('.new-pet-form #new-pet-button').mouseleave(function() {
 		$(this).removeClass('hovered');
 	})
+	/* close menu if clicked outside the box */
 	$('.pet-list').click(function() {
 		if(menuShown)
 			toggleMenu();
 	})
-	/*$('.pet').hover(function() {
-		$(this).find('#DEF').show('fast');
-	})
-	$('.pet').mouseleave(function(event) {
-		$(this).find('#DEF').hide('fast');
-	});*/
+
 		
 });
 
-/*$('.new-pet-form #new-pet-button').on('click', function(){
-	$(this).toggleMenu();
-});*/
-/*$(document).on('scroll', function() {
-	$('.new-pet-form #new-pet-button').marginTop = $(document).scrollTop();
-})*/
-
+/* toggle menu open and close */
 toggleMenu = function() {
 	if($('.new-pet-form').css('margin-left') < '0px') {
 		menuShown = true;
@@ -83,16 +63,4 @@ toggleMenu = function() {
 	}
 }
 
-/*$('.pet').on('hover', function() {
-	$(this).find('#DEF').show('fast');
-})
-
-$('.pet').on('mouseleave', function() {
-	$(this).find('#DEF').hide('fast');
-})
-
-
-$('.pet .pet-profile-photo').on('click', function(){
-	$(this).addClass('selected');	
-})*/
 
