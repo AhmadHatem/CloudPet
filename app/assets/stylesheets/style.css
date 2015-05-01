@@ -54,6 +54,7 @@ div#footer {
 
     }
 .arr {
+
 width: 20rem;
 height: 20rem;
 border-radius: 1000px;
@@ -62,12 +63,24 @@ overflow: hidden;
 .arr img{
   width: 20rem;
 height: 20rem;
-}
+
+  }
+
 .pet_text {
 padding: 40px;
+background-color: rgba(0, 0, 0, 0.5) !important;
+
+
 }
-.pet_text p{
-font-size: -webkit-xxx-large;
+
+
+
+.camera{
+
+
+
+
+
 }
 .aal {
  
@@ -77,17 +90,58 @@ font-size: -webkit-xxx-large;
   overflow: hidden;
   margin: auto;
   margin-top: 25px;
-}
-.pet{}
-.pet table, th, td{
+
+  }
+  .pet{}
+  .pet table, th, td{
+  
   padding: 15px;
+ 
   text-align: center;
-}
-.pet_owner p {
+  }
+
+  .pet_owner p {
+
   font-size: 30px;
+
+  }
+
+  .body{
+    position: absolute;
+    width: 100%;
+    top: 50px;
+
+
+  }
+  .pet_b{
+  margin: 20px;
+background-color: rgba(0, 0, 0, 0.5) !important;
+border-radius: 20px;
+
+  }
+  .pet_b h1 {
+    color: white;
+  }
+  .pet_b a:visited {
+    color: white;
+  } 
+   .pet_text{
+     margin: 20px;
+background-color: rgba(0, 0, 0, 0.5) !important;
+border-radius: 20px;
+  }
+.pet_text p{
+color: white;
+
+
 }
-.body{
-   position: absolute;
-   width: 100%;
-   top: 50px;
+
+.edit h2 a {
+  color: white;
 }
+
+.edit h2 a:visited {
+  color: white;
+}
+
+

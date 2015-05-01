@@ -1,4 +1,5 @@
 
+
 var main = function(){
    var dropdowncount =0;
 
@@ -15,11 +16,14 @@ var main = function(){
         dropdowncount=0;
       }
    })
+
         
 $('fit-fixed').click(function(){
 
 
 })
+
 }
+
     
     $(document).ready(main);
