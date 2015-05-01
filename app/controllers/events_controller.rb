@@ -1,6 +1,7 @@
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :editing_destroying_filter, only: [:edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -40,15 +41,10 @@ class EventsController < ApplicationController
 
     @event.User= current_user
     @event.Register = Register.where(:name => @event.pet_name).first
-    buddies = Buddy.where(:user => current_user)
-    buddy_pets = []
-    buddy_pet = nil
-    buddies.each do |buddy|
-      if buddy.register == pet then
-        buddy_pet = pet
-      end
-    end
-    if pet.nil? || (!current_user.registers.include?(pet) && buddy_pet.nil?)
+    
+
+    buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first
+      if !editing_destroying_filter_condition then
         flash[:notice] = "Check pet's name is correct!"
         redirect_to new_event_path
     else
@@ -104,4 +100,16 @@ class EventsController < ApplicationController
     def event_params
       params.require(:event).permit(:pet_name, :amount, :starts_at, :ends_at, :time)
     end
+
+    def editing_destroying_filter_condition
+      buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first
+      ((!@event.Register.nil? && @event.Register.User == current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule))
+    end
+
+    def editing_destroying_filter
+      unless editing_destroying_filter_condition
+      flash[:notice] = "You're not authorized to edit or delete!"
+      redirect_to events_path
+    end
+end
 end

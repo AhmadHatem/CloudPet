@@ -1,0 +1,140 @@
+
+/*Styling the calendar table*/
+.cal table{
+	border:1px solid grey;
+	margin-left: auto;
+	margin-right: auto;
+	border-collapse: collapse;
+}
+
+th.left-border {
+	border-left: 1px solid black;
+}
+
+.cal table > thead > tr > th {
+	border-left: 1px solid white;
+}
+
+/*Styling the days*/
+.cal table > thead > tr {
+	color: white;
+	background-color: cornflowerblue;
+	height: 30px;
+	border: 1px solid grey;
+	border-bottom: 1px solid white;
+}
+
+/*Styling the calendar header, ie. Month name*/
+.cal header{
+	height: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	font-size: 30px;
+}
+
+.cal table > tbody > tr {
+	border: 1px solid cornflowerblue;
+}
+
+.cal table > tbody > tr > td {
+	border: 1px solid grey;
+}
+
+/*day size and color*/
+.day {
+	color: grey;
+	height: 70px;
+	width: 100px;
+	margin-top: auto;
+	margin-bottom: auto;
+	text-align: center;
+	background-color: white;
+}
+
+.prev-month {
+	background-color: lavender;
+}
+
+.next-month {
+	background-color: silver;
+}
+
+.links {
+	border-radius: 10px;
+	border: 1px solid grey;
+	width: 100px;
+	text-align: center;
+}
+
+td.links {
+	border-collapse: collapse;
+	border-radius: 10px;
+	border: 1px solid grey;
+	width: 100px;
+	text-align: center;
+	background-color: cornflowerblue;
+	color: white;
+}
+
+.calendar-header {
+	color: black;
+}
+
+h1.schedule-title {
+	margin-left: 40%;
+	font-size: 30px;
+
+}
+
+/* unvisited link */
+.links a:link {
+    color: white;
+}
+
+/* visited link */
+.links a:visited {
+    color: white;
+}
+
+/* mouse over link */
+.links a:hover {
+    color: white;
+}
+
+/* selected link */
+.links a:active {
+    color: white;
+}
+
+.calendar-header a:link {
+    color: black;
+}
+
+/* visited link */
+.calendar-header a:visited {
+    color: black;
+}
+
+/* mouse over link */
+.calendar-header a:hover {
+    color: black;
+}
+
+/* selected link */
+.calendar-header a:active {
+    color: black;
+}
+
+.event {
+	color: red;
+	font-weight: normal;
+}
+
+.current-month {
+	color: black;
+}
+
+.today {
+	font-weight: bold;
+}
