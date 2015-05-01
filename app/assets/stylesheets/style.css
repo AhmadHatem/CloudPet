@@ -130,3 +130,11 @@ color: white;
 
 
 }
+
+.edit h2 a {
+  color: white;
+}
+
+.edit h2 a:visited {
+  color: white;
+}

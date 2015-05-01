@@ -24,14 +24,14 @@
 <div class = "pet" >
 
 <div class = "grid-row">
-
+<!--table conatining pet image pet info and the camera to link to the simulation-->
 <table style="
     width: 85%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
 ">
-
+<!--division of the image-->
 <tr>
 <td>
       <div class ="arr"> 
@@ -42,7 +42,7 @@
 <td >
 
 
-
+          <!--here the camera image so user can open the cam to see the pet-->
 
             <article class="card card--link grid-col-4 color-scheme--white grid-row grid-col--no-padding"style="
     border-radius: 20px;
@@ -74,7 +74,7 @@
 
 
 
-
+<!--div containing the pet info-->
 <table style = "
 width:90%;
 margin:auto; 
@@ -112,15 +112,21 @@ margin:auto;
       
       
 </div>
+
+<!--div containing the list of ur buddies with otion to delete or edit them-->
 <div class="pet_b">
 
     <% @buddies.each do |buddy| %>
     
  <h1>My Buddies</h1>
         <h1><%= buddy.username %>
+        <%= buddy.register.name %>
+        <%= buddy.can_feed %>
+        <%= buddy.can_schedule %>
         <%= link_to 'Edit', edit_buddy_path(buddy) %>
         <%= link_to 'Delete', buddy, method: :delete, data: { confirm: 'Are you sure?' } %>
-      
+      <!--here u can add buddy-->
+
       <div class="button">
       <a href="/buddies/new">Add Buddy</a>
       </div>
@@ -133,14 +139,15 @@ margin:auto;
 </tr>
  </table>
 </div>
+<!--div for deleting and editing pet-->
 
  <div class = 'edit'>   
 <h2>
 
-<td><%= link_to 'Edit', edit_register_path(@register) %></td>
-      <td><%= link_to 'Delete', register_path(@register),
+<%= link_to 'Edit', edit_register_path(@register) %>
+      <%= link_to 'Delete', register_path(@register),
               method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
+              data: { confirm: 'Are you sure?' } %>
 </h2>
 </div>
 
