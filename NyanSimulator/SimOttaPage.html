@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    <title> SimOtta </title>
+    <link rel="stylesheet" type="text/css" href="SimOtta.css">
+    <script src="JavaScript/jquery.min.js"></script>
+    <script src="JavaScript/jquery-ui.min.js"></script>
+    <script src='JavaScript/sql.js'></script>
+    <script type='text/javascript' src='JavaScript/SimOtta.js'></script>
+   	</head>
+
+	<body class = "nyan" >
+		<div class = "sa3d"></div>
+	    <h3 id= "deviceInfo"> </h3>
+
+<div class="clock">
+<div class = "clock" id="Date" style="margin-left:-1px;">
+
+</div>
+  <ul>
+      <li id="hours"></li>
+      <li id="point">:</li>
+      <li id="min"></li>
+      <li id="point">:</li>
+      <li id="sec"></li>
+  </ul>
+</div>
+
+   
+
+<div class = "side" style = "margin-left: -785px; margin-top: -660px;">
+ <button type="button" onclick="Run()" id="RunButton">Simulate</button>
+ <button type="button" id="feedButton">Feed Now</button>
+ <p> <font size="3" face="courier" ><strong>log</strong></font> <p>
+   <textarea readonly class = "log">
+
+</textarea>  
+
+
+
+<input type="file" id="files" name="files[]" multiple />
+<output id="list"></output>
+    <script type="text/javascript">
+    var start;
+    var end;
+    var time;
+    var startMonth;
+    var startDay;
+    var endMonth;
+    var endDay;
+    var timeHour;
+    var timeMin;
+    var DBleftover;
+    var DBate;
+    var db;
+   function handleFileSelect(evt) {
+        var files = evt.target.files; // FileList object
+        // Loop through the FileList
+        for (var i = 0, f; f = files[i]; i++) {
+
+        var reader = new FileReader();
+        reader.onload = (function(theFile) {
+            return function(e) {
+                    var Uints = new Uint8Array(e.target.result); //get the byte values of the Database
+                     db = new SQL.Database(Uints);
+                    var petName = 'lol';
+                   var res = db.exec("SELECT * FROM events WHERE pet_name = 'lol' "); //get the schdules set for a specific pet
+                    DBleftovers = db.exec("SELECT leftovers, date FROM foods "); // get the leftovers from the database
+                    DBate = db.exec("SELECT ate, date FROM foods  "); //get the ate from the database
+                //   var foodDate = db.exec("SELECT date FROM foods " );
+                 //  var foodTime = db.exec("SELECT time FROM foods ");
+
+                   start = res[0].values[0][3];
+                    end = res[0].values[0][4];
+                    time = res[0].values[0][5];
+                    console.log(time);
+                    //getting the values in a proper form to use later in the simulation
+                    time = time.substring(11,16);
+                    startMonth = start.substring(5,7);
+                    startDay = start.substring(8);
+                    endMonth = end.substring(5,7);
+                    endDay = end.substring(8);
+                    timeHour =  time.substring(0,2);
+                    timeMin =  time.substring(3);
+                 //  console.log("starts at: " + startMonth);
+                  // console.log("ends at: " + end);
+                  // console.log("time: " + time);
+              $(".log").append("<br> A schedule is set for your cat to eat at " + time + " every day from " + start + " to " + end + "</br>");
+
+            };
+        })(f);
+                  reader.readAsArrayBuffer(f);
+        }
+    }
+
+    document.getElementById('files').addEventListener('change', handleFileSelect, false);
+  
+
+</script>  
+    
+
+  </div>
+	</body>
+
+
+
+</html>
