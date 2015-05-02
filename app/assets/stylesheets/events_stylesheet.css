@@ -6,11 +6,7 @@
 	margin-right: auto;
 	border-collapse: collapse;
 }
-
-th.left-border {
-	border-left: 1px solid black;
-}
-
+/*Styling days name header*/
 .cal table > thead > tr > th {
 	border-left: 1px solid white;
 }
@@ -32,11 +28,11 @@ th.left-border {
 	text-align: center;
 	font-size: 30px;
 }
-
+/*Styling the calendar row*/
 .cal table > tbody > tr {
 	border: 1px solid cornflowerblue;
 }
-
+/*Styling the calendar borders*/
 .cal table > tbody > tr > td {
 	border: 1px solid grey;
 }
@@ -51,22 +47,22 @@ th.left-border {
 	text-align: center;
 	background-color: white;
 }
-
+/*Styling the calendar previous month*/
 .prev-month {
 	background-color: lavender;
 }
-
+/*Styling the calendar next month*/
 .next-month {
 	background-color: silver;
 }
-
+/*Styling the calendar buttons*/
 .links {
 	border-radius: 10px;
 	border: 1px solid grey;
 	width: 100px;
 	text-align: center;
 }
-
+/*Styling the buttons table*/
 td.links {
 	border-collapse: collapse;
 	border-radius: 10px;
@@ -76,65 +72,88 @@ td.links {
 	background-color: cornflowerblue;
 	color: white;
 }
-
+/*Styling the calendar header, *Month names* */
 .calendar-header {
-	color: black;
+	color: #204056;
 }
-
+/*Styling the calendar header, h1*/
 h1.schedule-title {
-	margin-left: 40%;
+	margin-left: auto;
 	font-size: 30px;
-
 }
 
-/* unvisited link */
+/* unvisited link calendar buttons*/
 .links a:link {
     color: white;
 }
 
-/* visited link */
+/* visited link calendar buttons */
 .links a:visited {
     color: white;
 }
 
-/* mouse over link */
+/* mouse over link calendar buttons */
 .links a:hover {
     color: white;
 }
 
-/* selected link */
+/* selected link calendar buttons */
 .links a:active {
     color: white;
 }
-
+/* unvisited link prev and next buttons*/
 .calendar-header a:link {
-    color: black;
+    color: #204056;
 }
 
-/* visited link */
+/* visited link prev and next buttons*/
 .calendar-header a:visited {
-    color: black;
+    color: #204056;
 }
 
-/* mouse over link */
+/* mouse over link prev and next buttons*/
 .calendar-header a:hover {
-    color: black;
+    color: #204056;
 }
 
-/* selected link */
+/* selected link prev and next buttons*/
 .calendar-header a:active {
-    color: black;
+    color: #204056;
+}
+/* unvisited link event*/
+.event a:link {
+    color: red;
+    text-decoration: none;
 }
 
+/* visited link event*/
+.event a:visited {
+    color: red;
+    text-decoration: none;
+}
+
+/* mouse over link event*/
+.event a:hover {
+    color: red;
+    text-decoration: none;
+}
+
+/* selected link event*/
+.event a:active {
+    color: red;
+    text-decoration: none;
+}
+/* event styling*/
 .event {
 	color: red;
 	font-weight: normal;
 }
-
+/* current month styling*/
 .current-month {
 	color: black;
 }
-
+/* today styling*/
 .today {
 	font-weight: bold;
+	font-size: 15px;
 }

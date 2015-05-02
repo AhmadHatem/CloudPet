@@ -1,31 +1,29 @@
 
 <%#- Feeding_scehdule_show_view/Mohamed-Moubarak -%>
+
+<div class="menu">
+      <div class="mm">
+    
+     
+
+      <div class="sign up">
+       <ul >
+       <!--links go here-->
+        <li><%= link_to 'My Pets' , registers_path %></li>
+        <li><%=link_to 'New Device', devices_path %></li>
+        <li><%=link_to 'New Reminder', new_reminder_path %></li>
+        <li><%=link_to 'My schedule', events_path %></li>
+      </ul>
+      </div> </div>
+    </div>
+
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Event Details:</strong>
-  Food dispenser will put <%= @event.amount %> gms for  <%= @event.pet_name %> from <%= @event.starts_at %> to <%= @event.ends_at %> at <%= @event.time.strftime("%I:%M:%S %p") %> added by <%= @event.User.first_name %> <%= @event.User.last_name %>
+  Food dispenser will put <%= @event.amount %> gms for  <%= @event.pet_name %> from <%= @event.starts_at %> to <%= @event.ends_at %> at <%= @event.time.strftime("%I:%M:%S %p") %>. Added by <%= @event.User.first_name %> <%= @event.User.last_name %>.
 </p>
 
-<p>
-  <strong>Amount:</strong>
-  <%= @event.amount %>
-</p>
-
-<p>
-  <strong>Starts at:</strong>
-  <%= @event.starts_at %>
-</p>
-
-<p>
-  <strong>Ends at:</strong>
-  <%= @event.ends_at %>
-</p>
-
-<p>
-  <strong>Time:</strong>
-  <%= @event.time %>
-</p>
 
 <% buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first %>
 <%if ((!@event.Register.nil? && @event.Register.User == current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule)) %>
