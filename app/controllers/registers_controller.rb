@@ -15,8 +15,8 @@ class RegistersController < ApplicationController
 
   end
   def index
+    @reg= Register.new
     @register = current_user.registers
-    
     #Here im creating an array of pets to be showed to the current user who is considered to be a buddy that have access on these pets.
 
     @registers = []
@@ -37,14 +37,14 @@ class RegistersController < ApplicationController
   
   
 	def new
-    @register= Register.new
+    @reg= Register.new
   	end
   def create
   @register = Register.new(register_params)
   @register.User = current_user
  
   if @register.save
-  redirect_to @register
+  redirect_to registers_path
 else
   render'new'
 end

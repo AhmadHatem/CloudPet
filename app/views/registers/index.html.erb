@@ -1,86 +1,116 @@
-<div class="menu">
-      
-      <!-- Menu icon -->
-      <div class="icon-close">
-        <img src='close.png'>
-      </div>
-
-<!-- Menu -->
-      <ul >
-    
-
-<li><%= link_to 'New Pet', new_register_path %> </li>
-<li><%= link_to 'My Profile' , feeds_path %> </li>
+<head>
+  <link href='../app/assets/stylesheets/pets_index.css' rel='stylesheet'>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script type="text/javascript" src="../app/assets/javascripts/pets_index.js"></script>
+</head>
+<body style="overflow: scroll">
+  <div class="new-pet-form">
+  <!--This part is the new pet form with its 
+  button on the side of the page-->
+    <div id="new-pet-button"><a href="#"><strong>New Pet!</strong></a></div>
+    <%= form_for (@reg), url: registers_path,:html => { :multipart => true } do |f| %>
+    <% if @reg.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@reg.errors.count, "error") %> prohibited
+        this article from being saved:
+      </h2>
+      <ul>
+        <% @reg.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
-<div class="jumbotron">
-
-      <div class="icon-menu">
-        <i class="fa fa-bars"></i>
-        Menu
-      </div>
-   
-<h1>My Pets</h1>
- <% if current_user.registers.size==0 %>
-<em>There are not any pets currently in the system.</em> <br>
-<% else %>
-
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Image</th>
-  </tr>
- 
-  <% @register.each do |register| %>
-    <tr>
-      <td><%= register.name %></td>
-      <td><%= register.species %></td>
-      <td><%= image_tag register.image.url(:thumb) %></td>
-      <td><%= link_to 'Show', register_path(register) %></td>
-      <td><%= link_to 'Edit', edit_register_path(register) %></td>
-      <td><%= link_to 'Delete', register_path(register),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-
-    </tr>
-  <% end %>
-  <% end %>
-</table>
-<div>
-<!-- here im listing the pets that the current user have access to them as he is the buddy on these pets -->
-<h2>Buddy's Pets</h2>
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Type</th>
-    <th>Image</th>
-  </tr>
-
-   <% if !(@registers.nil?) then %>
-  <% @registers.each do |register| %>
-    <tr>
-      <td><%= register.name %></td>
-      <td><%= register.species %></td>
-      <td><%= image_tag register.image.url(:thumb) %></td>
-      <td><%= link_to 'Show', register_path(register) %></td>
-      <td><%= link_to 'Edit', edit_register_path(register) %></td>
-      <td><%= link_to 'Delete', buddy_path(register),
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %></td>
-
-    </tr>
     <% end %>
+    <p>
+      <%= f.label :name %><br>
+      <%= f.text_field :name %>
+    </p>
+    <%= f.label :image %><br>
+    <%= f.file_field :image %>
+    </p>
+    <p>
+      <%= f.label :breed %><br>
+      <%= f.text_field :breed %>
+    </p>
+    <p>  <%= f.label :Species %><br>
+      <%= f.text_field :species %>
+    </p>
+    <p>
+      <%= f.label :gender %><br>
+      <%= f.text_field :gender %>
+    </p>
+    <p>
+      <%= f.label :date_of_birth %><br />
+      <%= f.date_select :date_of_birth, :start_year => 1900, :end_year => Date.current.year %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+    <% end %>
+    <!--end of side menu div-->
+  </div>
+  <div style="overflow-y: scroll; overflow-x: scroll">
+    <div class="pet-list" style="overflow: scroll">
+    <!--List of user's pets-->
+      <h1>My Pets</h1>
+      <% if current_user.registers.size==0 %>
+      <em>There are not any pets currently in the system.</em> <br>
+      <% else %>
+      <ul>
+        <% @register.each do |register| %>
+        <%= link_to(register) do %>
+        <li>
+         <!--a pet-->
+          <div class="pet">
+            <div id="DEF">
+              <%= register.species %>
+              <%= register.breed %>
+              <p><%= Date.current.year - register.date_of_birth.year %> years old</p>
+            </div>
+            <%= image_tag register.image.url(:thumb), class: '.pet-profile-photo-left' %>
+            <div class="pet-info-right">
+              <h3><%= register.name %></h3>
+            </div>
+          </div>
+        </li>
+        <% end %>
+        <% end %>
+      </ul>
+      <% end %>
+    </div>
+    <!-- here im listing the pets that the current user have access to them as he is the buddy on these pets -->
+    <% if !(@registers.empty?) then %>
+    <div class="pet-list"></div>
+    flow: scroll">
+    <!--List of user's pets they are buddies to-->
+    <h2>Buddy's Pets</h2>
+    <ul>
+      <% @registers.each do |register| %>
+      <%= link_to(register) do %>
+      <li>
+        <div class="pet">
+          <div id="DEF">
+            <%= register.species %>
+            <%= register.breed %>
+            <%= Date.current.year - register.date_of_birth.year %>
+          </div>
+          <%= image_tag register.image.url(:thumb), class: '.pet-profile-photo-left'%>
+          <h3>
+            <div class="pet-info-right"><%= register.name %></div>
+          </h3>
+          <%= link_to 'Edit', edit_register_path(register) %>
+          <%= link_to 'Delete', buddy_path(register),
+            method: :delete,
+            data: { confirm: 'Are you sure?' } %>
+        </div>
+      </li>
+      <% end %>
+      <% end %>
+    </ul>
+  </div>
   <% end %>
-</table>
-</div>  
-
-
-
-
-
-
-
-   </div>
-
+  </div>
+  </div>
+  </div>
+</body>
