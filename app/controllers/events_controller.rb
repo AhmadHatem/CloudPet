@@ -54,11 +54,10 @@ class EventsController < ApplicationController
     counter = @event.starts_at
     counter2= @event.ends_at
     time = @event.time
-     while counter<counter2 do
-      counter=counter+1.day
-      time =time+1.day
+     while counter<=counter2 do
+      counter2=counter2-1.day
       amount_inbowl= @event.amount
-      ate_random= Random.rand(x)
+      ate_random= Random.rand(amount_inbowl)
       left = amount_inbowl-ate_random
       Food.create(:Register => Register.where(:name => 
       @event.pet_name).first, :weight => amount_inbowl, :User => @event.User ,:date => counter,
