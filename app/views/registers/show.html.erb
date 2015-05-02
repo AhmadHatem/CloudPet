@@ -62,7 +62,22 @@
     </div>
   </div>
   
-
+  <!--
+      <div class="icon-menu">
+        <i class="fa fa-bars"></i>
+        Menu
+      </div>
+      </div>
+   <div class="signup">
+  <div class="text1">
+ <%= form_tag("/registers/register1") do %>
+  <%= label_tag(:text2, "Register a device using ID") %>
+  <%= text_field_tag :text2 %>
+  <% pet_id = @register.id %>
+  <% Rails.cache.write(:pet_id, pet_id) %>
+  <%= submit_tag "Register" %>
+  <% end %>
+  -->
   <a href="#"></a>
 
 </article>
