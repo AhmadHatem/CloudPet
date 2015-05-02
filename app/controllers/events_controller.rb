@@ -37,14 +37,43 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    
+
     @event = Event.new(event_params)
+    
+
 
     @event.User= current_user
     @event.Register = Register.where(:name => @event.pet_name).first
-    
-
+    buddies = Buddy.where(:user => current_user)
+    buddy_pets = []
+    buddy_pet = nil
+    # Start of the addition of records to food table
+    #counters= starting/ending dates.
+    #time is the dy and time for feeding to happen.
+    counter = @event.starts_at
+    counter2= @event.ends_at
+    time = @event.time
+     while counter<counter2 do
+      counter=counter+1.day
+      time =time+1.day
+      amount_inbowl= @event.amount
+      ate_random= Random.rand(x)
+      left = amount_inbowl-ate_random
+      Food.create(:Register => Register.where(:name => 
+      @event.pet_name).first, :weight => amount_inbowl, :User => @event.User ,:date => counter,
+      :ate => ate_random, :leftovers => left, :time => time)
+  end
+  # end of adding records to food table , Karim Farid.
+      buddies.each do |buddy|
+      if buddy.register == pet then
+        buddy_pet = pet
+      end
+    end
+    if pet.nil? || (!current_user.registers.include?(pet) && buddy_pet.nil?)
     buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first
       if !editing_destroying_filter_condition then
+
         flash[:notice] = "Check pet's name is correct!"
         redirect_to new_event_path
     else
