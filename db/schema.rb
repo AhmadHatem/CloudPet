@@ -1,4 +1,3 @@
-
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -11,7 +10,6 @@
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
 # It's strongly recommended that you check this file into your version control system.
-
 
 ActiveRecord::Schema.define(version: 20150501192738) do
 
@@ -38,8 +36,9 @@ ActiveRecord::Schema.define(version: 20150501192738) do
   create_table "events", force: :cascade do |t|
     t.string   "pet_name"
     t.integer  "amount"
-    t.datetime "starts_at"
-    t.datetime "ends_at"
+    t.date     "starts_at"
+    t.date     "ends_at"
+    t.time     "time"
     t.integer  "User_id"
     t.integer  "Register_id"
     t.datetime "created_at",  null: false
@@ -57,7 +56,6 @@ ActiveRecord::Schema.define(version: 20150501192738) do
   end
 
   add_index "feeds", ["User_id"], name: "index_feeds_on_User_id"
-
 
   create_table "foods", force: :cascade do |t|
     t.integer  "weight"

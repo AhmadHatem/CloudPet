@@ -6,7 +6,6 @@
 <script src = "..app/assets/javascripts/profile.js" type="text/javascript"></script>
 </head>
 
-<body class = 'scrolling'>
 
 
       <!--user menu-->
@@ -22,57 +21,13 @@
         <li><%=link_to 'New Device', devices_path %></li>
         <li><%=link_to 'New Reminder', new_reminder_path %></li>
         <li><%=link_to 'My schedule', events_path %></li>
+         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
       </ul>
       </div> </div>
     </div>
     <!--header-->
-<div class="main">
-
-      <header id="header">
-  
-  <article class="fit-fixed" id="header__nav-container">
-    <div id="header__nav" class="grid-col-12 grid-row grid-col--no-spacing">
-      
-
-
-        <div class="header__dynamic-width-col">
-            <a id="header__menu-me" class="js-toggle-profile-dropdown header__nav__link">
-              <div id="user-dropdown" class="header__nav__link__label">
-                
-                <h5>
-                 MENU ☰
-                  </h5>
-              </div>
-            </a>
-        </div>
-
-
-            <div id="header__notifications" class="header__dynamic-width-col" exclude="phone">
-                          </div>
-
-
-
-
-      </div>
-
-
-    <div id="header__logo">
-      <a href="#" id="header__logo__link">
-        <img class="logo__image--full no-rescale" >
-</a>    </div>
-
-
-  </article>
-  
-</header>
-
-
-
-
 
      
-
-
 
 
       
@@ -108,13 +63,14 @@
                <div class = 'info'>
               <div class = 'gender'><%=current_user.gender%></div>
               <% if Date.current.month>current_user.date_of_birth.month %>
-                <h5>age</h5>
-                <%= Date.current.year-current_user.date_of_birth.year%>
+                <strong style = 'font-family :Platino'> <h5>age</h5>
+                <%= Date.current.year-current_user.date_of_birth.year%></strong>
               <%else if%>
                   <% Date.current.month== current_user.date_of_birth.month %>
-                  <h3>age: 0 </h3>
+                <strong style = 'font-family :Platino'>age: 0 </strong>
+                <br>
                 <%else%>
-                  <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4>
+                   <strong style = 'font-family :Platino'>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4></strong>
                 <%end%>
               <%end%>
               <!-- listing the number of the pets that the owner owns plus linking the number to the 
@@ -268,8 +224,7 @@
   </div> </br> </br>
 
   <br>
-  </div>
-</body>
+  
+
 
 <br>
- 

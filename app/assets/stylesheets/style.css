@@ -40,6 +40,7 @@ div#footer {
   float: none;
     background: white;
   border-radius: 20px;
+  color:white;
 
   }.ppss{
     background-image: url('http://www.wallpaperup.com/uploads/wallpapers/2014/01/15/228598/86d282c1c024e1705451e95f548f5367.jpg');
@@ -50,7 +51,7 @@ div#footer {
           background-size: cover;
     }
     .header__dynamic-width-col a:hover{
-      background-color:cyan; 
+      background-color: #fdf9f3; 
 
     }
 .arr {
