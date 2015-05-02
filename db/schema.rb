@@ -1,3 +1,4 @@
+
 # encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
@@ -11,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150501160424) do
+ActiveRecord::Schema.define(version: 20150501192738) do
 
   create_table "buddies", force: :cascade do |t|
     t.integer  "user_id"
@@ -116,6 +117,12 @@ ActiveRecord::Schema.define(version: 20150501160424) do
     t.string   "first_name"
     t.string   "last_name"
     t.date     "date_of_birth"
+    t.string   "image"
+    t.string   "gender"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

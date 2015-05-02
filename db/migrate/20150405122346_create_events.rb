@@ -5,8 +5,9 @@ class CreateEvents < ActiveRecord::Migration
     create_table :events do |t|
       t.string :pet_name
       t.integer :amount
-      t.datetime :starts_at
-      t.datetime :ends_at
+      t.date :starts_at
+      t.date :ends_at
+      t.time :time
       t.references :User, index: true
 
       t.references :Register, index: true

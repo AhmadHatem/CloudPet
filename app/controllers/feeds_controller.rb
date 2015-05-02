@@ -6,7 +6,7 @@ class FeedsController < ApplicationController
   def index
     @feeds = Feed.all
     @reminders = current_user.reminders
-    
+    @foods = current_user.foods
   
   end
 
