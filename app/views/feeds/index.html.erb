@@ -1,35 +1,164 @@
-
-      <div class="menu">
-      
-      <!-- Menu icon -->
-      <div class="icon-close">
-        <img src='close.png'>
-      </div>
-
+<<<<<<< HEAD
 <!-- Menu -->
-      <ul >
+<head> 
+  <!-- linking the javascript and the css of the profile-->
+  <link rel="stylesheet" type="text/css" href="profile.css">
+<script src = "../app/assets/javascripts/jquery.easing.1.3.js" type="text/javascript"></script>
+<script src = "..app/assets/javascripts/profile.js" type="text/javascript"></script>
+</head>
+
+<body class = 'scrolling'>
+=======
+
+      <!--user menu-->
+      <div class="menu">
+      <div class="mm">
+    
+     
+
+      <div class="sign up">
+       <ul >
+       <!--links go here-->
         <li><%= link_to 'My Pets' , registers_path %></li>
         <li><%=link_to 'New Device', devices_path %></li>
-
         <li><%=link_to 'New Reminder', new_reminder_path %></li>
         <li><%=link_to 'My schedule', events_path %></li>
       </ul>
+      </div> </div>
     </div>
-     <div class="jumbotron">
+    <!--header-->
+<div class="main">
 
-      <div class="icon-menu">
-        <i class="fa fa-bars"></i>
-        Menu
+      <header id="header">
+  
+  <article class="fit-fixed" id="header__nav-container">
+    <div id="header__nav" class="grid-col-12 grid-row grid-col--no-spacing">
+      
+
+
+        <div class="header__dynamic-width-col">
+            <a id="header__menu-me" class="js-toggle-profile-dropdown header__nav__link">
+              <div id="user-dropdown" class="header__nav__link__label">
+                
+                <h5>
+                 MENU ☰
+                  </h5>
+              </div>
+            </a>
+        </div>
+
+
+            <div id="header__notifications" class="header__dynamic-width-col" exclude="phone">
+                          </div>
+
+
+
+
       </div>
+
+
+    <div id="header__logo">
+      <a href="#" id="header__logo__link">
+        <img class="logo__image--full no-rescale" >
+</a>    </div>
+
+
+  </article>
+  
+</header>
+
+
+
+
+
+     
+
+
+
+
+      
+  
      
 <h1>CloudPet</h1>
+>>>>>>> master
 
-<table>
- 
+<!-- added the navigating links throughout the website-->
+<div class = 'navProfile'>
+  <ul>
+  <li><a href  = '#prof'>Profile</a></li>
+  <li><a href  = '#prof1'>NewsFeed</a></li>
+  <li><a href  = '#prof2'>Reminders</a></li>
+</ul>
+</div>
 
+  <table>
   <tbody>
-    
+<<<<<<< HEAD
     <div>
+      <!-- added the id tags needed for navigation-->
+      <table class = 'tableback' id = 'prof'>
+        <tr >
+          <td style = 'width : 20%'>
+            <div class = 'round-image-50'>
+              <%= image_tag(current_user.image.url(:medium)) %>
+            </div>
+          </td>
+          <td >
+           
+              <div class = 'name'>
+                <h1 style = 'font-size : 50px'> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h1>
+              </div>
+               <div class = 'info'>
+              <div class = 'gender'><%=current_user.gender%></div>
+              <% if Date.current.month>current_user.date_of_birth.month %>
+                <h5>age</h5>
+                <%= Date.current.year-current_user.date_of_birth.year%>
+              <%else if%>
+                  <% Date.current.month== current_user.date_of_birth.month %>
+                  <h3>age: 0 </h3>
+                <%else%>
+                  <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4>
+                <%end%>
+              <%end%>
+              <!-- listing the number of the pets that the owner owns plus linking the number to the 
+              pets index-->
+              <em>You own <%=link_to current_user.registers.all.count , registers_path %> pets</em></br>
+              <%  buddy_pet = Buddy.where(:user => @current_user).count %>
+              <!-- listing the number of the pets that the user is a buddy to plus linking the number
+              to the pets index-->
+              <% if buddy_pet >=0 %>
+              <%if buddy_pet ==1%>
+                  <em>You are a buddy for <%=link_to '1', registers_path%> pet.</em> </br>
+                
+              <% else%>
+                  <em>
+                    You are a buddy for <%=link_to Buddy.where(:user => @current_user).count, registers_path%> pets.</em></br>
+              <%end%>
+              <%end%>
+            </div>
+    </div>
+    </td>
+    </tr>
+    </table>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+  <table>
+    <!-- added the id tags needed for navigation used in javascript-->
+    <div class = 'feeds' id = 'prof1'>
+    <% if current_user.foods.size ==0 %>
+          <em>No news feed available to show</em> </br>
+          </div>
+          <%else%>
+      
+=======
+    
+    
        <h3> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h3>
         <% if Date.current.month>current_user.date_of_birth.month %>
         <h6>age</h6> <%= Date.current.year-current_user.date_of_birth.year%> </br>
@@ -37,10 +166,10 @@
         <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </br></h4>
         <%end%>
         
-    </div>
+    
     <hr>
 
-     <div>
+     
            <% if current_user.reminders.size ==0 %>
                 <em> Nothing to be done</em> </br>
            <% else %>
@@ -67,11 +196,11 @@
         
       
       
-    </div> </br> </br>
+     </br> </br>
     <hr>
   <table>
   
-    <div>
+    
     <% if current_user.feeds.size ==0 %>
           <em>No news feed available to show</em> </br>
     <% else %>
@@ -89,10 +218,62 @@
       </tr>
     <% end %>
     <%end%>
-    </div>
+    
+>>>>>>> master
 
-  </tbody>
-</table>
 
-<br>
+<<<<<<< HEAD
+      <% @foods.each do |food| %>
+        <tr>
+      
+          <td><%= food.Register.name %></td>
+          <td><%= food.ate %></td>
+          <td><%= food.date %></td>
+         <td><%= food.time %></td>
+        
+        
+          <td><%= link_to 'Show', food %></td>
+          <td><%= link_to 'Edit', edit_food_path(food) %></td>
+          <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+      <%end%>
  </div>
+   </tbody> 
+  </table>
+  <!-- added the id tags needed for navigation-->
+      <div class ='reminder' id = 'prof2'>
+      <% if current_user.reminders.size ==0 %>
+      <br>
+      <br>
+      <br>
+      <br>
+      <em> Nothing reminders are to be done</em> </br>
+      <br><br><br>
+      <% else %>
+  <thead>
+  <tr>
+  <th>Body</th>
+  <th>Due Date</th><br>
+  <th colspan="3"></th>
+  </tr>
+  </thead>
+  <% @reminders.each do |reminder|%>
+  <tr>
+  <td><%= reminder.body %></td>
+  <td><%= reminder.due_date %></td>
+  <% if reminder.due_date == Date.current %> 
+  <%= flash[:notice] = "This reminder is due today: #{reminder.body}" %> </br>
+  <% end %>
+  </tr>
+  <%end%>
+  <%end%>
+  </div> </br> </br>
+
+  <br>
+  </div>
+</body>
+=======
+<br>
+ 
+>>>>>>> master
