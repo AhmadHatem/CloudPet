@@ -25,11 +25,11 @@ ex: age and the number of pets you own and buddy to*/
 	font-family: Platino;
 	text-align: left;
     min-height: 100%;
-    color: #fdf9f3;
+    color: gray;
 }
 /* this is used in order to design the name attribute*/
 .name{
-	color: #fdf9f3;
+	color: gray;
     min-height: 200%;
     font-size: 200%;
     text-align: left;
@@ -40,7 +40,7 @@ ex: age and the number of pets you own and buddy to*/
 .gender{
     font-size: 200%;
     font-family: Platino;
-    color: #fdf9f3;
+    color: gray;
 
 }
 /* this is used in order to design the table used to design the data of the profile user..name, gender
