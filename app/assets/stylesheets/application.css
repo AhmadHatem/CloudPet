@@ -19,10 +19,8 @@
   padding: 15px;
   width: inherit;
   text-align: center;
-
-}
-strong{
-	color : #fdf9f3;
-	font-size: 120%;
 }
 
+strong {
+	color: cyan;
+}
