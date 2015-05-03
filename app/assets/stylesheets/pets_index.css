@@ -25,16 +25,11 @@ a:visited {
 }
 /* pets form div */
 .new-pet-form {
-	background: #bbbbbb;
+background: rgba(0,0,0,0.5);
+	
 	width: 500px;
 	margin-top: 0;
 	margin-left: -504px;
-	height: 700px;
-	border-right-width: 1px;
-	border-right-color: #000000;
-	float:left;
-	overflow-x: visible;
-	position: fixed;
 }
 /* pets form button */
 .new-pet-form #new-pet-button {
@@ -55,7 +50,7 @@ a:visited {
 }
 /* pet list div */
 .pet-list {
-	background: #FEFBF7;
+background: rgba(0,0,0,0.5);
 	overflow: scroll;
 }
 
