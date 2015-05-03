@@ -3,7 +3,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
   <script type="text/javascript" src="../app/assets/javascripts/pets_index.js"></script>
 </head>
-<body style="overflow: scroll">
+<body >
   <div class="new-pet-form">
   <!--This part is the new pet form with its 
   button on the side of the page-->
@@ -50,10 +50,11 @@
     <% end %>
     <!--end of side menu div-->
   </div>
-  <div style="overflow-y: scroll; overflow-x: scroll">
-    <div class="pet-list" style="overflow: scroll">
+  <div >
+  <h1>My Pets</h1>
+    <div class="pet-list" >
     <!--List of user's pets-->
-      <h1>My Pets</h1>
+    
       <% if current_user.registers.size==0 %>
       <em>There are not any pets currently in the system.</em> <br>
       <% else %>
@@ -82,7 +83,7 @@
     <!-- here im listing the pets that the current user have access to them as he is the buddy on these pets -->
     <% if !(@registers.empty?) then %>
     <div class="pet-list"></div>
-    flow: scroll">
+   
     <!--List of user's pets they are buddies to-->
     <h2>Buddy's Pets</h2>
     <ul>

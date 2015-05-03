@@ -38,16 +38,12 @@ class EventsController < ApplicationController
   # POST /events.json
   def create
     
-
+    #creating new event with parameters
     @event = Event.new(event_params)
-    
-
-
+    #set the new event's current user and register
     @event.User= current_user
     @event.Register = Register.where(:name => @event.pet_name).first
-    buddies = Buddy.where(:user => current_user)
-    buddy_pets = []
-    buddy_pet = nil
+
     # Start of the addition of records to food table
     #counters= starting/ending dates.
     #time is the dy and time for feeding to happen.
@@ -55,7 +51,8 @@ class EventsController < ApplicationController
     counter2= @event.ends_at
     time = @event.time
      while counter<=counter2 do
-      counter2=counter2-1.day
+      counter=counter+1.day
+      time =time+1.day
       amount_inbowl= @event.amount
       ate_random= Random.rand(amount_inbowl)
       left = amount_inbowl-ate_random
@@ -64,18 +61,13 @@ class EventsController < ApplicationController
       :ate => ate_random, :leftovers => left, :time => time)
   end
   # end of adding records to food table , Karim Farid.
-      buddies.each do |buddy|
-      if buddy.register == pet then
-        buddy_pet = pet
-      end
-    end
-    if pet.nil? || (!current_user.registers.include?(pet) && buddy_pet.nil?)
+    #Check conditions for creating events
     buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first
       if !editing_destroying_filter_condition then
 
-        flash[:notice] = "Check pet's name is correct!"
+        flash[:notice] = "Check pet's name is correct or you can create events for this pet!"
         redirect_to new_event_path
-    else
+      else
         respond_to do |format|
           if @event.save
             format.html { redirect_to @event, notice: 'Event was successfully created.' }
@@ -85,9 +77,9 @@ class EventsController < ApplicationController
             format.json { render json: @event.errors, status: :unprocessable_entity }
           end
         end
-
-    end
+      end
   end
+
 
   # PATCH/PUT /events/1
   # PATCH/PUT /events/1.json
@@ -114,30 +106,30 @@ class EventsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_event
-      @event = Event.find(params[:id])
-    end
+      # Use callbacks to share common setup or constraints between actions.
+      def set_event
+        @event = Event.find(params[:id])
+      end
 
+      #find the current user's pet.
+      def pet
+        current_user.registers.find_by name: @event.pet_name
+      end
 
-    def pet
-      current_user.registers.find_by name: @event.pet_name
-    end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def event_params
-      params.require(:event).permit(:pet_name, :amount, :starts_at, :ends_at, :time)
-    end
-
-    def editing_destroying_filter_condition
-      buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first
-      ((!@event.Register.nil? && @event.Register.User == current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule))
-    end
-
-    def editing_destroying_filter
-      unless editing_destroying_filter_condition
-      flash[:notice] = "You're not authorized to edit or delete!"
-      redirect_to events_path
-    end
-end
-end
+      # Never trust parameters from the scary internet, only allow the white list through.
+      def event_params
+        params.require(:event).permit(:pet_name, :amount, :starts_at, :ends_at, :time)
+      end
+      #condition for creating, editing, destroying privilages.
+      def editing_destroying_filter_condition
+        buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first
+        ((!@event.Register.nil? && @event.Register.User == current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule))
+      end
+      #filter for creating, editing and destroying
+      def editing_destroying_filter
+        unless editing_destroying_filter_condition
+        flash[:notice] = "You're not authorized to edit or delete!"
+        redirect_to events_path
+        end
+      end
+  end

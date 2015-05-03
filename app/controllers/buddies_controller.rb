@@ -72,7 +72,7 @@ end
   def destroy
     @buddy.destroy
     respond_to do |format|
-      format.html { redirect_to registers, notice: 'Buddy was successfully deleted.' }
+      format.html { redirect_to registers_path, notice: 'Buddy was successfully deleted.' }
       format.json { head :no_content }
     end
   end

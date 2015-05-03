@@ -1,20 +1,5 @@
 
-      <!--user menu-->
-      <div class="menu">
-      <div class="mm">
-    
-     
-
-      <div class="sign up">
-       <ul >
-       <!--links go here-->
-<li><%= link_to 'Edit', edit_register_path(@register) %></li>
-<li><%= link_to 'Back', registers_path %></li>
-
-<li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
-      </ul>
-      </div> </div>
-    </div>
+      
     <!--header-->
 
      
@@ -24,7 +9,7 @@
 <div class = "grid-row">
 <!--table conatining pet image pet info and the camera to link to the simulation-->
 <table style="
-    width: 85%;
+    width: 60%;
     margin-left: auto;
     margin-right: auto;
     margin-top: 20px;
@@ -110,7 +95,7 @@ margin:auto;
       
       
 </div>
-
+</td>
 <!--div containing the list of ur buddies with otion to delete or edit them-->
 <div class="pet_b">
 
@@ -122,7 +107,7 @@ margin:auto;
         <%= buddy.can_feed %>
         <%= buddy.can_schedule %>
         <%= link_to 'Edit', edit_buddy_path(buddy) %>
-        <%= link_to 'Delete', buddy, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <%= link_to 'Delete', buddy, method: :delete, data: { confirm: 'Are you sure?' } %></h1>
       <!--here u can add buddy-->
 
       <div class="button">
@@ -131,12 +116,11 @@ margin:auto;
 </div>
 <% end %>
 </td>
-<td>
 
-</td>
 </tr>
  </table>
-</div>
+
+
 <!--div for deleting and editing pet-->
 
  <div class = 'edit'>   
@@ -148,4 +132,10 @@ margin:auto;
               data: { confirm: 'Are you sure?' } %>
 </h2>
 </div>
+
+      <div class="button">
+      <h3>
+      <a href="/buddies/new">Add Buddy</a>
+      </h3>
+      </div>
 

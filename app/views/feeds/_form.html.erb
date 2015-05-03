@@ -1,10 +1,11 @@
-<%= form_for(@feed) do |f| %>
-  <% if @feed.errors.any? %>
+<%#- Feeding_scehdule_form__view/Mohamed-Moubarak -%>
+<%= form_for(@event) do |f| %>
+  <% if @event.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@feed.errors.count, "error") %> prohibited this feed from being saved:</h2>
+      <h2><%= pluralize(@event.errors.count, "error") %> prohibited this event from being saved:</h2>
 
       <ul>
-      <% @feed.errors.full_messages.each do |message| %>
+      <% @event.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,13 +13,27 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :body %><br>
-    <%= f.text_field :body %>
+    <%= f.label :pet_name %><br>
+    <%= f.text_field :pet_name %>
   </div>
   <div class="field">
-    <%= f.label :User_id %><br>
-    <%= f.text_field :User_id %>
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
   </div>
+  <div class="field">
+    <%= f.label :starts_at %><br>
+    <%= f.date_select :starts_at %>
+  </div>
+    <div class="field">
+    <%= f.label :ends_at %><br>
+    <%= f.date_select :ends_at %>
+  </div>
+  </div>
+    <div class="field">
+    <%= f.label :time %><br>
+    <%= f.time_select :time, ampm: true, ignore_date: true %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>
