@@ -9,7 +9,31 @@
 
 
 
+      <!--user menu-->
+      <div class="menu">
+      <div class="mm">
+    
+     
 
+      <div class="sign up">
+       <ul >
+       <!--links go here-->
+        <li><%= link_to 'My Pets' , registers_path %></li>
+        <li><%=link_to 'New Device', devices_path %></li>
+        <li><%=link_to 'New Reminder', new_reminder_path %></li>
+        <li><%=link_to 'My schedule', events_path %></li>
+         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      </ul>
+      </div> </div>
+    </div>
+    <!--header-->
+
+     
+
+
+      
+  
+     
 
 
 <!-- added the navigating links throughout the website-->
@@ -41,13 +65,14 @@
                <div class = 'info'>
               <div class = 'gender'><%=current_user.gender%></div>
               <% if Date.current.month>current_user.date_of_birth.month %>
-                <h5>age</h5>
-                <%= Date.current.year-current_user.date_of_birth.year%>
+                <strong style = 'font-family :Platino'> <h5>age</h5>
+                <%= Date.current.year-current_user.date_of_birth.year%></strong>
               <%else if%>
                   <% Date.current.month== current_user.date_of_birth.month %>
-                  <h3>age: 0 </h3>
+                <strong style = 'font-family :Platino'>age: 0 </strong>
+                <br>
                 <%else%>
-                  <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4>
+                   <strong style = 'font-family :Platino'>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4></strong>
                 <%end%>
               <%end%>
               <!-- listing the number of the pets that the owner owns plus linking the number to the 
@@ -85,6 +110,7 @@
           <em>No news feed available to show</em> </br>
           </div>
           <%else%>
+
 
     
     
@@ -150,6 +176,7 @@
     
 
 
+
       <% @foods.each do |food| %>
         <tr>
       
@@ -198,5 +225,9 @@
   </div> </br> </br>
 
   <br>
-  </div>
-</body>
+
+  
+
+
+<br>
+
