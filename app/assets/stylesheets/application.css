@@ -21,7 +21,8 @@
   text-align: center;
 
 }
-
-strong {
-	color: cyan;
+strong{
+	color : #fdf9f3;
+	font-size: 120%;
 }
+
