@@ -82,66 +82,47 @@
     <br>
     <br>
     <br>
-    <br>
-    <br>
+    
   <table>
     <!-- added the id tags needed for navigation used in javascript-->
     <div class = 'feeds' id = 'prof1'>
-    <% if current_user.foods.size ==0 %>
+    <strong>
+      <% if current_user.foods.size ==0 %>
           <em>No news feed available to show</em> </br></br> </br> <hr>
           </div>
           <%else%>
       
 
-    
-    
-       <h3> <strong><%= current_user.first_name %> <%= current_user.last_name %></strong></h3>
-        <% if Date.current.month>current_user.date_of_birth.month %>
-        <h6>age</h6> <%= Date.current.year-current_user.date_of_birth.year%> </br>
-        <%else%>
-        <h4>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </br></h4>
-        <%end%>
+      <!--  part where newsfeeed is displayed -->
+      <% @foods.each do |food| %>
+      <% if food.User==current_user %>
+        <tr>
+          <p>
+          <%= food.Register.name %>
+          ate 
+          <%= food.ate %>
+          on 
+          <%= food.date %>
+          at
+          <%= food.time.strftime("%I:%M:%S %p") %>
+          </p>
+          
         
+          <% end %>
     
-    <hr>
-
-     
-      
-      
-     </br> </br>
-
   
 
-</br>
-</br>
-</br>
-</br>
 
-
-
-      <% @foods.each do |food| %>
-        <tr>
-      
-          <td><%= food.Register.name %></td>
-          <td><%= food.ate %></td>
-          <td><%= food.date %></td>
-         <td><%= food.time %></td>
-        
-        
-          <td><%= link_to 'Show', food %></td>
-          <td><%= link_to 'Edit', edit_food_path(food) %></td>
-          <td><%= link_to 'Destroy', food, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-      <% end %>
       <%end%>
+
+      <%end%>
+    </strong>
  </div>
    </tbody> 
   </table>
   <!-- added the id tags needed for navigation-->
       <div class ='reminder' id = 'prof2'>
       <% if current_user.reminders.size ==0 %>
-      <br>
-      <br>
       <br>
       <br>
       <em> No reminders are to be done</em> </br>
@@ -158,10 +139,5 @@
   </tr>
   <%end%>
   <%end%>
-  </div> </br> </br>
-
-  <br>
+  </div> </br> 
   
-
-
-<br>
