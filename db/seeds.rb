@@ -9,4 +9,7 @@
 #Author : Mohamed Attwa
 100.times do
   Device.create()
+
+
 end
+

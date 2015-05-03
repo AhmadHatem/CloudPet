@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :foods
+
   resources :devices
   resources :events
 
@@ -25,7 +27,6 @@ end
  
  get "devices/registers2"
  get "devices/index"
-
  match "devices/register2" => "devices#register2", :via => :post
 
 

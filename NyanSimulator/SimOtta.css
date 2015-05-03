@@ -1,0 +1,221 @@
+body.nyan {
+  width: 780;
+  height: 538;
+  background-repeat: no-repeat;
+  margin-top: 100px;
+  margin-left: 785px;
+  background-position: center;
+}
+.sa3d {
+  margin-left: 50px;
+	margin-top: 335px;
+}
+
+.clock
+{
+}
+
+.reverse-left
+{
+ -webkit-transform:rotateY(180deg);
+}
+.reverse-right
+{
+ -webkit-transform: rotateY(0deg);
+}
+.nyan
+ {
+
+width: 130px;
+height: 70px;
+background: url('Images/NyanSleeping.png');
+background-position: left center; 
+	 }
+
+.NyanMoving
+{
+width: 130px;
+height: 70px;
+background: url('Images/NyanWalking.png');
+background-position: left center; 
+  -webkit-animation: playMove .5s steps(6) infinite;
+
+}
+.NyanLoweringTounge
+{
+width: 116px;
+height: 70px;
+background: url('Images/NyanLoweringTongue-D.png');
+background-position: left center; 
+  -webkit-animation: playTongue .5s steps(6) infinite;
+}
+
+#deviceInfo
+{ 
+
+  margin-top: 70px;
+  margin-left: -492px;
+  width: 780px;
+  height: 20px;
+  background-color: black;
+font-family: Courier, sans-serif;
+    color: yellow;
+}
+.clock {
+    margin-top: -9px;
+    margin-left: -300px;
+    width: 400px;
+    border: 1px solid #333;
+    background-color: black;
+    color: #fff;
+}
+#feedButton {
+  margin-left: 0px;
+  margin-top: 0px  ;
+   background-color:#404040 ;
+  width:193px ;
+  border:1px solid #ffffff ;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Lucida Console, sans-serif;
+  font-size:20px;
+  padding:16px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+}
+
+#RunButton
+{
+   margin-left: 0px;
+  margin-top: 80px  ;
+  background-color:#404040 ;
+  width:193px ;
+  border:1px solid #ffffff ;
+  display:inline-block;
+  cursor:pointer;
+  color:#ffffff;
+  font-family:Lucida Console, sans-serif;
+  font-size:20px;
+  padding:16px 31px;
+  text-decoration:none;
+  text-shadow:0px 1px 0px #2f6627;
+}
+
+#RunButton.myButton:hover {
+  background-color:#d3d3d3;
+}
+#RunButton:active {
+  position:relative;
+  top:1px;
+}
+#feedButton.myButton:hover {
+  background-color:#5cbf2a;
+}
+#feedButton:active {
+  position:relative;
+  top:1px;
+}
+
+@-webkit-keyframes playMove {
+	 0% {background-position:  0px; } 
+   100% {background-position:  -800px; }
+}
+@-webkit-keyframes playTongue
+{
+  0% {background-position:  0px;}
+  100% {background-position: -710px;}
+}
+
+.side
+{
+/*background-image:url("Images/background.png");*/
+height: 500px;
+width: 249px;
+}
+
+.log
+{
+  height: 5cm;
+  width: 7cm;
+
+}
+
+#files
+{
+  margin-right: 5734px;
+}
+
+.container {
+    width: 960px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+
+
+#Date {
+    font-family: courier , sans-serif;
+    font-size: 30px;
+    text-align: center;
+    text-shadow: 0 0 5px #00c6ff;
+
+}
+
+ul {
+    width: 400px;
+    margin: 0 auto;
+    padding: 0px;
+    list-style: none;
+    text-align: center;
+}
+
+ul li {
+    display: inline;
+    font-size: 40px;
+    text-align: center;
+    font-family:courier , sans-serif;
+    text-shadow: 0 0 5px #00c6ff;
+}
+
+#point {
+    position: relative;
+    -moz-animation: mymove 1s ease infinite;
+    -webkit-animation: mymove 1s ease infinite;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+/* Simple Animation */
+@-webkit-keyframes mymove {
+    0% {opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+}
+
+50% {
+    opacity: 0;
+    text-shadow: none;
+}
+
+100% {
+    opacity: 1.0;
+    text-shadow: 0 0 20px #00c6ff;
+} 
+}
+
+@-moz-keyframes mymove {
+    0% {
+        opacity: 1.0;
+        text-shadow: 0 0 20px #00c6ff;
+    }
+
+    50% {
+        opacity: 0;
+        text-shadow: none;
+    }
+
+    100% {
+        opacity: 1.0;
+        text-shadow: 0 0 20px #00c6ff;
+    };
+}
