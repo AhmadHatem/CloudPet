@@ -47,33 +47,32 @@ ex: age and the number of pets you own and buddy to*/
 etc.. it designs the background and the border and it's color*/
 .tableback
 {
-     background-color: #fefbf7;
-     border: solid;
-     border-color: #f1f1f1;   
+     background-color: rgba(0,0,0,0.5);
+     width: 100%;
 }
 /* this is used to design the reminders table to design the data of the reminders*/
 .reminder{
-    overflow: scroll;
-    background-color: #fefbf7;
-    border: solid;
-    border-color: #f1f1f1;
+    
+    background-color: rgba(0,0,0,0.5);
+
 }
 /* this is used to design the reminders table to design the data of the newsfeed*/
 .feeds{
-    overflow: scroll;
-    background-color: #fefbf7;
-    border: solid;
-    border-color: #f1f1f1;
+    
+    background-color: rgba(0,0,0,0.5);
+   
+
 }
 .feedstable{
     background-color: #fefbf7;
 }
 /* this is used to design the navigation bar throughout the website*/
 .navProfile{
-    background-color: #fefbf7;
-    border:solid;
-    border-color: #f1f1f1;
+
+    background-color: rgba(0,0,0,0.8);
     width: 150px;
     position: fixed;
-    left: 90%;
+    right: 0px;
+    top: 350px;
+
 }

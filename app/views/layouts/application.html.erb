@@ -13,6 +13,23 @@
    <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
 </head>
 <body>
+  <!--user menu--><% if current_user.present? %>
+      <div class="menu">
+      <div class="mm">
+    
+     
+
+      <div class="sign up">
+       <ul >
+       <!--links go here-->
+        <li><%= link_to 'My Pets' , registers_path %></li>
+        <li><%=link_to 'my devices', new_device_path %></li>
+        <li><%=link_to 'New Reminder', new_reminder_path %></li>
+        <li><%=link_to 'My schedule', events_path %></li>
+         <%= link_to "Sign Out", destroy_user_session_path, method: :delete %>
+      </ul>
+      </div> </div>
+    </div><% end %>
  <!--ading landing page and doing the same with the navigation bar-->
 <div class="main">
  <header id="header">
@@ -22,6 +39,7 @@
       
 
 
+<div class = "navbarmenu">
 
         <div class="header__dynamic-width-col">
             <a id="header__menu-me" class="js-toggle-profile-dropdown header__nav__link">
@@ -42,6 +60,7 @@
               </div>
             
         </div>
+</div>
 
 
             <div id="header__notifications" class="header__dynamic-width-col" exclude="phone">
@@ -54,11 +73,12 @@
 
 
     <div id="header__logo">
-    <table><tr><td>
-      <a href="#" id="header__logo__link">
-        <img class="logo__image--full no-rescale" src="https://lh3.googleusercontent.com/TfvFMFe9j9ezkuuVZf8_hQ7ZNcX-xzFdWF4fnyLfgNjkGyTsGYjFRj4maBdPvo41PDBQrg=s85">
+    <table><tr><td id="header__logo__link">
+    
+        
+        <%= link_to image_tag("https://lh3.googleusercontent.com/TfvFMFe9j9ezkuuVZf8_hQ7ZNcX-xzFdWF4fnyLfgNjkGyTsGYjFRj4maBdPvo41PDBQrg=s85"), feeds_path %>
 
-</a> </td><td>   <p>CLOUDPET</p>
+ </td><td>   <p>CLOUDPET</p>
 </td></tr></table>
 </div>
 
@@ -70,108 +90,27 @@
 </header>
     <main class="ppss 
 ">
-      
+
 <%= yield %>
-</mian>
 
-
-<div class="grid-row fit-fixedb" style="
-    bottom: 0px;
-    position: fixed;
-"> 
-  <div>
-          
-          <p>BTQ</p>
-
-
-          <div id="footer__company__links">
-            <a href="#">About Us</a>
-            <a href="#">Hire Us</a>
-            <a href="#">Blog</a>
-          </div>
-        </div>
-        <div class="fr">
-      <div class="grid-col-7 grid-col--no-spacing"style="
-    float: right;
+<footer style="
+    height: initial;
+    background-color: #BDC3C7;
 ">
-          <div id="footer__legal__copyright">
-            <small>
-              © 2015 BTQ
-            </small>
-          </div>
-        </div>
+        <p>© 2015 BTQ, Inc. · <a href="file:///C:/Users/youssef%20%20adel/Desktop/landmerge_files/landmerge.html">Privacy</a> · <a href="file:///C:/Users/youssef%20%20adel/Desktop/landmerge_files/landmerge.html">Terms</a></p>
+      </footer>
+</main>
 
-        <div id="footer__legal__links"style="
-    float: right;
-">
-          <small>
-            <a href="#">Help</a>
-            
-            <a href="#">Terms</a>
-            <a href="#"></a>
-          </small>
-        </div>
-     
 
-      
-        
-        
 
-      </div>
-    </div>
         
 
 
  <script src="../app/assets/javascripts/jquery.min.js"></script>
     <script src="../app/assets/javascripts/app.js"></script>
-</mian>
 
 
-<div class="grid-row fit-fixedb" style="
-    bottom: 0px;
-    position: fixed;
-"> 
-  <div>
-          
-          <p>BTQ</p>
-
-
-          <div id="footer__company__links">
-            <a href="#">About Us</a>
-            <a href="#">Hire Us</a>
-            <a href="#">Blog</a>
-          </div>
-        </div>
-        <div class="fr">
-      <div class="grid-col-7 grid-col--no-spacing"style="
-    float: right;
-">
-          <div id="footer__legal__copyright">
-            <small>
-              © 2015 BTQ
-            </small>
-          </div>
-        </div>
-
-        <div id="footer__legal__links"style="
-    float: right;
-">
-          <small>
-            <a href="#">Help</a>
-            
-            <a href="#">Terms</a>
-            <a href="#"></a>
-          </small>
-        </div>
-     
-
-      
-        
-        
-
-      </div>
-    </div>
-        
+  
 
 </div>
 </body>
