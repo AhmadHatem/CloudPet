@@ -16,7 +16,7 @@ div#footer {
   bottom: 0px;
   }
   .menu {
-  
+  background-color: rgba(0,0,0,0.8);
   right: 0px;  
   top: -1000px;
   height: 70%;
@@ -40,7 +40,7 @@ div#footer {
   float: none;
     background: white;
   border-radius: 20px;
-  color:white;
+  
 
   }.ppss{
     background-image: url('http://www.wallpaperup.com/uploads/wallpapers/2014/01/15/228598/86d282c1c024e1705451e95f548f5367.jpg');
