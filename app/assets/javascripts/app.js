@@ -16,16 +16,21 @@ var main = function(){
         dropdowncount=0;
       }
    })
+<<<<<<< HEAD
 
+=======
+>>>>>>> origin/landing_and_navigation
         
 $('fit-fixed').click(function(){
 
 
 })
-
+<<<<<<< HEAD
 
 }
 
-
+=======
+}
+>>>>>>> origin/landing_and_navigation
     
     $(document).ready(main);
