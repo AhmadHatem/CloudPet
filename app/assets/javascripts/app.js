@@ -23,9 +23,7 @@ $('fit-fixed').click(function(){
 
 })
 
-
 }
-
 
     
     $(document).ready(main);

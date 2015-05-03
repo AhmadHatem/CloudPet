@@ -22,14 +22,14 @@ to maintain the circular shape*/
 /* this is used in order to design the text in the html file other than the first name and last name
 ex: age and the number of pets you own and buddy to*/
 .info{
-	font-family: Platino;
-	text-align: left;
+    font-family: Platino;
+    text-align: left;
     min-height: 100%;
-    color: gray;
+    color: #fdf9f3;
 }
 /* this is used in order to design the name attribute*/
 .name{
-	color: gray;
+    color: #fdf9f3;
     min-height: 200%;
     font-size: 200%;
     text-align: left;
@@ -40,7 +40,7 @@ ex: age and the number of pets you own and buddy to*/
 .gender{
     font-size: 200%;
     font-family: Platino;
-    color: gray;
+    color: #fdf9f3;
 
 }
 /* this is used in order to design the table used to design the data of the profile user..name, gender
@@ -67,10 +67,14 @@ etc.. it designs the background and the border and it's color*/
 }
 /* this is used to design the navigation bar throughout the website*/
 .navProfile{
-    background-color: rgba(0,0,0,0.8);
+    background-color: rgba(0,0,0,0.5);
     width: 150px;
     position: fixed;
     right: 0px;
     top: 350px;
+    color: #fdf9f3;
 
+}
+ a:link{
+    color: #fdf9f3;
 }
