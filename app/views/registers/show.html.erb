@@ -1,39 +1,68 @@
-<div class="menu">
-      
-      <!-- Menu icon -->
-      <div class="icon-close">
-        <img src='close.png'>
-      </div>
 
-<!-- Menu -->
-      <ul >
-<div class="li0"><li id="0">SIM</li></div>      
+      <!--user menu-->
+      <div class="menu">
+      <div class="mm">
+    
+     
 
+      <div class="sign up">
+       <ul >
+       <!--links go here-->
 <li><%= link_to 'Edit', edit_register_path(@register) %></li>
 <li><%= link_to 'Back', registers_path %></li>
-<li><%= link_to 'Buddies', buddies_path %></li>
+
+<li> <%= link_to "Sign Out", destroy_user_session_path, method: :delete %></li>
       </ul>
+      </div> </div>
     </div>
-<div class="video">
- <div class="icon-close">
-        <img src='close.png'>
-      </div>
-      
-<div class="sim">
-<div class="sim_win">
-<div class="box" id="pool"></div>
-<div class="food"></div>
-<div class="container" id="pool">
-  <div class="tuna" id="pool"></div>
-</div>
-</div>
-</div>
-</div>
+    <!--header-->
 
-      
-    <!-- Main body -->
-    <div class="jumbotron">
+     
 
+
+   <div class = "body">
+<div class = "pet" >
+
+<div class = "grid-row">
+<!--table conatining pet image pet info and the camera to link to the simulation-->
+<table style="
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+">
+<!--division of the image-->
+<tr>
+<td>
+      <div class ="arr"> 
+<%= image_tag @register.image.url(:large) %>
+</div>
+</td>
+
+<td >
+
+
+          <!--here the camera image so user can open the cam to see the pet-->
+
+            <article class="card card--link grid-col-4 color-scheme--white grid-row grid-col--no-padding"style="
+    border-radius: 20px;
+">
+  <div class="aal
+  ">
+    <img src="http://media.idownloadblog.com/wp-content/uploads/2013/05/Analog-Camera-for-iOS-app-icon-full-size.jpg" width="100" height="100"/> 
+</div>
+  <div class="grid-col-12 grid-col--align-center">
+    <hr>
+    <h3>check on them any time</h3>
+  </div>
+  <div class="grid-col-12 grid-col--align-center grid-col--no-margin">
+    <div class="last-progress margin-top-bottom--1">
+      <small>camera allow you to see them </small>
+
+    </div>
+  </div>
+  
+  <!--
       <div class="icon-menu">
         <i class="fa fa-bars"></i>
         Menu
@@ -41,12 +70,36 @@
       </div>
    <div class="signup">
   <div class="text1">
+ <%= form_tag("/registers/register1") do %>
+  <%= label_tag(:text2, "Register a device using ID") %>
+  <%= text_field_tag :text2 %>
+  <% pet_id = @register.id %>
+  <% Rails.cache.write(:pet_id, pet_id) %>
+  <%= submit_tag "Register" %>
+  <% end %>
+  -->
+  <a href="#"></a>
 
+</article>
+</td>
+</tr>
+</table>
+
+
+
+
+
+<!--div containing the pet info-->
+<table style = "
+width:90%;
+margin:auto; 
+">
+<tr>
+<td>
+
+<div class = "pet_text">
 <p>
-<%= image_tag @register.image.url(:large) %>
-</p>
-<p>
-  <strong>Name:</strong>
+  
   <%= @register.name %>
 </p>
 <p>
@@ -68,19 +121,49 @@
 <strong>Date Of Birth:</strong>
   <%= @register.date_of_birth %>
 </p>
-<div class="button">
 
-      <p>
-      <a href="#">
-        feed now
-      </a>
-      </p>
-      </div>
-<div class="button">
       <% pet_id = @register.id %>
       <% Rails.cache.write(:pet_id, pet_id) %>
-      <%= link_to 'Add Buddy', new_buddy_path %>
-      </div>
-
- </div>
+      
+      
 </div>
+
+<!--div containing the list of ur buddies with otion to delete or edit them-->
+<div class="pet_b">
+
+    <% @buddies.each do |buddy| %>
+    
+ <h1>My Buddies</h1>
+        <h1><%= buddy.username %>
+        <%= buddy.register.name %>
+        <%= buddy.can_feed %>
+        <%= buddy.can_schedule %>
+        <%= link_to 'Edit', edit_buddy_path(buddy) %>
+        <%= link_to 'Delete', buddy, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <!--here u can add buddy-->
+
+      <div class="button">
+      <a href="/buddies/new">Add Buddy</a>
+      </div>
+</div>
+<% end %>
+</td>
+<td>
+
+</td>
+</tr>
+ </table>
+</div>
+<!--div for deleting and editing pet-->
+
+ <div class = 'edit'>   
+<h2>
+
+<%= link_to 'Edit', edit_register_path(@register) %>
+      <%= link_to 'Delete', register_path(@register),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %>
+</h2>
+</div>
+
+

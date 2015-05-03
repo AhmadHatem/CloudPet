@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @food.weight %>
+</p>
+
+<p>
+  <strong>Leftovers:</strong>
+  <%= @food.leftovers %>
+</p>
+
+<p>
+  <strong>Ate:</strong>
+  <%= @food.ate %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @food.date %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @food.time %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @food.User %>
+</p>
+
+<p>
+  <strong>Register:</strong>
+  <%= @food.Register %>
+</p>
+
+<%= link_to 'Edit', edit_food_path(@food) %> |
+<%= link_to 'Back', foods_path %>

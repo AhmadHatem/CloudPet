@@ -1,0 +1,159 @@
+
+body {
+	text-align: center;
+	font-family: Helvetica;
+	color: #000000;
+	background-color: #FFFFFF;
+
+}
+
+ul {
+	list-style-type: none;
+}
+li {
+	margin:0px 0px 0px 0px;
+}
+
+a:link {
+	text-decoration: none;
+	color: #000;
+}
+
+a:visited {
+	text-decoration: none;
+	color: #000;
+}
+/* pets form div */
+.new-pet-form {
+	background: #bbbbbb;
+	width: 500px;
+	margin-top: 0;
+	margin-left: -504px;
+	height: 700px;
+	border-right-width: 1px;
+	border-right-color: #000000;
+	float:left;
+	overflow-x: visible;
+	position: fixed;
+}
+/* pets form button */
+.new-pet-form #new-pet-button {
+	color: #000;
+	background-color: #FEFBF7;
+	background-image: url("http://www.designofsignage.com/application/symbol/hospital/image/600x600/arrow-left.jpg");
+	background-size: 100% 100%;
+	opacity: 1;
+	margin-left: 504px;
+	margin-top: 25%;
+	width: 200px;
+	height: 200px;
+	border-radius: 100px;
+	text-align: center;
+	line-height: 200px;
+	overflow: hidden; 
+	position: fixed;
+}
+/* pet list div */
+.pet-list {
+	background: #FEFBF7;
+	overflow: scroll;
+}
+
+/* a specific pet */
+.pet {
+	
+	margin-left: 500px;
+	margin-right: 500px;
+	height: 160px;
+	/*background: #00BAFA;*/
+	border-bottom-style: none;
+	/*border-radius: 10px;*/
+	border-bottom: solid 2px #000;
+	padding: 0px;
+	overflow: hidden;
+}
+
+/* pet name */
+.pet h3 {
+	vertical-align: middle;
+	line-height: 160px;
+}
+
+.pet .pet-profile-photo-left, .pet .pet-profile-photo-right{
+	
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	/*background-image: url(../imgs/3.jpg);*/
+	background-size: 100% 100%;
+
+	margin-top: auto;
+	margin-bottom: auto;
+}
+
+/* pet profile image */
+.pet img{
+	width: 150px;
+	height: 150px;
+	border-radius: 75px;
+	/*background-image: url(../imgs/3.jpg);*/
+	background-size: 100% 100%;
+
+	margin-top: auto;
+	margin-bottom: auto;
+	float: left;
+	margin-left: 10px;
+	margin-right: auto;
+}
+.pet .pet-profile-photo-left {
+	float: left;
+	margin-left: 10px;
+	margin-right: auto;
+}
+
+.pet .pet-profile-photo-right {
+	float: right;
+	margin-left: auto;
+	margin-right: 10px;
+}
+
+/* pet info enclosing info */
+.pet .pet-info-right {
+	color: black;
+	margin-right: auto;
+	margin-left: 200px;
+	margin-bottom: auto;
+	margin-top: 5px;
+	overflow: hidden;
+}
+
+.pet .pet-info-left {
+	margin-right: 200px;
+	margin-left: auto;
+	margin-bottom: auto;
+	margin-top: 5px;
+}
+
+/* pet info popup div */
+#DEF {
+	position: absolute;
+	margin-top: -100px;
+	border-radius: 10px;
+	border: solid 2px #FFFFFF;
+	width: 200px;
+	background: #0FFAFA;
+}
+#separator {
+	height: 1px;
+	max-height: 1px;
+	margin-left: auto;
+	margin-right: auto;
+	width: 270px;
+	background-color: #000;
+}
+/* setting out-glow and background color 
+to hovered div*/
+.hovered {
+	box-shadow: 0px 2px 12px 0px #DEF;
+	background: #00BAFA;
+}

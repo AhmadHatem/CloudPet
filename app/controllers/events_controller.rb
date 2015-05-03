@@ -1,6 +1,7 @@
 
 class EventsController < ApplicationController
   before_action :set_event, only: [:show, :edit, :update, :destroy]
+  before_action :editing_destroying_filter, only: [:edit, :update, :destroy]
 
   # GET /events
   # GET /events.json
@@ -36,19 +37,43 @@ class EventsController < ApplicationController
   # POST /events
   # POST /events.json
   def create
+    
+
     @event = Event.new(event_params)
+    
+
 
     @event.User= current_user
     @event.Register = Register.where(:name => @event.pet_name).first
     buddies = Buddy.where(:user => current_user)
     buddy_pets = []
     buddy_pet = nil
-    buddies.each do |buddy|
+    # Start of the addition of records to food table
+    #counters= starting/ending dates.
+    #time is the dy and time for feeding to happen.
+    counter = @event.starts_at
+    counter2= @event.ends_at
+    time = @event.time
+     while counter<counter2 do
+      counter=counter+1.day
+      time =time+1.day
+      amount_inbowl= @event.amount
+      ate_random= Random.rand(x)
+      left = amount_inbowl-ate_random
+      Food.create(:Register => Register.where(:name => 
+      @event.pet_name).first, :weight => amount_inbowl, :User => @event.User ,:date => counter,
+      :ate => ate_random, :leftovers => left, :time => time)
+  end
+  # end of adding records to food table , Karim Farid.
+      buddies.each do |buddy|
       if buddy.register == pet then
         buddy_pet = pet
       end
     end
     if pet.nil? || (!current_user.registers.include?(pet) && buddy_pet.nil?)
+    buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first
+      if !editing_destroying_filter_condition then
+
         flash[:notice] = "Check pet's name is correct!"
         redirect_to new_event_path
     else
@@ -84,7 +109,7 @@ class EventsController < ApplicationController
   def destroy
     @event.destroy
     respond_to do |format|
-      format.html { redirect_to events_url, notice: 'Event was successfully destroyed.' }
+      format.html { redirect_to events_url, notice: 'Event was successfully deleted.' }
       format.json { head :no_content }
     end
   end
@@ -102,6 +127,18 @@ class EventsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def event_params
-      params.require(:event).permit(:pet_name, :amount, :starts_at, :ends_at)
+      params.require(:event).permit(:pet_name, :amount, :starts_at, :ends_at, :time)
     end
+
+    def editing_destroying_filter_condition
+      buddy_pet = Buddy.where(:user => current_user, :register => @event.Register).first
+      ((!@event.Register.nil? && @event.Register.User == current_user) || (!buddy_pet.nil? && buddy_pet.can_schedule))
+    end
+
+    def editing_destroying_filter
+      unless editing_destroying_filter_condition
+      flash[:notice] = "You're not authorized to edit or delete!"
+      redirect_to events_path
+    end
+end
 end

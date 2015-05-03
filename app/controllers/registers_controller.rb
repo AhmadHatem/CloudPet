@@ -2,10 +2,21 @@ class RegistersController < ApplicationController
 
 	def show
     @register = Register.find(params[:id])
+        @buddies = []
+    current_user.registers.each do |pet|
+      buds = Buddy.where(:register_id => pet.id)
+      buds.each do |buddy|
+        if buddy.register == pet
+          @buddies += [buddy]
+      end
+    end
+  end
+    
+
   end
   def index
+    @reg= Register.new
     @register = current_user.registers
-    
     #Here im creating an array of pets to be showed to the current user who is considered to be a buddy that have access on these pets.
 
     @registers = []
@@ -16,6 +27,7 @@ class RegistersController < ApplicationController
     end
     end   
   end
+  
 
   def edit
   @register = Register.find(params[:id])
@@ -23,17 +35,17 @@ class RegistersController < ApplicationController
 	def update
   @register = Register.find(params[:id])
  	end
-
-
+  
+  
 	def new
-    @register= Register.new
+    @reg= Register.new
   	end
   def create
   @register = Register.new(register_params)
   @register.User = current_user
  
   if @register.save
-  redirect_to @register
+  redirect_to registers_path
 else
   render'new'
 end
@@ -49,6 +61,27 @@ end
 
 
 
+
+def register1
+pet_id = Rails.cache.read(:pet_id)
+
+@register = Register.where(params[:pet_id]).first
+@device = Device.where(:id => params[:text2].to_i).first
+if (@device.User==current_user)
+@device.Register =  @register
+end
+  if !(@device.User.blank?) then 
+    respond_to do |format|
+      if @device.save then 
+        format.html { redirect_to @device, notice: 'Device was successfully created.' }
+        format.json { render :show, status: :created, location: @device }
+      else
+        format.html { render :new }
+        format.json { render json: @device.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+end 
 
 
 

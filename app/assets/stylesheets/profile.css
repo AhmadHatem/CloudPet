@@ -1,0 +1,76 @@
+/* this is used in order to make the user able to scroll throughout the webpage*/
+.scrolling{
+    overflow: scroll;
+}
+/* this is used in order to make the image round shape the radius is set to 50% of the image inorder 
+to maintain the circular shape*/
+.round-image-50 {
+    background-color: white;
+    border: 1px solid #d9d9d9;
+    border-radius: 50%;
+    overflow: hidden;
+    height: 280px;
+    width: 280px;
+    box-shadow: white;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    margin-bottom: auto;
+    margin-top: auto;
+
+}
+/* this is used in order to design the text in the html file other than the first name and last name
+ex: age and the number of pets you own and buddy to*/
+.info{
+	font-family: Platino;
+	text-align: left;
+    min-height: 100%;
+    color: gray;
+}
+/* this is used in order to design the name attribute*/
+.name{
+	color: gray;
+    min-height: 200%;
+    font-size: 200%;
+    text-align: left;
+
+
+}
+/* this is used in order to design the gender attribute*/
+.gender{
+    font-size: 200%;
+    font-family: Platino;
+    color: gray;
+
+}
+/* this is used in order to design the table used to design the data of the profile user..name, gender
+etc.. it designs the background and the border and it's color*/
+.tableback
+{
+     background-color: rgba(0,0,0,0.5);
+     width: 100%;
+}
+/* this is used to design the reminders table to design the data of the reminders*/
+.reminder{
+    
+    background-color: rgba(0,0,0,0.5);
+
+}
+/* this is used to design the reminders table to design the data of the newsfeed*/
+.feeds{
+    
+    background-color: rgba(0,0,0,0.5);
+   
+}
+.feedstable{
+    background-color: #fefbf7;
+}
+/* this is used to design the navigation bar throughout the website*/
+.navProfile{
+    background-color: rgba(0,0,0,0.8);
+    width: 150px;
+    position: fixed;
+    right: 0px;
+    top: 350px;
+
+}
