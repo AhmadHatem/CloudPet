@@ -47,13 +47,13 @@
               <div class = 'gender'><%=current_user.gender%></div>
               <% if Date.current.month>current_user.date_of_birth.month %>
                 <strong style = 'font-family :Platino'> <h5>age</h5>
-                <%= Date.current.year-current_user.date_of_birth.year%></strong>
+                <%= Date.current.year-current_user.date_of_birth.year%></strong> <br>
               <%else if%>
-                  <% Date.current.month== current_user.date_of_birth.month %>
+                  <% (Date.current.month== current_user.date_of_birth.month)&&(Date.current.year == current_user.date_of_birth.year) %>
                 <strong style = 'font-family :Platino'>age: 0 </strong>
                 <br>
                 <%else%>
-                   <strong style = 'font-family :Platino'>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4></strong>
+                   <strong style = 'font-family :Platino'>age: <%= (Date.current.year-current_user.date_of_birth.year)-1%> </h4></strong> <br>
                 <%end%>
               <%end%>
               <!-- listing the number of the pets that the owner owns plus linking the number to the 
@@ -88,7 +88,7 @@
     <!-- added the id tags needed for navigation used in javascript-->
     <div class = 'feeds' id = 'prof1'>
     <% if current_user.foods.size ==0 %>
-          <em>No news feed available to show</em> </br>
+          <em>No news feed available to show</em> </br></br> </br> <hr>
           </div>
           <%else%>
       
@@ -106,56 +106,16 @@
     <hr>
 
      
-           <% if current_user.reminders.size ==0 %>
-                <em> Nothing to be done</em> </br>
-           <% else %>
-            <thead>
-                  <tr>
-                   <th>Body</th>
-                   <th>Due Date</th>
-                    <th colspan="3"></th>
-                   </tr>
-                    </thead>
-
-          <% @reminders.each do |reminder|%>
-          
-          <tr>
-          <td><%= reminder.body %></td>
-          <td><%= reminder.due_date %></td>
-          <% if reminder.due_date == Date.current %>
-          <%= flash[:notice] = "This reminder is due today: #{reminder.body}" %> </br>
-
-          <% end %>
-          </tr>
-          <%end%>
-          <%end%>
-        
       
       
      </br> </br>
-    <hr>
-  <table>
-  
-    
-    <% if current_user.feeds.size ==0 %>
-          <em>No news feed available to show</em> </br>
-    <% else %>
-    <thead>
-    <tr>
-      <th>Body</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-    <% @feeds.each do |feed| %>
-      <tr>
-        <td><%= feed.body %></td>
-        <td><%= feed.User %></td>
-      </tr>
-    <% end %>
-    <%end%>
-    
 
+  
+
+</br>
+</br>
+</br>
+</br>
 
 
 
@@ -184,20 +144,14 @@
       <br>
       <br>
       <br>
-      <em> Nothing reminders are to be done</em> </br>
+      <em> No reminders are to be done</em> </br>
       <br><br><br>
       <% else %>
-  <thead>
-  <tr>
-  <th>Body</th>
-  <th>Due Date</th><br>
-  <th colspan="3"></th>
-  </tr>
-  </thead>
+
   <% @reminders.each do |reminder|%>
   <tr>
   <td><%= reminder.body %></td>
-  <td><%= reminder.due_date %></td>
+  <td><%= reminder.due_date %></td></br>
   <% if reminder.due_date == Date.current %> 
   <%= flash[:notice] = "This reminder is due today: #{reminder.body}" %> </br>
   <% end %>

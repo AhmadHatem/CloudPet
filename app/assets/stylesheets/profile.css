@@ -54,12 +54,14 @@ etc.. it designs the background and the border and it's color*/
 .reminder{
     
     background-color: rgba(0,0,0,0.5);
+    color: white;
 
 }
 /* this is used to design the reminders table to design the data of the newsfeed*/
 .feeds{
     
     background-color: rgba(0,0,0,0.5);
+    color: white;
    
 }
 .feedstable{
